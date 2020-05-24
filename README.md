@@ -64,6 +64,8 @@ Allow user to browse and save favorite destinations and more while providing wea
 | Postman  | CSS        |
 | draw\.io | Javascript |
 | AJAX     | Jqery      |
+|          |Pure.css    |
+|          |Mui         |
 
 #### APIs
 
