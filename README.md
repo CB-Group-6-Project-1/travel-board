@@ -73,7 +73,7 @@ Allow user to browse and save favorite destinations and more while providing wea
 
 ---
 
-    ## Team Members
+## Team Members
 
 - [Yadira Tamarit](https://github.com/ystamaritq)
 - [Stephen Guzman](https://github.com/steveo9219)
