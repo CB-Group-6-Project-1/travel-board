@@ -71,6 +71,7 @@ Allow user to browse and save favorite destinations and more while providing wea
 - [Flickr](https://www.flickr.com/services/api/)
 - [Weatherapi.com](https://www.weatherapi.com/)
 
+---
 
     ## Team Members
 
