@@ -19,6 +19,7 @@
 - [Concept](#concept)
   - [Phase One Design](#phase-one-design)
   - [MVP](#mvp)
+  - [User Stories](#user-stories)
 - [Tech Stack](#tech-stack)
   - [APIs](#apis)
 - [Team Members](#team-members)
@@ -39,6 +40,7 @@ This application will leverage APIs to gather information, images, weather and o
 #### Phase One Design
 
 Phase one design features basic functionality and style for multiple features.
+
 <details>
 <summary>White board and wireframes</summary>
 <img src="assets\images\whiteboard.png">
@@ -52,20 +54,53 @@ Phase one design features basic functionality and style for multiple features.
 
 #### MVP
 
-Allow user to browse and save favorite destinations and more while providing weather and other important travel information. The user will be able to save, edit, and compare multiple vacation cards in their calendar in order to make it easy to decide whether to turn this plan into your next vacation or save it for another time. travel-board will suggest locales based on season and popularity. Features include an interactive modal-view (including weather forecast for at least 3 days), a carousel of images of the hotels, restaurants and other places of interest near the selected destination. Also includes an easy to use interactive travel checklist.
+- Allow user to browse and save favorite destinations and more while providing weather and other important travel information.
+- The user will be able to save, edit, and compare multiple vacation cards in their calendar in order to make it easy to decide whether to turn this plan into your next vacation or save it for another time.
+- Travel-board will suggest locales based on season and popularity.
+- Features include an interactive modal-view (including weather forecast for at least 3 days), a carousel of images of the hotels, restaurants and other places of interest near the selected destination.
+- Also includes an easy to use interactive travel checklist.
+
+---
+
+#### User Stories
+
+- As a User I can browse vacation destinations
+- As a User I see popular destinations suggested by system
+- As a User I can see details of a travel destination
+- As a User I can see common city information of a destination
+- As a User I can see current weather of a destination
+- As a User I can see 2 day forecast weather of a destination
+- As a User I can see a map of a destination
+- As a User I can see pictures of a destination
+- As a User I can see restaurants in a destination
+- As a User I can see shopping places in a destination
+- As a User I can see things to do in a destination
+- As a User I can create a Vacation plan for a chosen destination
+- As a User I can choose Start and End data of my vacation plan
+- As a User I can add notes to my vacation plan
+- As a User I can add/remove guests to my vacation plan
+- As a User I can add/remove TODOs to my vacation plan
+- As a User I can save my vacation plan
+- As a User I can browse my vacation plans previously created on the site
+- As a User I can edit my future vacation plans
+- As a User I can see active vacation plans
+- As a User I can see upcoming vacation plans
+- As a User I can see past vacation plans
+- As a User I can delete upcoming vacation plans
 
 ---
 
 ## Tech Stack
 
-| Tools    | Tech       |
-| -------- | ---------- |
-| V.S.Code | HTML       |
-| Postman  | CSS        |
-| draw\.io | Javascript |
-| AJAX     | Jqery      |
-|          |Pure.css    |
-|          |Mui         |
+| Tools                   | Tech       |
+| ----------------------- | ---------- |
+| V.S.Code                | HTML       |
+| Postman                 | CSS        |
+| draw\.io                | Javascript |
+| Browser Developer Tools | AJAX       |
+|                         | Jquery     |
+|                         | Pure.css   |
+|                         | Mui        |
 
 #### APIs
 
@@ -76,6 +111,7 @@ Allow user to browse and save favorite destinations and more while providing wea
 ---
 
 ## Team Members
+
 - [Yadira Tamarit](https://github.com/ystamaritq)
 - [Stephen Guzman](https://github.com/steveo9219)
 - [William Hanna](https://github.com/wrhcodecamp)
