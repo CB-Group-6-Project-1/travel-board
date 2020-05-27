@@ -19,6 +19,10 @@ nav {
 	color: white;
 }
 
+a:hover {
+	color: teal;
+}
+
 .home-page {
 	display: flex;
 	flex-direction: column;
