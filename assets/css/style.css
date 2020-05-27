@@ -117,3 +117,14 @@ h5 {
 		margin-top: 12px;
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.images {
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.overlay {
+		width: 50%;
+		text-align: center;
+	}
+}
