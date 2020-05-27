@@ -102,12 +102,27 @@ img:hover {
 h5,
 .overlay,
 .center-text,
-.search-text {
+.search-text,
+footer {
 	font-family: monospace;
 }
 
 h5 {
 	color: darkcyan;
+}
+
+footer {
+	margin-top: 30px;
+	padding: 25px;
+	text-align: center;
+	color: darkslategrey;
+}
+
+.footer-border {
+	background-color: darkcyan;
+	height: 2px;
+	width: 70%;
+	font-weight: bold;
 }
 
 @media screen and (max-width: 768px) {
