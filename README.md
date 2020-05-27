@@ -1,6 +1,6 @@
 <div align="center">
   <br>
-  <img src="assets\images\travel-board-logo.png" alt="travel-board logo" width="250">
+  <img src="assets\images\readme-imgs\travel-board-logo.png" alt="travel-board logo" width="250">
   <br>
 
 # travel-board
