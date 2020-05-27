@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- link Mui CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" rel="stylesheet"
+        type="text/css" />
+
     <!-- link Pure CSS  -->
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
         integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-    <!-- link Mui CSS
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" rel="stylesheet"
-        type="text/css" /> -->
+
     <!-- link font fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
     <!-- link custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Travel Board</title>
@@ -21,21 +24,22 @@
 
 <body>
     <!-- nav section -->
-    <nav class="pure-menu pure-menu-horizontal">
-        <a href="#" class="pure-menu-heading pure-menu-link">Home</a>
-        <a href="#" class="pure-menu-heading pure-menu-link">Plans</a>
-        <a href="#" class="pure-menu-heading pure-menu-link">Pictures</a>
+    <nav class="pure-menu pure-menu-horizontal mui-appbar">
+        <a href="#" class="pure-menu-heading pure-menu-link center-text">Home</a>
+        <a href="#" class="pure-menu-heading pure-menu-link center-text">Plans</a>
+        <a href="#" class="pure-menu-heading pure-menu-link center-text">Pictures</a>
     </nav>
 
 
     <!-- modal home page section -->
     <section class="home-page">
+        <!-- search form -->
         <form class="pure-form search-form">
             <input type="text" class="pure-input-rounded" />
+            <!-- search button -->
             <button type="submit" class="pure-button search-button"><i class="fas fa-search-location"></i></button>
         </form>
     </section>
-
 
 
     <!-- jquery cdn -->
@@ -44,7 +48,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- custom script -->
     <script src="./assets/js/script.js"></script>
-
 </body>
 
 </html>
