@@ -3,6 +3,10 @@ body {
 	width: 100%;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 nav {
 	display: flex;
 	justify-content: space-around;
@@ -34,6 +38,7 @@ nav {
 }
 
 .images {
+	margin-top: 35px;
 	display: flex;
 	justify-content: space-evenly;
 }
@@ -42,6 +47,29 @@ nav {
 	width: 240px;
 	height: 200px;
 	border-radius: 8px;
+}
+
+.wrap-img {
+	position: relative;
+}
+
+.overlay {
+	position: absolute;
+	bottom: 0;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.5); /* Black see-through */
+	color: #f1f1f1;
+	width: 100%;
+	transition: 0.5s ease;
+	opacity: 0;
+	color: white;
+	font-size: 20px;
+	padding: 20px;
+	text-align: center;
+}
+
+.wrap-img:hover .overlay {
+	opacity: 1;
 }
 
 img.hover-shadow {
