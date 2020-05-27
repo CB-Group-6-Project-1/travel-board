@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <!-- link Mui CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" rel="stylesheet"
+        type="text/css" />
     <!-- link Pure CSS  -->
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
         integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <!-- link font fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <!-- link Mui CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" rel="stylesheet"
-        type="text/css" />
     <!-- link custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
 
@@ -23,9 +22,9 @@
 <body>
     <!-- nav section -->
     <nav class="pure-menu pure-menu-horizontal">
-        <a href="#" class="pure-menu-heading pure-menu-link center-text">Home</a>
-        <a href="#" class="pure-menu-heading pure-menu-link center-text">Plans</a>
-        <a href="#" class="pure-menu-heading pure-menu-link center-text">Pictures</a>
+        <a href="#" class="pure-menu-heading pure-menu-link nav-icon"><i class="fas fa-home"></i></a>
+        <a href="#" class="pure-menu-heading pure-menu-link nav-icon"><i class="fas fa-plane"></i></a>
+        <a href="#" class="pure-menu-heading pure-menu-link nav-icon"><i class="fas fa-map-marked-alt"></i></a>
     </nav>
 
     <!-- home page section -->
@@ -34,7 +33,8 @@
         <form class="pure-form search-form">
             <input type="text" class="pure-input-rounded search-text" placeholder="Where would you like to go ?" />
             <!-- search button -->
-            <button type="submit" class="pure-button search-button"><i class="fas fa-search-location"></i></button>
+            <button type="submit" class="pure-button search-button"><i
+                    class="fas fa-search-location fa-lg"></i></button>
         </form>
         <!-- popular places images section -->
         <h5 style="text-align:center">Popular places to travel</h5>

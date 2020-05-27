@@ -9,14 +9,14 @@ body {
 
 nav {
 	display: flex;
-	justify-content: space-around;
-	background-color: #b8d5cd;
+	justify-content: flex-end;
+	background-color: darkcyan;
 }
 
-.center-text {
+.nav-icon {
 	padding-top: 0px;
 	padding-bottom: 0px;
-	font-size: 20px;
+	color: white;
 }
 
 .home-page {
@@ -38,7 +38,7 @@ nav {
 }
 
 .search-button {
-	color: #b8d5cd;
+	color: darkcyan;
 	background-color: white;
 }
 
