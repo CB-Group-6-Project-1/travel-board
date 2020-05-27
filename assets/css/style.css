@@ -16,17 +16,31 @@ nav {
 
 .home-page {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	margin-top: 90px;
 }
 
 .search-form {
 	display: flex;
+	width: 300px;
+	align-self: center;
+	margin-bottom: 100px;
 }
 
 .search-button {
 	color: #b8d5cd;
 	background-color: white;
+}
+
+.images {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.popular-images {
+	width: 240px;
+	height: 200px;
 }
 
 @media screen and (max-width: 600px) {

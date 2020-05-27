@@ -9,13 +9,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" rel="stylesheet"
         type="text/css" />
 
-    <!-- link Pure CSS  -->
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-
     <!-- link font fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+    <!-- link Pure CSS  -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
 
     <!-- link custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -24,14 +24,13 @@
 
 <body>
     <!-- nav section -->
-    <nav class="pure-menu pure-menu-horizontal mui-appbar">
+    <nav class="pure-menu pure-menu-horizontal">
         <a href="#" class="pure-menu-heading pure-menu-link center-text">Home</a>
         <a href="#" class="pure-menu-heading pure-menu-link center-text">Plans</a>
         <a href="#" class="pure-menu-heading pure-menu-link center-text">Pictures</a>
     </nav>
 
-
-    <!-- modal home page section -->
+    <!-- home page section -->
     <section class="home-page">
         <!-- search form -->
         <form class="pure-form search-form">
@@ -39,15 +38,25 @@
             <!-- search button -->
             <button type="submit" class="pure-button search-button"><i class="fas fa-search-location"></i></button>
         </form>
-    </section>
+
+        <!-- popular places images section -->
+        <h4 style="text-align:center">Popular places to travel</h4>
+        <section class="images">
+            <img src="./assets/images/home-page-imgs/paris.jpg" class="hover-shadow cursor popular-images">
+            <img src="./assets/images/home-page-imgs/paris.jpg" class="hover-shadow cursor popular-images">
+            <img src="./assets/images/home-page-imgs/paris.jpg" class="hover-shadow cursor popular-images">
+            <img src="./assets/images/home-page-imgs/paris.jpg" class="hover-shadow cursor popular-images">
+            <img src="./assets/images/home-page-imgs/paris.jpg" class="hover-shadow cursor popular-images">
+        </section>
 
 
-    <!-- jquery cdn -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- compiled and minified javascript MUI-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- custom script -->
-    <script src="./assets/js/script.js"></script>
+
+        <!-- jquery cdn -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- compiled and minified javascript MUI-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- custom script -->
+        <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
