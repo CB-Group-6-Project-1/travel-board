@@ -1,6 +1,6 @@
 <div align="center">
   <br>
-  <img src="assets\images\travel-board-logo.png" alt="travel-board logo" width="250">
+  <img src="assets\images\readme-imgs\travel-board-logo.png" alt="travel-board logo" width="250">
   <br>
 
 # travel-board
@@ -43,11 +43,11 @@ Phase one design features basic functionality and style for multiple features.
 
 <details>
 <summary>White board and wireframes</summary>
-<img src="assets\images\whiteboard.png">
-<img src="assets\images\home-page.png">
-<img src="assets\images\city-page.png">
-<img src="assets\images\add-vacation-page.png">
-<img src="assets\images\vacation-calendar-page.png">
+<img src="assets\images\readme-imgs\whiteboard.png">
+<img src="assets\images\readme-imgs\home-page.png">
+<img src="assets\images\readme-imgs\city-page.png">
+<img src="assets\images\readme-imgs\add-vacation-page.png">
+<img src="assets\images\readme-imgs\vacation-calendar-page.png">
 </details>
 
 ---
