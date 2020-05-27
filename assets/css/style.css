@@ -16,6 +16,7 @@ nav {
 .center-text {
 	padding-top: 0px;
 	padding-bottom: 0px;
+	font-size: 20px;
 }
 
 .home-page {
@@ -27,9 +28,13 @@ nav {
 
 .search-form {
 	display: flex;
-	width: 300px;
+	width: 350px;
 	align-self: center;
 	margin-bottom: 100px;
+}
+
+.search-text {
+	text-align: center;
 }
 
 .search-button {
@@ -64,8 +69,9 @@ nav {
 	opacity: 0;
 	color: white;
 	font-size: 20px;
-	padding: 20px;
+	padding: 17px;
 	text-align: center;
+	border-radius: 8px;
 }
 
 .wrap-img:hover .overlay {
@@ -86,6 +92,17 @@ img:hover {
 }
 .cursor {
 	cursor: pointer;
+}
+
+h5,
+.overlay,
+.center-text,
+.search-text {
+	font-family: monospace;
+}
+
+h5 {
+	color: darkcyan;
 }
 
 @media screen and (max-width: 600px) {
