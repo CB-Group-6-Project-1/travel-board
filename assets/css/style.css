@@ -60,6 +60,7 @@ a:hover {
 
 .wrap-img {
 	position: relative;
+	margin-top: 10px;
 }
 
 .overlay {
@@ -109,18 +110,21 @@ h5 {
 	color: darkcyan;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 	.search-form {
 		flex-direction: column;
 	}
 	.search-button {
 		margin-top: 12px;
 	}
+	.search-text {
+		width: 80%;
+	}
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
 	.images {
-		justify-content: center;
+		justify-content: space-around;
 		flex-wrap: wrap;
 	}
 	.overlay {
