@@ -1,102 +1,102 @@
 html,
 body {
-  width: 100%;
+	width: 100%;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 nav {
-  display: flex;
-  justify-content: flex-end;
-  background-color: darkcyan;
+	display: flex;
+	justify-content: flex-end;
+	background-color: darkcyan;
 }
 
 .nav-icon {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  color: white;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	color: white;
 }
 
 a:hover {
-  color: teal;
+	color: teal;
 }
 
 .home-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 90px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 90px;
 }
 
 .search-form {
-  display: flex;
-  width: 350px;
-  align-self: center;
-  margin-bottom: 100px;
+	display: flex;
+	width: 350px;
+	align-self: center;
+	margin-bottom: 100px;
 }
 
 .search-text {
-  text-align: center;
+	text-align: center;
 }
 
 .search-button {
-  color: darkcyan;
-  background-color: white;
+	color: darkcyan;
+	background-color: white;
 }
 
 .images {
-  margin-top: 35px;
-  display: flex;
-  justify-content: space-evenly;
+	margin-top: 35px;
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .popular-images {
-  width: 240px;
-  height: 200px;
-  border-radius: 8px;
+	width: 240px;
+	height: 200px;
+	border-radius: 8px;
 }
 
 .wrap-img {
-  position: relative;
-  margin-top: 10px;
+	position: relative;
+	margin-top: 10px;
 }
 
 .overlay {
-  position: absolute;
-  bottom: 0;
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.5); /* Black see-through */
-  color: #f1f1f1;
-  width: 100%;
-  transition: 0.5s ease;
-  opacity: 0;
-  color: white;
-  font-size: 20px;
-  padding: 17px;
-  text-align: center;
-  border-radius: 8px;
+	position: absolute;
+	bottom: 0;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.5); /* Black see-through */
+	color: #f1f1f1;
+	width: 100%;
+	transition: 0.5s ease;
+	opacity: 0;
+	color: white;
+	font-size: 20px;
+	padding: 17px;
+	text-align: center;
+	border-radius: 8px;
 }
 
 .wrap-img:hover .overlay {
-  opacity: 1;
+	opacity: 1;
 }
 
 .effect.hover-shadow {
-  transition: 0.3s;
+	transition: 0.3s;
 }
 
 .effect:hover {
-  opacity: 80%;
-  width: 300px;
-  height: 250px;
+	opacity: 80%;
+	width: 300px;
+	height: 250px;
 }
 .hover-shadow:hover {
-  box-shadow: 0 17px 18px 0 rgba(0, 0, 0, 0.2), 0 9px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 17px 18px 0 rgba(0, 0, 0, 0.2), 0 9px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .cursor {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 h5,
@@ -104,46 +104,51 @@ h5,
 .center-text,
 .search-text,
 footer {
-  font-family: monospace;
+	font-family: monospace;
 }
 
 h5 {
-  color: darkcyan;
+	color: darkcyan;
 }
 
 footer {
-  margin-top: 30px;
-  padding: 25px;
-  text-align: center;
-  color: darkslategrey;
+	margin-top: 30px;
+	padding: 25px;
+	text-align: center;
+	color: darkslategrey;
 }
 
 .footer-border {
-  background-color: darkcyan;
-  height: 2px;
-  width: 70%;
-  font-weight: bold;
+	background-color: darkcyan;
+	height: 2px;
+	width: 70%;
+	font-weight: bold;
+}
+
+/* added class section-hide with (display: none) to be use in the sections in order to hide them when is needed*/
+.section-hide {
+	display: none;
 }
 
 @media screen and (max-width: 768px) {
-  .search-form {
-    flex-direction: column;
-  }
-  .search-button {
-    margin-top: 12px;
-  }
-  .search-text {
-    width: 80%;
-  }
+	.search-form {
+		flex-direction: column;
+	}
+	.search-button {
+		margin-top: 12px;
+	}
+	.search-text {
+		width: 80%;
+	}
 }
 
 @media screen and (max-width: 900px) {
-  .images {
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  .overlay {
-    width: 50%;
-    text-align: center;
-  }
+	.images {
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+	.overlay {
+		width: 50%;
+		text-align: center;
+	}
 }
