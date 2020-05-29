@@ -1,9 +1,8 @@
 // Global Variables
-var cityValue;
+
 // Functions
 
 function loadPageSection(sectionId) {
-	debugger;
 	// hide all page sections
 	$(".page-section").addClass("section-hide");
 	// show desired section
@@ -15,10 +14,12 @@ function loadPageSection(sectionId) {
  * When I click or enter the search button I browse the city
  */
 
-function loadCityFromSearch() {
-	// code goes here
+function loadCityFromSearch(e) {
 	// get the city name
+	e.preventDefault();
 	let city = "";
+	city = $("#searchId").val();
+	console.log(city);
 	// call function to display city
 	loadCityData(city);
 }
@@ -37,20 +38,26 @@ function loadCityData(city) {
 	// load city info
 	loadCityInfo(city);
 	// load city weather
-	loadCityWeather(city);
-	// load city todos
-	loadCityTodos(city);
-	// load city photos
-	loadCityPhotos(city);
-	// load city map
-	loadCityMap(city);
+	// loadCityWeather(city);
+	// // load city todos
+	// loadCityTodos(city);
+	// // load city photos
+	// loadCityPhotos(city);
+	// // load city map
+	// loadCityMap(city);
 }
 
-function loadCityInfo(city) {}
-function loadCityWeather(city) {}
-function loadCityTodos(city) {}
-function loadCityPhotos(city) {}
-function loadCityMap(city) {}
+function loadCityInfo(city) {
+	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?types=poi&access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ`;
+	$.getJSON(mapBoxPoi, function (json) {
+		var test = json.features;
+		console.log(test);
+	});
+}
+// function loadCityWeather(city) {}
+// function loadCityTodos(city) {}
+// function loadCityPhotos(city) {}
+// function loadCityMap(city) {}
 
 // On Document Ready (events)
 
@@ -61,15 +68,4 @@ $(document).ready(function () {
 	$(".search-button").on("click", loadCityFromSearch);
 	// when I click suggested destinations i get city info
 	$(".top-destinations").on("click", loadCityFromPopular);
-
-	//upon click and value given. inputs the city they would like to vacation to and the cityValue
-	//would be entered into the URL and a specific query could be made
-	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?types=poi&access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ`;
-
-	$.ajax({
-		url: mapBoxPoi,
-		method: "GET",
-	}).then(function (response) {
-		console.log(response);
-	});
 });
