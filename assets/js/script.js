@@ -51,6 +51,7 @@ function loadCityInfo(city) {
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?types=poi&access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ`;
 	$.getJSON(mapBoxPoi, function (json) {
 		var test = json.features;
+
 		console.log(test);
 	});
 }
