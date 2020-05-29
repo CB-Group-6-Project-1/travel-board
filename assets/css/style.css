@@ -23,7 +23,7 @@ a:hover {
 	color: teal;
 }
 
-.home-page {
+#home-page {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -127,7 +127,7 @@ footer {
 
 /* added class section-hide with (display: none) to be use in the sections in order to hide them when is needed*/
 .section-hide {
-	display: none;
+	display: none !important;
 }
 
 @media screen and (max-width: 768px) {

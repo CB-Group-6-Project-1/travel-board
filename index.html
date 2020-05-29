@@ -17,7 +17,7 @@
   <!-- link custom CSS -->
   <link rel="stylesheet" href="./assets/css/style.css" />
 
-  
+
 
   <title>Travel Board</title>
 </head>
@@ -31,7 +31,7 @@
   </nav>
 
   <!-- home page section -->
-  <section class="home-page">
+  <section id="home-page" class="page-section">
     <!-- search form -->
     <form class="pure-form search-form">
       <input type="text" class="pure-input-rounded search-text" placeholder="Where would you like to go ?" />
@@ -44,63 +44,75 @@
     <h5 style="text-align: center;">Popular places to travel</h5>
     <section class="images">
       <div class="wrap-img">
-        <img src="./assets/images/home-page-imgs/paris.jpg" class="hover-shadow cursor popular-images effect top-destinations"/>
+        <img src="./assets/images/home-page-imgs/paris.jpg"
+          class="hover-shadow cursor popular-images effect top-destinations" />
         <div class="overlay">Paris</div>
       </div>
       <div class="wrap-img">
-        <img src="./assets/images/home-page-imgs/new-zealand.jpg" class="hover-shadow cursor popular-images effect top-destinations" />
+        <img src="./assets/images/home-page-imgs/new-zealand.jpg"
+          class="hover-shadow cursor popular-images effect top-destinations" />
         <div class="overlay">New Zealand</div>
       </div>
       <div class="wrap-img">
-        <img src="./assets/images/home-page-imgs/rome.jpg" class="hover-shadow cursor popular-images effect top-destinations" />
+        <img src="./assets/images/home-page-imgs/rome.jpg"
+          class="hover-shadow cursor popular-images effect top-destinations" />
         <div class="overlay">Rome</div>
       </div>
       <div class="wrap-img">
-        <img src="./assets/images/home-page-imgs/tahiti.jpg" class="hover-shadow cursor popular-images effect top-destinations" />
+        <img src="./assets/images/home-page-imgs/tahiti.jpg"
+          class="hover-shadow cursor popular-images effect top-destinations" />
         <div class="overlay">Tahiti</div>
       </div>
       <div class="wrap-img hide-on-4">
-        <img src="./assets/images/home-page-imgs/london.jpg" class="hover-shadow cursor popular-images effect top-destinations" />
+        <img src="./assets/images/home-page-imgs/london.jpg"
+          class="hover-shadow cursor popular-images effect top-destinations" />
         <div class="overlay">London</div>
       </div>
       <div class="wrap-img hide-on-4">
-        <img src="./assets/images/home-page-imgs/maui.jpg" class="hover-shadow cursor popular-images effect top-destinations" />
+        <img src="./assets/images/home-page-imgs/maui.jpg"
+          class="hover-shadow cursor popular-images effect top-destinations" />
         <div class="overlay">Maui</div>
       </div>
     </section>
   </section>
 
-    <!-- city details section -->
-    <section class="city-details" hidden>
-  <div class="pure-g">
-    <div class="pure-u-1-3"></div>
-    <div class="pure-u-1-3"><button class="pure-button">Plan Vacation</button></div>
-  </div>
-  <div class="pure-g">
-    <div class="pure-u-1-3"><p>city data</p></div>
-    <div class="pure-u-1-3"><p>city data</p></div>
-    <div class="pure-u-1-3"><p>city data</p></div>
-  </div>
-  <div class="pure-g">
-    <div class = "pure-u-1-1">carousel of images</div>
-  </div>
-  <div class ="pure-g">
-    <div class = "pure-u-1-3">Restaurants</div>
-    <div class = "pure-u-1-3">Shopping</div>
-    <div class = "pure-u-1-3">Things to do</div>
-  </div>
-  <div class ="pure-g">
-    <div class="pure-u-1-3"></div>
-    <div class="pure-u-1-3"><button class="pure-button">Plan Vacation</button></div>
-  </div>
-    </section>
+  <!-- city details section -->
+  <section id="city-details-page" class="section-hide page-section">
+    <div class="pure-g">
+      <div class="pure-u-1-3"></div>
+      <div class="pure-u-1-3"><button class="pure-button">Plan Vacation</button></div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <p>city data</p>
+      </div>
+      <div class="pure-u-1-3">
+        <p>city data</p>
+      </div>
+      <div class="pure-u-1-3">
+        <p>city data</p>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">carousel of images</div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-3">Restaurants</div>
+      <div class="pure-u-1-3">Shopping</div>
+      <div class="pure-u-1-3">Things to do</div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-3"></div>
+      <div class="pure-u-1-3"><button class="pure-button">Plan Vacation</button></div>
+    </div>
+  </section>
 
   <!-- plan vacation section -->
-  <section class="plan-vacation section-hide"></section>
+  <section id="plan-vacation-page" class="section-hide page-section"></section>
 
   <!-- ----------------travel plans section-------------------- -->
   <!-- Active Vacation plans -->
-  <section class="travel-plans section-hide">
+  <section id="travel-plans-page" class="section-hide page-section">
     <div class="row">
       <div class="col s12 m7">
         <h1>Active Vacations</h1>
