@@ -1,5 +1,5 @@
 // Global Variables
-
+var cityValue;
 // Functions
 
 /**
@@ -7,17 +7,20 @@
  * When I click or enter the search button I browse the city
  */
 function browseDestination() {
-  // code goes here
+	// code goes here
 }
 /**Develop a js function to search for a city in the popular travel destinations. */
 function browseTopDestinations() {
-  // code goes here
+	// code goes here
 }
 // On Document Ready (events)
 
 //When I click or enter the search button I browse the city
 $(document).ready(function () {
-  $(".search-button").on("click", browseDestination);
-  // when I click suggested destinations i get city info
-  $(".top-destinations").on("click", browseTopDestinations);
+	$(".search-button").on("click", browseDestination);
+	// when I click suggested destinations i get city info
+	$(".top-destinations").on("click", browseTopDestinations);
 });
+
+loadInfo;
+var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${cityValue}.json?types=poi&access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ`;
