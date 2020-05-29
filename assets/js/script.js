@@ -17,6 +17,8 @@ function browseTopDestinations() {
 
 //When I click or enter the search button I browse the city
 $(document).ready(function () {
+  // carousel init.
+  $(".carousel").carousel();
   $(".search-button").on("click", browseDestination);
   // when I click suggested destinations i get city info
   $(".top-destinations").on("click", browseTopDestinations);
