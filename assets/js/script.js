@@ -21,6 +21,7 @@ function loadCityFromSearch(e) {
 	console.log(city);
 	// call function to display all city data
 	loadCityData(city);
+	loadRestaurantData(city);
 }
 /**
  * Develop a js function to search for a city in the popular travel destinations.
@@ -59,6 +60,7 @@ function loadCityInfo(city) {
 		//TODOs
 		var cityDataName = json.features[0].place_name;
 		$("#current-city-data").html(`${cityDataName}`);
+			
 	});
 }
 /**get latitude and longitude from query */
@@ -95,7 +97,39 @@ function loadCityWeather(city) {
 		$("#uv-index").text("  " + uv);
 	});
 }
-
+/**function to load restaurant info */
+function loadRestaurantData(city) {
+	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
+	$.getJSON(mapBoxPoi, function (json) {
+		var cityBbox1 = json.features[0].bbox[0]
+		var cityBbox2 = json.features[0].bbox[1]
+		var cityBbox3 = json.features[0].bbox[2]
+		var cityBbox4 = json.features[0].bbox[3]
+		var bBox = [cityBbox1, cityBbox2, cityBbox3, cityBbox4]
+	
+		var restaurantSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/restaurants.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${bBox}`;
+		$.getJSON(restaurantSearch, function (json) {
+			var restaurant1 = json.features[0].text;
+			var restaurant2 = json.features[1].text;
+			var restaurant3 = json.features[2].text;
+			
+			$("#restaurant-1").html(restaurant1);
+			$("#restaurant-2").html(restaurant2);
+			$("#restaurant-3").html(restaurant3);
+		})
+		var shopSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/clothing.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${bBox}`;
+		$.getJSON(shopSearch, function (json) {
+			var shop1 = json.features[0].text;
+			var shop2 = json.features[1].text;
+			var shop3 = json.features[2].text;
+			
+			$("#shop-1").html(shop1);
+			$("#shop-2").html(shop2);
+			$("#shop-3").html(shop3);
+		})
+	});
+	
+}
 // function loadCityTodos(city) {}
 // function loadCityPhotos(city) {}
 function loadCityMap(city) {
