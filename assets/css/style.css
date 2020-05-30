@@ -139,6 +139,11 @@ footer {
 	font-weight: bold;
 }
 
+.carousel {
+	margin-top: 100px;
+	display: flex;
+}
+
 /* added class section-hide with (display: none) to be use in the sections in order to hide them when is needed*/
 .section-hide {
 	display: none !important;
