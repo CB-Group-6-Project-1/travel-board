@@ -21,7 +21,6 @@ function loadCityFromSearch(e) {
 	console.log(city);
 	// call function to display all city data
 	loadCityData(city);
-	
 }
 /**
  * Develop a js function to search for a city in the popular travel destinations.
@@ -46,7 +45,7 @@ function loadCityData(city) {
 	// // load city todos
 	// loadCityTodos(city);
 	// // load city photos
-	// loadCityPhotos(city);
+	loadCityPhotos(city);
 	// // load city map
 	// loadCityMap(city);
 }
@@ -61,7 +60,6 @@ function loadCityInfo(city) {
 		//TODOs
 		var cityDataName = json.features[0].place_name;
 		$("#current-city-data").html(`${cityDataName}`);
-			
 	});
 }
 /**get latitude and longitude from query */
@@ -103,49 +101,70 @@ function loadPoiData(city) {
 	// get boundery box from city query
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
 	$.getJSON(mapBoxPoi, function (json) {
-		var cityBbox1 = json.features[0].bbox[0]
-		var cityBbox2 = json.features[0].bbox[1]
-		var cityBbox3 = json.features[0].bbox[2]
-		var cityBbox4 = json.features[0].bbox[3]
-		var bBox = [cityBbox1, cityBbox2, cityBbox3, cityBbox4]
-	// get restaurant data within boundry box
+		var cityBbox1 = json.features[0].bbox[0];
+		var cityBbox2 = json.features[0].bbox[1];
+		var cityBbox3 = json.features[0].bbox[2];
+		var cityBbox4 = json.features[0].bbox[3];
+		var bBox = [cityBbox1, cityBbox2, cityBbox3, cityBbox4];
+		// get restaurant data within boundry box
 		var restaurantSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/restaurants.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${bBox}`;
 		$.getJSON(restaurantSearch, function (json) {
 			var restaurant1 = json.features[0].text;
 			var restaurant2 = json.features[1].text;
 			var restaurant3 = json.features[2].text;
-			
+
 			$("#restaurant-1").html(restaurant1);
 			$("#restaurant-2").html(restaurant2);
 			$("#restaurant-3").html(restaurant3);
-		})
+		});
 		// get shopping data within boundry box
 		var shopSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/clothing.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${bBox}`;
 		$.getJSON(shopSearch, function (json) {
 			var shop1 = json.features[0].text;
 			var shop2 = json.features[1].text;
 			var shop3 = json.features[2].text;
-			
+
 			$("#shop-1").html(shop1);
 			$("#shop-2").html(shop2);
 			$("#shop-3").html(shop3);
-		})
+		});
 		// get todo data from boundry box
 		var todoSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/nightclub.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${bBox}`;
 		$.getJSON(todoSearch, function (json) {
 			var todo1 = json.features[0].text;
 			var todo2 = json.features[1].text;
 			var todo3 = json.features[2].text;
-			
+
 			$("#todo-1").html(todo1);
 			$("#todo-2").html(todo2);
 			$("#todo-3").html(todo3);
-		})
+		});
 	});
-	
 }
 // function loadCityTodos(city) {}
-// function loadCityPhotos(city) {}
+// function loadCityPhotos(city) {
+function loadCityPhotos(city) {
+	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&format=json&nojsoncallback=1&content_type=1&media=photos&tags=${city}`;
+	var imageURLs = [];
+	// ajax here (getting the json object)
+	$.getJSON(flickerURL, function (json) {
+		for (var i = 0; i < 5; i++) {
+			var flickerPictureFarmIdOne = json.photos.photo[i].farm;
+			var flickerServerIdOne = json.photos.photo[i].server;
+			var flickerPictureIdOne = json.photos.photo[i].id;
+			var flickerSecretIdOne = json.photos.photo[i].secret;
+
+			var imageURL = `https://farm${flickerPictureFarmIdOne}.staticflickr.com/${flickerServerIdOne}/${flickerPictureIdOne}_${flickerSecretIdOne}.jpg`;
+			console.log(imageURL);
+			// var carouselDiv = document.getElementsByClassName("carousel");
+			// child.innerHTML = `<a class="carousel-item" href="#"><img value="0" src="${imageURL}"></a>`;
+			// var img = document.createElement("img");
+			// img.setAttribute("src", imageURL);
+			// carouselDiv[0].appendChild(img);
+		}
+		console.log(imageURL);
+	});
+}
 // function loadCityMap(city) {}
 
 // On Document Ready (events)
