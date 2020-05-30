@@ -13,7 +13,6 @@ function loadPageSection(sectionId) {
  * As a User I can browse vacation destinations.
  * When I click or enter the search button I browse the city
  */
-
 function loadCityFromSearch(e) {
 	// get the city name
 	e.preventDefault();
@@ -23,11 +22,14 @@ function loadCityFromSearch(e) {
 	// call function to display all city data
 	loadCityData(city);
 }
-/**Develop a js function to search for a city in the popular travel destinations. */
+/**
+ * Develop a js function to search for a city in the popular travel destinations.
+ */
 function loadCityFromPopular() {
 	// get the city name
 	let city = "";
-	city = $(".top-destinations").attr("data-name");
+	city = $(this).attr("data-name");
+	console.log("Hi" + city);
 	// call function to display all city data
 	loadCityData(city);
 }
@@ -76,11 +78,10 @@ function loadCityWeather(city) {
 		var iconUrl = "https:" + json.forecast.forecastday[0].day.condition.icon;
 		var uv = json.current.uv;
 
-		//display the json data on the page (template to be used)
+		//display the json data on the page
 		$("#current-city").html(`${cityName} -- ${date}  <img src="${iconUrl}">`);
 		$("#temp").text(" " + json.current.temp_f + " °F");
 		$("#humidity").text(" " + json.current.humidity + " %");
-		$("#wind").text(" " + json.current.wind_mph + " MPH");
 		$("#uv-index").text("  " + uv);
 	});
 }

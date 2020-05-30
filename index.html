@@ -17,8 +17,6 @@
   <!-- link custom CSS -->
   <link rel="stylesheet" href="./assets/css/style.css" />
 
-
-
   <title>Travel Board</title>
 </head>
 
@@ -71,7 +69,7 @@
       </div>
       <div class="wrap-img hide-on-4">
         <img src="./assets/images/home-page-imgs/maui.jpg"
-          class="hover-shadow cursor popular-images effect top-destinations" />
+          class="hover-shadow cursor popular-images effect top-destinations" data-name="Maui" />
         <div class="overlay">Maui</div>
       </div>
     </section>
@@ -81,17 +79,51 @@
   <section id="city-details-page" class="section-hide page-section">
     <div class="pure-g">
       <div class="pure-u-1-3"></div>
-      <div class="pure-u-1-3"><button class="pure-button">Plan Vacation</button></div>
     </div>
-    <div class="pure-g">
+    <div class="pure-g" id="city-info">
       <div class="pure-u-1-3">
-        <p>city data</p>
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card teal lighten-4">
+              <div class="card-content white-text">
+                <span class="card-title">City Info Card</span>
+                <!-- place info here -->
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="pure-u-1-3">
-        <p>city data</p>
+      <div class="pure-u-1-3" id="weather-card">
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card teal lighten-4">
+              <div class="card-content white-text">
+                <span class="card-title">Weather Info Card</span>
+                <!-- place info here -->
+                <div class="mt-3"><span id="current-city"></span></div>
+                <div class="mt-4 mr-2">Temperature:<span id="temp"></span></div>
+                <div class="mt-3 mr-2">Humidity:<span id="humidity"></span></div>
+                <div class="mt-3 mr-2">UV Index:<span class="badge text-wrap text-bold" id="uv-index"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="pure-u-1-3">
-        <p>city data</p>
+      <div class="pure-u-1-3" id="map-info">
+        <div class="pure-u-1-3">
+          <div class="row">
+            <div class="col s12 m6">
+              <div class="card teal lighten-4">
+                <div class="card-content white-text">
+                  <span class="card-title">Map Info</span>
+                  <!-- place info here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="pure-g">

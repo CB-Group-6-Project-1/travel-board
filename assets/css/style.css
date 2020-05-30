@@ -30,6 +30,13 @@ a:hover {
 	margin-top: 90px;
 }
 
+#city-details-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 90px;
+}
+
 .search-form {
 	display: flex;
 	width: 350px;
