@@ -1,148 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!-- link Mui CSS -->
-		<link
-			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css"
-			rel="stylesheet"
-			type="text/css"
-		/>
-		<!-- link Pure CSS  -->
-		<link
-			rel="stylesheet"
-			href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-			integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ"
-			crossorigin="anonymous"
-		/>
-		<!-- link font fontawesome -->
-		<link
-			rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-			crossorigin="anonymous"
-		/>
-		<!-- link custom CSS -->
-		<link rel="stylesheet" href="./assets/css/style.css" />
 
-		<title>Travel Board</title>
-	</head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- link Mui CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" rel="stylesheet"
+    type="text/css" />
+  <!-- link Pure CSS  -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous" />
+  <!-- link font fontawesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <!-- link custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
 
-	<body>
-		<!-- nav section -->
-		<nav class="pure-menu pure-menu-horizontal">
-			<a href="#" class="pure-menu-heading pure-menu-link nav-icon"
-				><i class="fas fa-home"></i
-			></a>
-			<a href="#" class="pure-menu-heading pure-menu-link nav-icon"
-				><i class="fas fa-plane"></i
-			></a>
-			<a href="#" class="pure-menu-heading pure-menu-link nav-icon"
-				><i class="fas fa-map-marked-alt"></i
-			></a>
-		</nav>
+  <title>Travel Board</title>
+</head>
 
-		<!-- home page section -->
-		<section class="home-page">
-			<!-- search form -->
-			<form class="pure-form search-form">
-				<input
-					type="text"
-					class="pure-input-rounded search-text"
-					placeholder="Where would you like to go ?"
-				/>
-				<!-- search button -->
-				<button type="submit" class="pure-button search-button">
-					<i class="fas fa-search-location fa-lg"></i>
-				</button>
-			</form>
-			<!-- popular places images section -->
-			<h5 style="text-align: center;">Popular places to travel</h5>
-			<section class="images">
-				<div class="wrap-img">
-					<img
-						src="./assets/images/home-page-imgs/paris.jpg"
-						class="hover-shadow cursor popular-images"
-					/>
-					<div class="overlay">Paris</div>
-				</div>
-				<div class="wrap-img">
-					<img
-						src="./assets/images/home-page-imgs/new-zealand.jpg"
-						class="hover-shadow cursor popular-images"
-					/>
-					<div class="overlay">New Zealand</div>
-				</div>
-				<div class="wrap-img">
-					<img
-						src="./assets/images/home-page-imgs/rome.jpg"
-						class="hover-shadow cursor popular-images"
-					/>
-					<div class="overlay">Rome</div>
-				</div>
-				<div class="wrap-img">
-					<img
-						src="./assets/images/home-page-imgs/tahiti.jpg"
-						class="hover-shadow cursor popular-images"
-					/>
-					<div class="overlay">Tahiti</div>
-				</div>
-				<div class="wrap-img hide-on-4">
-					<img
-						src="./assets/images/home-page-imgs/london.jpg"
-						class="hover-shadow cursor popular-images"
-					/>
-					<div class="overlay">London</div>
-				</div>
-				<div class="wrap-img hide-on-4">
-					<img
-						src="./assets/images/home-page-imgs/maui.jpg"
-						class="hover-shadow cursor popular-images"
-					/>
-					<div class="overlay">Maui</div>
-				</div>
-			</section>
-		</section>
+<body>
+  <!-- nav section -->
+  <nav class="pure-menu pure-menu-horizontal">
+    <a href="#" class="pure-menu-heading pure-menu-link nav-icon"><i class="fas fa-home"></i></a>
+    <a href="#" class="pure-menu-heading pure-menu-link nav-icon"><i class="fas fa-plane"></i></a>
+    <a href="#" class="pure-menu-heading pure-menu-link nav-icon"><i class="fas fa-map-marked-alt"></i></a>
+  </nav>
 
-		<!-- city details section -->
-		<section class="city-details"></section>
+  <!-- home page section -->
+  <section class="home-page">
+    <!-- search form -->
+    <form class="pure-form search-form">
+      <input type="text" class="pure-input-rounded search-text" placeholder="Where would you like to go ?" />
+      <!-- search button -->
+      <button type="submit" class="pure-button search-button">
+        <i class="fas fa-search-location fa-lg"></i>
+      </button>
+    </form>
+    <!-- popular places images section -->
+    <h5 style="text-align: center;">Popular places to travel</h5>
+    <section class="images">
+      <div class="wrap-img">
+        <img src="./assets/images/home-page-imgs/paris.jpg" class="hover-shadow cursor popular-images" />
+        <div class="overlay">Paris</div>
+      </div>
+      <div class="wrap-img">
+        <img src="./assets/images/home-page-imgs/new-zealand.jpg" class="hover-shadow cursor popular-images" />
+        <div class="overlay">New Zealand</div>
+      </div>
+      <div class="wrap-img">
+        <img src="./assets/images/home-page-imgs/rome.jpg" class="hover-shadow cursor popular-images" />
+        <div class="overlay">Rome</div>
+      </div>
+      <div class="wrap-img">
+        <img src="./assets/images/home-page-imgs/tahiti.jpg" class="hover-shadow cursor popular-images" />
+        <div class="overlay">Tahiti</div>
+      </div>
+      <div class="wrap-img hide-on-4">
+        <img src="./assets/images/home-page-imgs/london.jpg" class="hover-shadow cursor popular-images" />
+        <div class="overlay">London</div>
+      </div>
+      <div class="wrap-img hide-on-4">
+        <img src="./assets/images/home-page-imgs/maui.jpg" class="hover-shadow cursor popular-images" />
+        <div class="overlay">Maui</div>
+      </div>
+    </section>
+  </section>
 
-		<!-- plan vacation section -->
-		<section class="plan-vacation"></section>
+  <!-- city details section -->
+  <section class="city-details"></section>
 
-		<!-- travel plans section -->
-		<section class="travel-plans">
-			<table class="pure-table pure-table-bordered hidden">
-				<tr>
-					<th>Event</th>
-					<th>Time</th>
-					<th>Notes</th>
-				</tr>
-				<tr>
-					<td>#</td>
-					<td>#</td>
-					<td>#</td>
-				</tr>
-				<tr>
-					<td>#</td>
-					<td>#</td>
-					<td>#</td>
-				</tr>
-			</table>
-		</section>
+  <!-- plan vacation section -->
+  <section class="plan-vacation"></section>
 
-		<!-- page footer -->
-		<footer>
-			<hr class="footer-border" />
-			<span>Travel Board </span><span>&copy;</span><span> 2020</span>
-		</footer>
+  <!-- travel plans section -->
+  <section class="travel-plans">
+    <table class="pure-table pure-table-bordered hidden">
+      <tr>
+        <th>Event</th>
+        <th>Time</th>
+        <th>Notes</th>
+      </tr>
+      <tr>
+        <td>#</td>
+        <td>#</td>
+        <td>#</td>
+      </tr>
+      <tr>
+        <td>#</td>
+        <td>#</td>
+        <td>#</td>
+      </tr>
+    </table>
+  </section>
 
-		<!-- jquery cdn -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<!-- compiled and minified javascript MUI-->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<!-- custom script -->
-		<script src="./assets/js/script.js"></script>
-	</body>
+  <!-- page footer -->
+  <footer>
+    <hr class="footer-border" />
+    <span>Travel Board </span><span>&copy;</span><span> 2020</span>
+  </footer>
+
+  <!-- jquery cdn -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- compiled and minified javascript MUI-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- custom script -->
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>
