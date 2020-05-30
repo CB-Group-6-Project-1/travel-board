@@ -45,7 +45,7 @@ function loadCityData(city) {
 	// // load city todos
 	// loadCityTodos(city);
 	// // load city photos
-	// loadCityPhotos(city);
+	loadCityPhotos(city);
 	// // load city map
 	loadCityMap(city);
 }
@@ -151,6 +151,30 @@ function loadCityMap(city) {
 		style: "mapbox://styles/mapbox/streets-v11",
 	});
 }
+// function loadCityPhotos(city) {
+function loadCityPhotos(city) {
+	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&format=json&nojsoncallback=1&content_type=1&media=photos&tags=${city}`;
+	var imageURLs = [];
+	// ajax here (getting the json object)
+	$.getJSON(flickerURL, function (json) {
+		for (var i = 0; i < 5; i++) {
+			var flickerPictureFarmIdOne = json.photos.photo[i].farm;
+			var flickerServerIdOne = json.photos.photo[i].server;
+			var flickerPictureIdOne = json.photos.photo[i].id;
+			var flickerSecretIdOne = json.photos.photo[i].secret;
+
+			var imageURL = `https://farm${flickerPictureFarmIdOne}.staticflickr.com/${flickerServerIdOne}/${flickerPictureIdOne}_${flickerSecretIdOne}.jpg`;
+			console.log(imageURL);
+			// var carouselDiv = document.getElementsByClassName("carousel");
+			// child.innerHTML = `<a class="carousel-item" href="#"><img value="0" src="${imageURL}"></a>`;
+			// var img = document.createElement("img");
+			// img.setAttribute("src", imageURL);
+			// carouselDiv[0].appendChild(img);
+		}
+		console.log(imageURL);
+	});
+}
+// function loadCityMap(city) {}
 
 // On Document Ready (events)
 $(document).ready(function () {
