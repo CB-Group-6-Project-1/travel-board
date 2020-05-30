@@ -47,7 +47,7 @@ function loadCityData(city) {
 	// // load city photos
 	loadCityPhotos(city);
 	// // load city map
-	// loadCityMap(city);
+	loadCityMap(city);
 }
 
 /**
@@ -142,6 +142,15 @@ function loadPoiData(city) {
 	});
 }
 // function loadCityTodos(city) {}
+// function loadCityPhotos(city) {}
+function loadCityMap(city) {
+	mapboxgl.accessToken =
+		"pk.eyJ1IjoieXN0YW1hcml0cSIsImEiOiJja2F0c3J4c3UwMGM4MzNxcmFzZXh4N2RhIn0.vnaQ1AHB9ra3v9k4RPecoQ";
+	var map = new mapboxgl.Map({
+		container: "map",
+		style: "mapbox://styles/mapbox/streets-v11",
+	});
+}
 // function loadCityPhotos(city) {
 function loadCityPhotos(city) {
 	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&format=json&nojsoncallback=1&content_type=1&media=photos&tags=${city}`;
