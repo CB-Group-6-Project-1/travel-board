@@ -54,12 +54,22 @@ function loadCityData(city) {
  * the city info to display on the city details page given a parameter (city)
  */
 function loadCityInfo(city) {
-	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?types=poi&access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ`;
+	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
 	$.getJSON(mapBoxPoi, function (json) {
 		//TODOs
+		var cityDataName = json.features[0].place_name;
+		$("#current-city-data").html(`${cityDataName}`);
 	});
 }
-
+/**get latitude and longitude from query */
+function getLatLon(city) {
+	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
+	$.getJSON(mapBoxPoi, function (json) {
+		//TODOs
+		var lat = json.features[1].center[0];
+		var lon = json.features[1].center[1];
+	});
+}
 /**
  * Load city weather to display on the city details page given a parameter (city)
  */
