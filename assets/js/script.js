@@ -46,7 +46,7 @@ function loadCityData(city) {
 	// // load city photos
 	// loadCityPhotos(city);
 	// // load city map
-	// loadCityMap(city);
+	loadCityMap(city);
 }
 
 /**
@@ -88,7 +88,14 @@ function loadCityWeather(city) {
 
 // function loadCityTodos(city) {}
 // function loadCityPhotos(city) {}
-// function loadCityMap(city) {}
+function loadCityMap(city) {
+	mapboxgl.accessToken =
+		"pk.eyJ1IjoieXN0YW1hcml0cSIsImEiOiJja2F0c3J4c3UwMGM4MzNxcmFzZXh4N2RhIn0.vnaQ1AHB9ra3v9k4RPecoQ";
+	var map = new mapboxgl.Map({
+		container: "map",
+		style: "mapbox://styles/mapbox/streets-v11",
+	});
+}
 
 // On Document Ready (events)
 $(document).ready(function () {
