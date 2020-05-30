@@ -117,6 +117,16 @@ function loadRestaurantData(city) {
 			$("#restaurant-2").html(restaurant2);
 			$("#restaurant-3").html(restaurant3);
 		})
+		var shopSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/clothing.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${bBox}`;
+		$.getJSON(shopSearch, function (json) {
+			var shop1 = json.features[0].text;
+			var shop2 = json.features[1].text;
+			var shop3 = json.features[2].text;
+			
+			$("#shop-1").html(shop1);
+			$("#shop-2").html(shop2);
+			$("#shop-3").html(shop3);
+		})
 	});
 	
 }

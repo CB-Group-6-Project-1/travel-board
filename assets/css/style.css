@@ -36,6 +36,10 @@ a:hover {
 	display: flex;
 	justify-content: space-evenly;
 }
+#city-todo {
+	display: flex;
+	justify-content: space-evenly;
+}
 .custom-style {
 	width: 100% !important;
 }
