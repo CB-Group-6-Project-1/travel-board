@@ -20,14 +20,15 @@ function loadCityFromSearch(e) {
 	let city = "";
 	city = $("#searchId").val();
 	console.log(city);
-	// call function to display city
+	// call function to display all city data
 	loadCityData(city);
 }
 /**Develop a js function to search for a city in the popular travel destinations. */
 function loadCityFromPopular() {
 	// get the city name
 	let city = "";
-	// call function to display city
+	city = $(".top-destinations").attr("data-name");
+	// call function to display all city data
 	loadCityData(city);
 }
 
