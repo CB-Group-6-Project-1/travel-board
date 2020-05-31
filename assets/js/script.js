@@ -41,12 +41,11 @@ function loadCityData(city) {
 	loadCityInfo(city);
 	// load city weather
 	loadCityWeather(city);
+	// load city POIs
 	loadPoiData(city);
-	// // load city todos
-	// loadCityTodos(city);
-	// // load city photos
+	// load city photos
 	loadCityPhotos(city);
-	// // load city map
+	// load city map
 	loadCityMap(city);
 }
 
@@ -62,15 +61,7 @@ function loadCityInfo(city) {
 		$("#current-city-data").html(`${cityDataName}`);
 	});
 }
-/**get latitude and longitude from query */
-function getLatLon(city) {
-	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
-	$.getJSON(mapBoxPoi, function (json) {
-		//TODOs
-		var lat = json.features[1].center[0];
-		var lon = json.features[1].center[1];
-	});
-}
+
 /**
  * Load city weather to display on the city details page given a parameter (city)
  */
@@ -96,6 +87,7 @@ function loadCityWeather(city) {
 		$("#uv-index").text("  " + uv);
 	});
 }
+
 /**function to load POI info */
 function loadPoiData(city) {
 	// get boundery box from city query
@@ -141,15 +133,24 @@ function loadPoiData(city) {
 		});
 	});
 }
+
 /**function load city map */
 function loadCityMap(city) {
 	mapboxgl.accessToken =
 		"pk.eyJ1IjoieXN0YW1hcml0cSIsImEiOiJja2F0c3J4c3UwMGM4MzNxcmFzZXh4N2RhIn0.vnaQ1AHB9ra3v9k4RPecoQ";
-	var map = new mapboxgl.Map({
-		container: "map",
-		style: "mapbox://styles/mapbox/streets-v11",
+	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
+	$.getJSON(mapBoxPoi, function (json) {
+		var map = (window.map = new mapboxgl.Map({
+			container: "map",
+			zoom: 3,
+			center: json.features[0].center,
+			style: "mapbox://styles/mapbox/light-v10",
+			antialias: true, // create the gl context with MSAA antialiasing, so custom layers are antialiased
+		}));
+		var marker = new mapboxgl.Marker()
+			.setLngLat(json.features[0].center)
+			.addTo(map);
 	});
-	// TODOs added the point of the map
 }
 // function loadCityPhotos(city) {
 function loadCityPhotos(city) {
