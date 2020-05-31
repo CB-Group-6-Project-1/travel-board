@@ -155,6 +155,14 @@ function loadCityMap(city) {
 
 		// added full screen control to the user
 		map.addControl(new mapboxgl.FullscreenControl());
+
+		// added directions
+		map.addControl(
+			new MapboxDirections({
+				accessToken: mapboxgl.accessToken,
+			}),
+			"top-left"
+		);
 	});
 }
 // function loadCityPhotos(city) {
