@@ -205,4 +205,5 @@ $(document).ready(function () {
 	//When I click the plan vacation button
 	$("#plan-vacation-btn").on("click", planVacation);
 	//When I click home on nav bar
+	$("#home").on("click", goHome);
 });
