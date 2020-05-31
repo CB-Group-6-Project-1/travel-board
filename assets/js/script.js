@@ -166,7 +166,7 @@ function loadCityMap(city) {
 }
 // function loadCityPhotos(city) {
 function loadCityPhotos(city) {
-	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&format=json&nojsoncallback=1&content_type=1&media=photos&tags=${city}+travel`;
+	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&format=json&nojsoncallback=1&content_type=1&media=photos&tags=${city}`;
 	var imageURLs = [];
 	// ajax here (getting the json object)
 	$.getJSON(flickerURL, function (json) {
