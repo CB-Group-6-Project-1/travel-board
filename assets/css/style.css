@@ -44,6 +44,14 @@ a:hover {
 	width: 100% !important;
 }
 
+.custom-btn {
+	margin-top: 35px;
+}
+
+.center {
+	text-align: center;
+}
+
 .search-form {
 	display: flex;
 	width: 350px;
