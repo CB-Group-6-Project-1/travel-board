@@ -67,6 +67,7 @@ a:hover {
 
 #current-city-data {
 	text-align: center;
+	margin-bottom: 40px;
 }
 
 .search-text {
@@ -136,7 +137,8 @@ h5,
 .center-text,
 .search-text,
 footer,
-#current-city-data {
+#current-city-data,
+.card-title {
 	font-family: monospace;
 }
 
