@@ -136,20 +136,25 @@ function loadPoiData(city) {
 
 /**function load city map */
 function loadCityMap(city) {
-	mapboxgl.accessToken =
-		"pk.eyJ1IjoieXN0YW1hcml0cSIsImEiOiJja2F0c3J4c3UwMGM4MzNxcmFzZXh4N2RhIn0.vnaQ1AHB9ra3v9k4RPecoQ";
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
 	$.getJSON(mapBoxPoi, function (json) {
-		var map = (window.map = new mapboxgl.Map({
+		mapboxgl.accessToken =
+			"pk.eyJ1IjoieXN0YW1hcml0cSIsImEiOiJja2F0c3J4c3UwMGM4MzNxcmFzZXh4N2RhIn0.vnaQ1AHB9ra3v9k4RPecoQ";
+		var map = new mapboxgl.Map({
 			container: "map",
-			zoom: 3,
+			style: "mapbox://styles/mapbox/streets-v11",
 			center: json.features[0].center,
-			style: "mapbox://styles/mapbox/light-v10",
-			antialias: true, // create the gl context with MSAA antialiasing, so custom layers are antialiased
-		}));
+			zoom: 15.5,
+			pitch: 45,
+			antialias: true,
+		});
+		//added the marker
 		var marker = new mapboxgl.Marker()
 			.setLngLat(json.features[0].center)
 			.addTo(map);
+
+		// added full screen control to the user
+		map.addControl(new mapboxgl.FullscreenControl());
 	});
 }
 // function loadCityPhotos(city) {
