@@ -56,9 +56,8 @@ function loadCityData(city) {
 function loadCityInfo(city) {
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
 	$.getJSON(mapBoxPoi, function (json) {
-		//TODOs
 		var cityDataName = json.features[0].place_name;
-		$("#current-city-data").html(`${cityDataName}`);
+		$("#current-city-data").text(`${cityDataName}`);
 	});
 }
 
@@ -187,7 +186,6 @@ function loadCityPhotos(city) {
 		}
 	});
 }
-// function loadCityMap(city) {}
 
 // On Document Ready (events)
 $(document).ready(function () {
