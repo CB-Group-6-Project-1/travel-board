@@ -145,7 +145,7 @@ function loadCityMap(city) {
 			container: "map",
 			style: "mapbox://styles/mapbox/streets-v11",
 			center: json.features[0].center,
-			zoom: 15.5,
+			zoom: 5,
 			pitch: 45,
 			antialias: true,
 		});
