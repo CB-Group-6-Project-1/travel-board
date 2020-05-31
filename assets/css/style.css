@@ -44,11 +44,30 @@ a:hover {
 	width: 100% !important;
 }
 
+.custom-btn {
+	margin-top: 35px;
+}
+
+.center {
+	text-align: center;
+}
+
+#map,
+.weather-custom {
+	width: 450px;
+	height: 400px;
+	border-radius: 20px;
+}
 .search-form {
 	display: flex;
 	width: 350px;
 	align-self: center;
 	margin-bottom: 100px;
+}
+
+#current-city-data {
+	text-align: center;
+	margin-bottom: 40px;
 }
 
 .search-text {
@@ -75,6 +94,11 @@ a:hover {
 .wrap-img {
 	position: relative;
 	margin-top: 10px;
+}
+
+#icon {
+	display: flex;
+	justify-content: flex-end;
 }
 
 .overlay {
@@ -117,11 +141,14 @@ h5,
 .overlay,
 .center-text,
 .search-text,
-footer {
+footer,
+#current-city-data,
+.card-title {
 	font-family: monospace;
 }
 
-h5 {
+h5,
+#current-city-data {
 	color: darkcyan;
 }
 
@@ -140,7 +167,15 @@ footer {
 }
 
 .carousel {
-	margin-top: 100px;
+	height: 500px !important;
+}
+
+.carousel-item {
+	width: 400px !important;
+	height: 400px !important;
+}
+
+.style-cards {
 	display: flex;
 	justify-content: space-evenly;
 }
@@ -150,9 +185,8 @@ footer {
 	display: none !important;
 }
 
-.city-imgs {
-	width: 230px;
-	height: 230px;
+.card-content {
+	line-height: 30px;
 }
 
 @media screen and (max-width: 768px) {

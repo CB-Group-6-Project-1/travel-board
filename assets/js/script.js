@@ -1,4 +1,5 @@
 // Global Variables
+var activeCityData;
 
 // Functions
 
@@ -18,7 +19,6 @@ function loadCityFromSearch(e) {
 	e.preventDefault();
 	let city = "";
 	city = $("#searchId").val();
-	console.log(city);
 	// call function to display all city data
 	loadCityData(city);
 }
@@ -29,7 +29,6 @@ function loadCityFromPopular() {
 	// get the city name
 	let city = "";
 	city = $(this).attr("data-name");
-	console.log("Hi" + city);
 	// call function to display all city data
 	loadCityData(city);
 }
@@ -56,9 +55,9 @@ function loadCityData(city) {
 function loadCityInfo(city) {
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
 	$.getJSON(mapBoxPoi, function (json) {
-		//TODOs
+		activeCityData = json;
 		var cityDataName = json.features[0].place_name;
-		$("#current-city-data").html(`${cityDataName}`);
+		$("#current-city-data").text(`${cityDataName}`);
 	});
 }
 
@@ -81,7 +80,9 @@ function loadCityWeather(city) {
 		var uv = json.current.uv;
 
 		//display the json data on the page
-		$("#current-city").html(`${cityName} -- ${date}  <img src="${iconUrl}">`);
+		$("#icon").append(`<img src="${iconUrl}">`);
+		$("#current-city").html(`${cityName}`);
+		$("#current-date").text(`${date}`);
 		$("#temp").text(" " + json.current.temp_f + " °F");
 		$("#humidity").text(" " + json.current.humidity + " %");
 		$("#uv-index").text("  " + uv);
@@ -136,20 +137,33 @@ function loadPoiData(city) {
 
 /**function load city map */
 function loadCityMap(city) {
-	mapboxgl.accessToken =
-		"pk.eyJ1IjoieXN0YW1hcml0cSIsImEiOiJja2F0c3J4c3UwMGM4MzNxcmFzZXh4N2RhIn0.vnaQ1AHB9ra3v9k4RPecoQ";
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
 	$.getJSON(mapBoxPoi, function (json) {
-		var map = (window.map = new mapboxgl.Map({
+		mapboxgl.accessToken =
+			"pk.eyJ1IjoieXN0YW1hcml0cSIsImEiOiJja2F0c3J4c3UwMGM4MzNxcmFzZXh4N2RhIn0.vnaQ1AHB9ra3v9k4RPecoQ";
+		var map = new mapboxgl.Map({
 			container: "map",
-			zoom: 3,
+			style: "mapbox://styles/mapbox/streets-v11",
 			center: json.features[0].center,
-			style: "mapbox://styles/mapbox/light-v10",
-			antialias: true, // create the gl context with MSAA antialiasing, so custom layers are antialiased
-		}));
+			zoom: 15.5,
+			pitch: 45,
+			antialias: true,
+		});
+		//added the marker
 		var marker = new mapboxgl.Marker()
 			.setLngLat(json.features[0].center)
 			.addTo(map);
+
+		// added full screen control to the user
+		map.addControl(new mapboxgl.FullscreenControl());
+
+		// added directions
+		map.addControl(
+			new MapboxDirections({
+				accessToken: mapboxgl.accessToken,
+			}),
+			"top-left"
+		);
 	});
 }
 // function loadCityPhotos(city) {
@@ -166,15 +180,21 @@ function loadCityPhotos(city) {
 
 			var imageURL = `https://farm${flickerPictureFarmIdOne}.staticflickr.com/${flickerServerIdOne}/${flickerPictureIdOne}_${flickerSecretIdOne}.jpg`;
 
-			$(".carousel").append(
-				`<ul>
-				<li> <img src=${imageURL} class="city-imgs"></li>
-			  </ul>`
-			);
+			$(".carousel").append(`<img src=${imageURL} class="carousel-item">`);
 		}
+		$(".carousel").carousel();
 	});
 }
-// function loadCityMap(city) {}
+/**
+ * plan vacation function
+ */
+function planVacation() {
+	loadPageSection("#plan-vacation-page");
+}
+
+function goHome() {
+	loadPageSection("#home-page");
+}
 
 // On Document Ready (events)
 $(document).ready(function () {
@@ -182,4 +202,8 @@ $(document).ready(function () {
 	$(".search-button").on("click", loadCityFromSearch);
 	// When I click suggested destinations I get city info
 	$(".top-destinations").on("click", loadCityFromPopular);
+	//When I click the plan vacation button
+	$("#plan-vacation-btn").on("click", planVacation);
+	//When I click home on nav bar
+	$("#home").on("click", goHome);
 });
