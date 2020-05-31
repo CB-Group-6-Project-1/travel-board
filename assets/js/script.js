@@ -166,7 +166,7 @@ function loadCityMap(city) {
 }
 // function loadCityPhotos(city) {
 function loadCityPhotos(city) {
-	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&format=json&nojsoncallback=1&content_type=1&media=photos&tags=${city}`;
+	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&format=json&nojsoncallback=1&content_type=1&media=photos&tags=${city}+travel`;
 	var imageURLs = [];
 	// ajax here (getting the json object)
 	$.getJSON(flickerURL, function (json) {
@@ -178,12 +178,9 @@ function loadCityPhotos(city) {
 
 			var imageURL = `https://farm${flickerPictureFarmIdOne}.staticflickr.com/${flickerServerIdOne}/${flickerPictureIdOne}_${flickerSecretIdOne}.jpg`;
 
-			$(".carousel").append(
-				`<ul>
-				<li> <img src=${imageURL} class="city-imgs"></li>
-			  </ul>`
-			);
+			$(".carousel").append(`<img src=${imageURL} class="carousel-item">`);
 		}
+		$(".carousel").carousel();
 	});
 }
 

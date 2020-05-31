@@ -162,9 +162,12 @@ footer {
 }
 
 .carousel {
-	margin-top: 100px;
-	display: flex;
-	justify-content: space-evenly;
+	height: 500px !important;
+}
+
+.carousel-item {
+	width: 400px !important;
+	height: 400px !important;
 }
 
 .style-cards {
@@ -175,11 +178,6 @@ footer {
 /* added class section-hide with (display: none) to be use in the sections in order to hide them when is needed*/
 .section-hide {
 	display: none !important;
-}
-
-.city-imgs {
-	width: 230px;
-	height: 230px;
 }
 
 @media screen and (max-width: 768px) {
