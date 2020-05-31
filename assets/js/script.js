@@ -1,4 +1,5 @@
 // Global Variables
+var activeCityData;
 
 // Functions
 
@@ -18,7 +19,6 @@ function loadCityFromSearch(e) {
 	e.preventDefault();
 	let city = "";
 	city = $("#searchId").val();
-	console.log(city);
 	// call function to display all city data
 	loadCityData(city);
 }
@@ -29,7 +29,6 @@ function loadCityFromPopular() {
 	// get the city name
 	let city = "";
 	city = $(this).attr("data-name");
-	console.log("Hi" + city);
 	// call function to display all city data
 	loadCityData(city);
 }
@@ -56,6 +55,7 @@ function loadCityData(city) {
 function loadCityInfo(city) {
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
 	$.getJSON(mapBoxPoi, function (json) {
+		activeCityData = json;
 		var cityDataName = json.features[0].place_name;
 		$("#current-city-data").text(`${cityDataName}`);
 	});
@@ -185,6 +185,16 @@ function loadCityPhotos(city) {
 		$(".carousel").carousel();
 	});
 }
+/**
+ * plan vacation function
+ */
+function planVacation() {
+	loadPageSection("#plan-vacation-page");
+}
+
+function goHome() {
+	loadPageSection("#home-page");
+}
 
 // On Document Ready (events)
 $(document).ready(function () {
@@ -192,4 +202,7 @@ $(document).ready(function () {
 	$(".search-button").on("click", loadCityFromSearch);
 	// When I click suggested destinations I get city info
 	$(".top-destinations").on("click", loadCityFromPopular);
+	//When I click the plan vacation button
+	$("#plan-vacation-btn").on("click", planVacation);
+	//When I click home on nav bar
 });
