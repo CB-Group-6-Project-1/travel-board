@@ -86,19 +86,21 @@
   <section id="city-details-page" class="section-hide page-section">
     <h1 id="current-city-data">
     </h1>
+    <!-- city info -->
     <div class="pure-g" id="city-info">
-
       <div class="row style-cards">
         <!-- weather -->
-        <div class="pure-u-1" id="weather-card">
-          <div class="col s12 m6">
-            <div class="card teal lighten-5 weather-custom">
+        <div class="pure-u-1-2" id="weather-card">
+          <div class="col s12 m6 l6">
+            <div class="card teal lighten-4 weather-custom">
               <div class="card-content">
-                <span class="card-title">Weather</span>
-                <div class="mt-3"><span id="current-city"></span></div>
-                <div class="mt-4 mr-2">Temperature:<span id="temp"></span></div>
-                <div class="mt-3 mr-2">Humidity:<span id="humidity"></span></div>
-                <div class="mt-3 mr-2">UV Index:<span id="uv-index"></span>
+                <span class="card-title center">Weather</span>
+                <div><span id="icon"></span></div>
+                <div class="">City:<span id="current-city"></span></div>
+                <div class="">Date:<span id="current-date"></span></div>
+                <div class="">Temperature:<span id="temp"></span></div>
+                <div class="">Humidity:<span id="humidity"></span></div>
+                <div class="">UV Index:<span id="uv-index"></span>
                 </div>
               </div>
             </div>
@@ -106,9 +108,9 @@
         </div>
 
         <!-- map -->
-        <div class="pure-u-1" id="map-info">
+        <div class="pure-u-1-2" id="map-info">
           <div class="pure-u-1">
-            <div class="col s12 m6">
+            <div class="col s12 m6 l6">
               <div id='map'>
               </div>
             </div>

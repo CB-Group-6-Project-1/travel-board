@@ -96,6 +96,11 @@ a:hover {
 	margin-top: 10px;
 }
 
+#icon {
+	display: flex;
+	justify-content: flex-end;
+}
+
 .overlay {
 	position: absolute;
 	bottom: 0;
@@ -178,6 +183,10 @@ footer {
 /* added class section-hide with (display: none) to be use in the sections in order to hide them when is needed*/
 .section-hide {
 	display: none !important;
+}
+
+.card-content {
+	line-height: 30px;
 }
 
 @media screen and (max-width: 768px) {

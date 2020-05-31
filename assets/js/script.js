@@ -80,7 +80,9 @@ function loadCityWeather(city) {
 		var uv = json.current.uv;
 
 		//display the json data on the page
-		$("#current-city").html(`${cityName} -- ${date}  <img src="${iconUrl}">`);
+		$("#icon").append(`<img src="${iconUrl}">`);
+		$("#current-city").html(`${cityName}`);
+		$("#current-date").text(`${date}`);
 		$("#temp").text(" " + json.current.temp_f + " °F");
 		$("#humidity").text(" " + json.current.humidity + " %");
 		$("#uv-index").text("  " + uv);
