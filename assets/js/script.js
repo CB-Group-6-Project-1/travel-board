@@ -20,6 +20,7 @@ function loadCityFromSearch(e) {
 	let city = "";
 	city = $("#searchId").val();
 	// call function to display all city data
+
 	loadCityData(city);
 }
 /**
@@ -168,8 +169,7 @@ function loadCityMap(city) {
 }
 // function loadCityPhotos(city) {
 function loadCityPhotos(city) {
-	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&format=json&nojsoncallback=1&content_type=1&media=photos&tags=${city}`;
-	var imageURLs = [];
+	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&tags=${city}+city%2C+${city}+monuments%2C+${city}+sunset%2C+${city}+beach%2C&safe_search=1&content_type=1&geo_context=2&format=json&nojsoncallback=1`;
 	// ajax here (getting the json object)
 	$.getJSON(flickerURL, function (json) {
 		for (var i = 0; i < 5; i++) {
