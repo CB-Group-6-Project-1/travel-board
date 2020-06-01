@@ -211,3 +211,15 @@ footer {
 		text-align: center;
 	}
 }
+
+.plan-vacation-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.date-picker-container {
+	display: flex;
+	padding: 10px 100px;
+}

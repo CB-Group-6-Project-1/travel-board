@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- link to jqery UI stylsheet -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <!-- link API map required links -->
   <link rel="stylesheet"
     href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
@@ -186,37 +188,22 @@
   </section>
 
   <!-- plan vacation section -->
-  <section id="plan-vacation-page" class="section-hide page-section">
-    <table class="pure-table pure-table-bordered">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Time</th>
-          <th>Event</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-        </tr>
-        <tr>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-        </tr>
-        <tr>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-        </tr>
-      </tbody>
-    </table>
+  <section id="plan-vacation-page">
+    <div class="plan-vacation-container">
+      <div>
+        <h5>Plan Vacation</h5>
+      </div>
+      <div>
+        <h5 id="current-city-data">City Name</h5>
+      </div>
+    </div>
+    <div class="date-picker-container">
+      <label for="from">From</label>
+      <input type="text" id="from" name="from">
+      <label for="to">to</label>
+      <input type="text" id="to" name="to">
+    </div>
+
   </section>
 
   <!-- ----------------travel plans section-------------------- -->
@@ -291,7 +278,8 @@
     <hr class="footer-border" />
     <span>Travel Board </span><span>&copy;</span><span> 2020</span>
   </footer>
-
+  <!-- jqery UI cdn -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <!-- API Map js file -->
   <script
     src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
