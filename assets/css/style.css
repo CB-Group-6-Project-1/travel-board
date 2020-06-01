@@ -189,6 +189,10 @@ footer {
 	line-height: 30px;
 }
 
+.placeColor::-webkit-input-placeholder {
+	color: red;
+}
+
 @media screen and (max-width: 768px) {
 	.search-form {
 		flex-direction: column;
