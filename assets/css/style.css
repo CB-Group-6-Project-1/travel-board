@@ -191,7 +191,6 @@ footer {
 
 .placeColor::-webkit-input-placeholder {
 	color: red;
-	font-size: larger;
 }
 
 @media screen and (max-width: 768px) {

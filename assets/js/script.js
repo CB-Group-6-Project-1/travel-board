@@ -1,5 +1,6 @@
 // Global Variables
 var activeCityData;
+var invalid = false;
 
 // Functions
 
@@ -105,6 +106,10 @@ function loadCityWeather(city) {
 		$("#temp").text(" " + json.current.temp_f + " °F");
 		$("#humidity").text(" " + json.current.humidity + " %");
 		$("#uv-index").text("  " + uv);
+	}).fail(function (err) {
+		// handle errors with ajax
+		invalid = true;
+		alert("Enter a valid city: " + err.responseJSON.error.message);
 	});
 }
 
