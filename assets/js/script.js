@@ -33,10 +33,12 @@ function loadCityFromSearch(e) {
 		debugger;
 		//remove the invalid input entered by user
 		$("#searchId").val("");
-		// an error message placeholder text
+		// send an error message through the placeholder attr
 		$("#searchId").removeAttr("placeholder");
 		//message through the placeholder
 		$("#searchId").attr("placeholder", "You must enter a valid city name");
+		//	And class to change the placeholder color
+		$("#searchId").addClass("placeColor");
 	}
 }
 /**
