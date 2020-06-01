@@ -15,13 +15,29 @@ function loadPageSection(sectionId) {
  * When I click or enter the search button I browse the city
  */
 function loadCityFromSearch(e) {
-	// get the city name
 	e.preventDefault();
+	// get the city name
 	let city = "";
 	city = $("#searchId").val();
-	// call function to display all city data
-
-	loadCityData(city);
+	//removing white spaces from start and end
+	var cityTrim = city.trim();
+	//force the user to enter string
+	if (
+		cityTrim !== "" &&
+		typeof cityTrim === "string" &&
+		cityTrim.toLowerCase().match(/^[a-z]+$/)
+	) {
+		// call function to display all city data
+		loadCityData(city);
+	} else {
+		debugger;
+		//remove the invalid input entered by user
+		$("#searchId").val("");
+		// an error message placeholder text
+		$("#searchId").removeAttr("placeholder");
+		//message through the placeholder
+		$("#searchId").attr("placeholder", "You must enter a valid city name");
+	}
 }
 /**
  * Develop a js function to search for a city in the popular travel destinations.
