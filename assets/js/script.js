@@ -231,6 +231,8 @@ $(function () {
 	}
 });
 
+
+
 function goHome() {
 	loadPageSection("#home-page");
 }
