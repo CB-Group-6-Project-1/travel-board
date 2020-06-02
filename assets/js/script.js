@@ -230,6 +230,13 @@ $(function () {
 		return date;
 	}
 });
+/**get textarea input for vacation notes */
+
+$("input#my-notes").click(function(e) {
+	e.preventDefault();
+    var vacationNotes = $('textarea#myNotes').val();
+   console.log(vacationNotes)
+});
 
 function goHome() {
 	loadPageSection("#home-page");
