@@ -89,6 +89,7 @@ function loadCityData(city) {
 function loadCityInfo(cityData) {
 	// set city name
 	$("#current-city-data").text(`${cityData.place_name}`);
+	$("#select-city").text(`${cityData.place_name}`);
 }
 
 /**

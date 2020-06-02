@@ -143,12 +143,14 @@ h5,
 .search-text,
 footer,
 #current-city-data,
-.card-title {
+.card-title,
+#select-city {
 	font-family: monospace;
 }
 
 h5,
-#current-city-data {
+#current-city-data,
+#select-city {
 	color: darkcyan;
 }
 
