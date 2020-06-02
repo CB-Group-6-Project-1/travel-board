@@ -90,6 +90,7 @@ function loadCityData(city) {
 function loadCityInfo(cityData) {
 	// set city name
 	$("#current-city-data").text(`${cityData.place_name}`);
+	$("#select-city").text(`${cityData.place_name}`);
 }
 
 /**
@@ -122,6 +123,11 @@ function loadCityWeather(activeCityData) {
 
 /**function to load POI info */
 function loadPoiData(activeCityData) {
+	//empty the list before append
+	$("#restaurants-list").empty();
+	$("#shopping-list").empty();
+	$("#todo-list").empty();
+
 	// get restaurant data within boundry box
 	var restaurantSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/restaurants.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
 	$.getJSON(restaurantSearch, function (json) {
@@ -135,7 +141,6 @@ function loadPoiData(activeCityData) {
 	// get shopping data within boundry box
 	var shopSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/clothing.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
 	$.getJSON(shopSearch, function (json) {
-		debugger;
 		for (var i = 0; i < 5 && i < json.features.length; i++) {
 			$("#shopping-list").append(
 				`<div class="mt-3">${json.features[i].text}</div>`
@@ -203,46 +208,38 @@ function loadCityPhotos(activeCityData) {
 		$(".carousel").carousel();
 	});
 }
+
 /**
  * plan vacation function
  */
 function planVacation() {
+	var currentDate = new Date();
+	var year = currentDate.getFullYear();
+	var month = currentDate.getMonth();
+	var day = currentDate.getDay();
+	var defaultFromDate = new Date(year, month, day + 3);
+	var defaultToDate = new Date(year, month, day + 10);
+
+	$(".datepicker").datepicker({
+		minDate: new Date(year, month, day + 3),
+		maxDate: new Date(year + 1, 12, 31),
+		yearRange: [year, year + 1],
+		autoClose: true,
+		setDefaultDate: true,
+		onClose: () => {
+			console.log("date picker closed");
+		},
+	});
+
+	$("#from_date")
+		.datepicker("setDate", defaultFromDate)
+		.datepicker("gotoDate", defaultFromDate);
+	$("#to_date")
+		.datepicker("setDate", defaultToDate)
+		.datepicker("gotoDate", defaultToDate);
+
 	loadPageSection("#plan-vacation-page");
 }
-
-/**Date picker function */
-$(function () {
-	var dateFormat = "mm/dd/yy",
-		from = $("#from")
-			.datepicker({
-				defaultDate: "+1w",
-				changeMonth: true,
-				numberOfMonths: 3,
-			})
-			.on("change", function () {
-				to.datepicker("option", "minDate", getDate(this));
-			}),
-		to = $("#to")
-			.datepicker({
-				defaultDate: "+1w",
-				changeMonth: true,
-				numberOfMonths: 3,
-			})
-			.on("change", function () {
-				from.datepicker("option", "maxDate", getDate(this));
-			});
-
-	function getDate(element) {
-		var date;
-		try {
-			date = $.datepicker.parseDate(dateFormat, element.value);
-		} catch (error) {
-			date = null;
-		}
-
-		return date;
-	}
-});
 
 /**get textarea input for vacation notes */
 $("input#my-notes").click(function (e) {
@@ -256,13 +253,12 @@ $("input#my-notes").click(function (e) {
 $("#save-activity").click(function (e) {
 	e.preventDefault();
 	var activity = $("#activity-input").val();
-	activityList.push(activity)
-	$("#activity-input").val("")
+	activityList.push(activity);
+	$("#activity-input").val("");
 	// for (var i = 0; i < activityList.length; i++) {
-		$("#activity-list").append(`<li>${activity}</li>`)
+	$("#activity-list").append(`<li>${activity}</li>`);
 	//   }
-
-})
+});
 
 function goHome() {
 	loadPageSection("#home-page");
@@ -270,7 +266,7 @@ function goHome() {
 
 function getDateFrom(e) {
 	e.preventDefault();
-	var fromVal = $("#from").val();
+	var fromVal = $("#from_date").val();
 	//TODO validate from is before than to
 	date.from = fromVal;
 	console.log(date);
@@ -278,7 +274,7 @@ function getDateFrom(e) {
 
 function getDateTo(e) {
 	e.preventDefault();
-	var toVal = $("#to").val();
+	var toVal = $("#to_date").val();
 	//TODO validate the dates
 	date.to = toVal;
 	console.log(date);
