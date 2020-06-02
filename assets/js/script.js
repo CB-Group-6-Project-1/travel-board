@@ -141,7 +141,6 @@ function loadPoiData(activeCityData) {
 	var todoSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/nightclub.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
 	$.getJSON(todoSearch, function (json) {
 		for (var i = 0; i < 5 && i < json.features.length; i++) {
-			console.log(json.features[i].text);
 			$("#todo-list").append(
 				`<div class="mt-3">${json.features[i].text}</div>`
 			);
