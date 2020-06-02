@@ -175,7 +175,7 @@ function loadCityMap(activeCityData) {
 function loadCityPhotos(activeCityData) {
 	// remove previous photos, if any
 	$(".carousel").empty();
-	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&tags=${activeCityData.place_name}+city%2C+${activeCityData.place_name}+monuments%2C+${activeCityData.place_name}+sunset%2C+${activeCityData.place_name}+beach%2C&safe_search=1&content_type=1&geo_context=2&format=json&nojsoncallback=1`;
+	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&tags=${activeCityData.text}+city%2C+${activeCityData.text}+monuments%2C+${activeCityData.text}+sunset%2C+${activeCityData.text}+beach%2C&safe_search=1&content_type=1&geo_context=2&format=json&nojsoncallback=1`;
 	// ajax here (getting the json object)
 	$.getJSON(flickerURL, function (json) {
 		for (var i = 0; i < 5; i++) {
