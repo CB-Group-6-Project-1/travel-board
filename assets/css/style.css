@@ -246,3 +246,19 @@ textarea {
 textarea::-webkit-input-placeholder {
 	color: white;
 }
+
+#activity-form {
+	display:flex;
+	flex-direction:row;
+	border: 1px solid;
+	height:42px;
+}
+
+#activity-input {
+	border:none;
+}
+
+#activity-input:focus {
+	outline: none;
+	border: none;
+}
