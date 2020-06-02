@@ -131,7 +131,9 @@ function loadPoiData(activeCityData) {
 	var shopSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/clothing.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
 	$.getJSON(shopSearch, function (json) {
 		for (var i = 0; i < 5 && i < json.features.length; i++) {
-			$("#shop-" + (i + 1)).html(json.features[i].text);
+			$("#shoping-list").append(
+				`<div class="mt-3">${json.features[i].text}</div>`
+			);
 		}
 	});
 
