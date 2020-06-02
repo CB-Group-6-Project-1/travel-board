@@ -17,7 +17,6 @@
   <!-- link Mui CSS icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- link Pure CSS  -->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css"> -->
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
     integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous" />
   <!-- link font fontawesome -->
@@ -140,10 +139,9 @@
             <div class="card teal lighten-4">
               <div class="card-content dark-text">
                 <span class="card-title">Restaurants</span>
-                <!-- place info here -->
-                <div class="mt-3"><span id="restaurant-1"></span></div>
-                <div class="mt-3"><span id="restaurant-2"></span></div>
-                <div class="mt-3"><span id="restaurant-3"></span></div>
+                <div id="restaurants-list">
+                  <!-- place info here -->
+                </div>
               </div>
             </div>
           </div>
@@ -155,10 +153,9 @@
             <div class="card teal lighten-4">
               <div class="card-content dark-text">
                 <span class="card-title">Shopping</span>
-                <!-- place info here -->
-                <div class="mt-3"><span id="shop-1"></span></div>
-                <div class="mt-3"><span id="shop-2"></span></div>
-                <div class="mt-3"><span id="shop-3"></span></div>
+                <div id="shopping-list">
+                  <!-- shopping info here -->
+                </div>
               </div>
             </div>
           </div>
@@ -170,10 +167,9 @@
             <div class="card teal lighten-4">
               <div class="card-content dark-text">
                 <span class="card-title">Todo</span>
-                <!-- place info here -->
-                <div class="mt-3"><span id="todo-1"></span></div>
-                <div class="mt-3"><span id="todo-2"></span></div>
-                <div class="mt-3"><span id="todo-3"></span></div>
+                <div id="todo-list">
+                  <!-- todo info here -->
+                </div>
               </div>
             </div>
           </div>
@@ -320,6 +316,8 @@
     <span>Travel Board </span><span>&copy;</span><span> 2020</span>
   </footer>
 
+  <!-- jquery UI cdn -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <!-- API Map js file -->
   <script
     src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
