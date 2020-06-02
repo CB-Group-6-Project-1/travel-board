@@ -257,7 +257,6 @@ function getDateFrom(e) {
 	var fromVal = $("#from").val();
 	//TODO validate from is before than to
 	date.from = fromVal;
-	console.log(date);
 }
 
 function getDateTo(e) {
@@ -265,7 +264,6 @@ function getDateTo(e) {
 	var toVal = $("#to").val();
 	//TODO validate the dates
 	date.to = toVal;
-	console.log(date);
 }
 
 // On Document Ready (events)
