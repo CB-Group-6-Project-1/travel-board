@@ -134,8 +134,9 @@ function loadPoiData(activeCityData) {
 	// get shopping data within boundry box
 	var shopSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/clothing.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
 	$.getJSON(shopSearch, function (json) {
+		debugger;
 		for (var i = 0; i < 5 && i < json.features.length; i++) {
-			$("#shoping-list").append(
+			$("#shopping-list").append(
 				`<div class="mt-3">${json.features[i].text}</div>`
 			);
 		}
@@ -207,6 +208,7 @@ function loadCityPhotos(activeCityData) {
 function planVacation() {
 	loadPageSection("#plan-vacation-page");
 }
+
 /**Date picker function */
 $(function () {
 	var dateFormat = "mm/dd/yy",
@@ -216,11 +218,8 @@ $(function () {
 				changeMonth: true,
 				numberOfMonths: 3,
 			})
-			.on("change", function (ev) {
-				if ($("#from").valid()) {
-					$("#from").removeClass("invalid").addClass("success");
-				}
-				from.datepicker("option", "minDate", getDate(this));
+			.on("change", function () {
+				to.datepicker("option", "minDate", getDate(this));
 			}),
 		to = $("#to")
 			.datepicker({
@@ -228,33 +227,23 @@ $(function () {
 				changeMonth: true,
 				numberOfMonths: 3,
 			})
-			.on("change", function (ev) {
-				if ($("#to").valid()) {
-					$("#to").removeClass("invalid").addClass("success");
-				}
-				to.datepicker("option", "maxDate", getDate(this));
+			.on("change", function () {
+				from.datepicker("option", "maxDate", getDate(this));
 			});
-
-	/* {
-   .on('changeDate', function(ev) {
-    if($('#datepicker').valid()){
-       $('#datepicker').removeClass('invalid').addClass('success');   
-    }
- }); */
 
 	function getDate(element) {
 		var date;
 		try {
 			date = $.datepicker.parseDate(dateFormat, element.value);
-			console.log(date);
 		} catch (error) {
 			date = null;
 		}
+
 		return date;
 	}
 });
-/**get textarea input for vacation notes */
 
+/**get textarea input for vacation notes */
 $("input#my-notes").click(function (e) {
 	e.preventDefault();
 	var vacationNotes = $("textarea#myNotes").val();
@@ -270,8 +259,7 @@ function getDateFrom(e) {
 	var fromVal = $("#from").val();
 	//TODO validate from is before than to
 	date.from = fromVal;
-	//test
-	console.log(fromVal);
+	console.log(date);
 }
 
 function getDateTo(e) {
@@ -279,6 +267,7 @@ function getDateTo(e) {
 	var toVal = $("#to").val();
 	//TODO validate the dates
 	date.to = toVal;
+	console.log(date);
 }
 
 // On Document Ready (events)
