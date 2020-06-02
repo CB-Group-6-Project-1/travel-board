@@ -253,13 +253,12 @@ $("input#my-notes").click(function (e) {
 $("#save-activity").click(function (e) {
 	e.preventDefault();
 	var activity = $("#activity-input").val();
-	activityList.push(activity)
-	$("#activity-input").val("")
+	activityList.push(activity);
+	$("#activity-input").val("");
 	// for (var i = 0; i < activityList.length; i++) {
-		$("#activity-list").append(`<li>${activity}</li>`)
+	$("#activity-list").append(`<li>${activity}</li>`);
 	//   }
-
-})
+});
 
 function goHome() {
 	loadPageSection("#home-page");
