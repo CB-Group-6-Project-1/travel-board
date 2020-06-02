@@ -216,8 +216,11 @@ $(function () {
 				changeMonth: true,
 				numberOfMonths: 3,
 			})
-			.on("change", function () {
-				to.datepicker("option", "minDate", getDate(this));
+			.on("change", function (ev) {
+				if ($("#from").valid()) {
+					$("#from").removeClass("invalid").addClass("success");
+				}
+				from.datepicker("option", "minDate", getDate(this));
 			}),
 		to = $("#to")
 			.datepicker({
@@ -225,9 +228,19 @@ $(function () {
 				changeMonth: true,
 				numberOfMonths: 3,
 			})
-			.on("change", function () {
-				from.datepicker("option", "maxDate", getDate(this));
+			.on("change", function (ev) {
+				if ($("#to").valid()) {
+					$("#to").removeClass("invalid").addClass("success");
+				}
+				to.datepicker("option", "maxDate", getDate(this));
 			});
+
+	/* {
+   .on('changeDate', function(ev) {
+    if($('#datepicker').valid()){
+       $('#datepicker').removeClass('invalid').addClass('success');   
+    }
+ }); */
 
 	function getDate(element) {
 		var date;
@@ -257,6 +270,8 @@ function getDateFrom(e) {
 	var fromVal = $("#from").val();
 	//TODO validate from is before than to
 	date.from = fromVal;
+	//test
+	console.log(fromVal);
 }
 
 function getDateTo(e) {
