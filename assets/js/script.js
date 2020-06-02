@@ -121,6 +121,11 @@ function loadCityWeather(activeCityData) {
 
 /**function to load POI info */
 function loadPoiData(activeCityData) {
+	//empty the list before append
+	$("#restaurants-list").empty();
+	$("#shopping-list").empty();
+	$("#todo-list").empty();
+
 	// get restaurant data within boundry box
 	var restaurantSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/restaurants.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
 	$.getJSON(restaurantSearch, function (json) {
