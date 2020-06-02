@@ -1,4 +1,5 @@
 // Global Variables
+var activityList = [];
 var activeCityData;
 var date = {
 	from: "",
@@ -249,6 +250,16 @@ $("input#my-notes").click(function (e) {
 	var vacationNotes = $("textarea#myNotes").val();
 	console.log(vacationNotes);
 });
+
+/**add activity input to list and clear input field */
+
+$("#save-activity").click(function (e) {
+	e.preventDefault();
+	var activity = $("#activity-input").val();
+	activityList.push(activity)
+	$("#activity-input").val("")
+
+})
 
 function goHome() {
 	loadPageSection("#home-page");
