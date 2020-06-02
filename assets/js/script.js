@@ -1,5 +1,9 @@
 // Global Variables
 var activeCityData;
+var date = {
+	from: "",
+	to: "",
+};
 
 // Functions
 
@@ -120,24 +124,31 @@ function loadPoiData(activeCityData) {
 	// get restaurant data within boundry box
 	var restaurantSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/restaurants.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
 	$.getJSON(restaurantSearch, function (json) {
-		for (var i = 0; i < 3 && i < json.features.length; i++) {
-			$("#restaurant-" + (i + 1)).html(json.features[i].text);
+		for (var i = 0; i < 5 && i < json.features.length; i++) {
+			$("#restaurants-list").append(
+				`<div class="mt-3">${json.features[i].text}</div>`
+			);
 		}
 	});
 
 	// get shopping data within boundry box
 	var shopSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/clothing.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
 	$.getJSON(shopSearch, function (json) {
-		for (var i = 0; i < 3 && i < json.features.length; i++) {
-			$("#shop-" + (i + 1)).html(json.features[i].text);
+		debugger;
+		for (var i = 0; i < 5 && i < json.features.length; i++) {
+			$("#shopping-list").append(
+				`<div class="mt-3">${json.features[i].text}</div>`
+			);
 		}
 	});
 
 	// get todo data from boundry box
 	var todoSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/nightclub.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
 	$.getJSON(todoSearch, function (json) {
-		for (var i = 0; i < 3 && i < json.features.length; i++) {
-			$("#todo-" + (i + 1)).html(json.features[i].text);
+		for (var i = 0; i < 5 && i < json.features.length; i++) {
+			$("#todo-list").append(
+				`<div class="mt-3">${json.features[i].text}</div>`
+			);
 		}
 	});
 }
@@ -175,7 +186,7 @@ function loadCityMap(activeCityData) {
 function loadCityPhotos(activeCityData) {
 	// remove previous photos, if any
 	$(".carousel").empty();
-	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&tags=${activeCityData.place_name}+city%2C+${activeCityData.place_name}+monuments%2C+${activeCityData.place_name}+sunset%2C+${activeCityData.place_name}+beach%2C&safe_search=1&content_type=1&geo_context=2&format=json&nojsoncallback=1`;
+	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&tags=${activeCityData.text}+city%2C+${activeCityData.text}+monuments%2C+${activeCityData.text}+sunset%2C+${activeCityData.text}+beach%2C&safe_search=1&content_type=1&geo_context=2&format=json&nojsoncallback=1`;
 	// ajax here (getting the json object)
 	$.getJSON(flickerURL, function (json) {
 		for (var i = 0; i < 5; i++) {
@@ -197,6 +208,7 @@ function loadCityPhotos(activeCityData) {
 function planVacation() {
 	loadPageSection("#plan-vacation-page");
 }
+
 /**Date picker function */
 $(function () {
 	var dateFormat = "mm/dd/yy",
@@ -230,16 +242,32 @@ $(function () {
 		return date;
 	}
 });
-/**get textarea input for vacation notes */
 
-$("input#my-notes").click(function(e) {
+/**get textarea input for vacation notes */
+$("input#my-notes").click(function (e) {
 	e.preventDefault();
-    var vacationNotes = $('textarea#myNotes').val();
-   console.log(vacationNotes)
+	var vacationNotes = $("textarea#myNotes").val();
+	console.log(vacationNotes);
 });
 
 function goHome() {
 	loadPageSection("#home-page");
+}
+
+function getDateFrom(e) {
+	e.preventDefault();
+	var fromVal = $("#from").val();
+	//TODO validate from is before than to
+	date.from = fromVal;
+	console.log(date);
+}
+
+function getDateTo(e) {
+	e.preventDefault();
+	var toVal = $("#to").val();
+	//TODO validate the dates
+	date.to = toVal;
+	console.log(date);
 }
 
 // On Document Ready (events)
@@ -252,4 +280,8 @@ $(document).ready(function () {
 	$("#plan-vacation-btn").on("click", planVacation);
 	//When I click home on nav bar
 	$("#home").on("click", goHome);
+	//When the user select a date from
+	$("#from").on("click", getDateFrom);
+	////When the user select a date to
+	$("#to").on("click", getDateTo);
 });
