@@ -258,6 +258,9 @@ $("#save-activity").click(function (e) {
 	var activity = $("#activity-input").val();
 	activityList.push(activity)
 	$("#activity-input").val("")
+	// for (var i = 0; i < activityList.length; i++) {
+		$("#activity-list").append(`<li>${activity}</li>`)
+	//   }
 
 })
 
