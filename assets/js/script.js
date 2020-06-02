@@ -120,15 +120,17 @@ function loadPoiData(activeCityData) {
 	// get restaurant data within boundry box
 	var restaurantSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/restaurants.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
 	$.getJSON(restaurantSearch, function (json) {
-		for (var i = 0; i < 3 && i < json.features.length; i++) {
-			$("#restaurant-" + (i + 1)).html(json.features[i].text);
+		for (var i = 0; i < 5 && i < json.features.length; i++) {
+			$("#restaurants-list").append(
+				`<div class="mt-3">${json.features[i].text}</div>`
+			);
 		}
 	});
 
 	// get shopping data within boundry box
 	var shopSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/clothing.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
 	$.getJSON(shopSearch, function (json) {
-		for (var i = 0; i < 3 && i < json.features.length; i++) {
+		for (var i = 0; i < 5 && i < json.features.length; i++) {
 			$("#shop-" + (i + 1)).html(json.features[i].text);
 		}
 	});
@@ -136,7 +138,7 @@ function loadPoiData(activeCityData) {
 	// get todo data from boundry box
 	var todoSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/nightclub.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
 	$.getJSON(todoSearch, function (json) {
-		for (var i = 0; i < 3 && i < json.features.length; i++) {
+		for (var i = 0; i < 5 && i < json.features.length; i++) {
 			$("#todo-" + (i + 1)).html(json.features[i].text);
 		}
 	});
