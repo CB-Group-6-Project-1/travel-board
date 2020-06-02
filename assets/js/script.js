@@ -1,5 +1,6 @@
 // Global Variables
 var activeCityData;
+var dates = [];
 
 // Functions
 
@@ -229,23 +230,37 @@ $(function () {
 		var date;
 		try {
 			date = $.datepicker.parseDate(dateFormat, element.value);
+			console.log(date);
 		} catch (error) {
 			date = null;
 		}
-
 		return date;
 	}
 });
 /**get textarea input for vacation notes */
 
-$("input#my-notes").click(function(e) {
+$("input#my-notes").click(function (e) {
 	e.preventDefault();
-    var vacationNotes = $('textarea#myNotes').val();
-   console.log(vacationNotes)
+	var vacationNotes = $("textarea#myNotes").val();
+	console.log(vacationNotes);
 });
 
 function goHome() {
 	loadPageSection("#home-page");
+}
+
+function getDateFrom(e) {
+	e.preventDefault();
+	var from = $("#from").val();
+	//test
+	alert(from);
+}
+
+function getDateTo(e) {
+	e.preventDefault();
+	var to = $("#to").val();
+	//test
+	alert(to);
 }
 
 // On Document Ready (events)
@@ -258,4 +273,8 @@ $(document).ready(function () {
 	$("#plan-vacation-btn").on("click", planVacation);
 	//When I click home on nav bar
 	$("#home").on("click", goHome);
+	//When the user select a date from
+	$("#from").on("click", getDateFrom);
+	////When the user select a date to
+	$("#to").on("click", getDateTo);
 });
