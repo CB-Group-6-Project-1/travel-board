@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- link to jquery UI stylesheet -->
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
   <!-- link API map required links -->
   <link rel="stylesheet"
     href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
@@ -196,10 +196,14 @@
       </div>
     </div>
     <div class="date-picker-container">
-      <label for="from">From</label>
-      <input type="text" id="from" name="from">
-      <label for="to">to</label>
-      <input type="text" id="to" name="to">
+      <div class="input-field">
+        <label for="from_date">From</label>
+        <input type="text" id="from_date" name="from_date" class="datepicker">
+      </div>
+      <div class="input-field">
+        <label for="to_date">to</label>
+        <input type="text" id="to_date" name="to-date" class="datepicker">
+      </div>
     </div>
     <div class="plan-vacation-info-cards">
       <div class="row">
@@ -253,7 +257,7 @@
         <h1>Active Vacations</h1>
         <div class="card">
           <div class="card-image">
-            <img src="./assets/images/home-page-imgs/maui.jpg" />
+            <img src="./assets/images/home-page-imgs/rome.jpg" />
             <span class="card-title">Card Title</span>
           </div>
           <div class="card-content">
@@ -275,7 +279,7 @@
         <h1>Upcoming Vacations</h1>
         <div class="card">
           <div class="card-image">
-            <img src="./assets/images/home-page-imgs/maui.jpg" />
+            <img src="./assets/images/home-page-imgs/rome.jpg" />
             <span class="card-title">Card Title</span>
           </div>
           <div class="card-content">
@@ -296,7 +300,7 @@
         <h1>Past Vacations</h1>
         <div class="card">
           <div class="card-image">
-            <img src="./assets/images/home-page-imgs/maui.jpg" />
+            <img src="./assets/images/home-page-imgs/rome.jpg" />
             <span class="card-title">Card Title</span>
           </div>
           <div class="card-content">
@@ -317,15 +321,14 @@
     <hr class="footer-border" />
     <span>Travel Board </span><span>&copy;</span><span> 2020</span>
   </footer>
-
+  <!-- jquery cdn -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- jquery UI cdn -->
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <!-- API Map js file -->
   <script
     src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
-  <!-- jquery cdn -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- compiled and minified javascript MUI-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <!-- custom script -->
