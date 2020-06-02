@@ -237,3 +237,10 @@ footer {
 	display: flex;
 	justify-content: center;
 }
+
+textarea {
+	resize: none;
+}
+textarea::-webkit-input-placeholder {
+	color: white;
+}
