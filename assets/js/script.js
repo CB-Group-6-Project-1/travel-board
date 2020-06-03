@@ -97,6 +97,7 @@ function loadCityInfo(cityData) {
  * Load city weather to display on the city details page given a parameter (city)
  */
 function loadCityWeather(activeCityData) {
+	$("#icon").empty();
 	//API key
 	var key = "df00607ac86544829aa40423201905";
 	//Days forecast
@@ -193,7 +194,7 @@ function loadCityPhotos(activeCityData) {
 	$(".carousel").empty();
 	var pixelURL = `https://pixabay.com/api/?key=16859378-c1f5b589a2d6921a2b1b17090&q=${activeCityData.text}+city&image_type=photo`;
 	$.getJSON(pixelURL, function (json) {
-		for (var i = 0; i < 5; i++) {
+		for (var i = 0; i < 20 && i < json.hits.length; i++) {
 			$(".carousel").append(
 				`<img src=${json.hits[i].largeImageURL} class="carousel-item">`
 			);
@@ -248,12 +249,16 @@ function saveActivity(e) {
 	var activity = $("#activity-input").val();
 	activityList.push(activity);
 	$("#activity-input").val("");
-	$("#activity-list").append(`<li id="${activityList.indexOf(activity)}">${activity}<button data-ref="${activityList.indexOf(activity)}" class ="material-icons delete" onclick="clearActivity()">clear</button></li>`);	
-};
+	var index = activityList.length - 1;
+	$("#activity-list").append(
+		`<li id="activity-${index}">${activity}<button class ="material-icons delete" onclick="clearActivity("${activity}")">clear</button></li>`
+	);
+}
 
-function clearActivity() {
-    var listItem = $(".delete").attr("data-ref");
-	$("#" + listItem).remove();
+function clearActivity(listItemIndex) {
+	$("#activity-" + listItemIndex).remove();
+	activityList.splice(listItemIndex, 1);
+	console.log(activityList);
 }
 
 function goHome() {

@@ -248,14 +248,14 @@ textarea::-webkit-input-placeholder {
 }
 
 #activity-form {
-	display:flex;
-	flex-direction:row;
+	display: flex;
+	flex-direction: row;
 	border: 1px solid;
-	height:42px;
+	height: 42px;
 }
 
 #activity-input {
-	border:none;
+	border: none;
 }
 
 #activity-input:focus {
@@ -264,7 +264,7 @@ textarea::-webkit-input-placeholder {
 }
 
 li {
-	display:flex;
+	display: flex;
 	flex-direction: row;
-    justify-content: space-between;
+	justify-content: space-between;
 }
