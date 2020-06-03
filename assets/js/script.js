@@ -264,6 +264,14 @@ function clearActivity(btn, activity) {
 	btn.parentNode.remove();
 }
 
+function addGuest() {
+	var guestName = $("#icon_prefix").val();
+	$("#guest-list").append(`<div class="chip">
+                      <div id="guest-info">${guestName}<span><i class="close material-icons">close</i></span>
+                      </div>
+                    </div> `);
+}
+
 function goHome() {
 	loadPageSection("#home-page");
 }
@@ -300,4 +308,6 @@ $(document).ready(function () {
 	$("#to").on("click", getDateTo);
 	// when user clicks save activities
 	$("#save-activity").on("click", saveActivity);
+	//when the user clicks the add guest
+	$("#add-guest").on("click", addGuest);
 });
