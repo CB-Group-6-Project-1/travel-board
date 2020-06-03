@@ -190,20 +190,13 @@ function loadCityMap(activeCityData) {
 
 // function loadCityPhotos(city) {
 function loadCityPhotos(activeCityData) {
-	// remove previous photos, if any
 	$(".carousel").empty();
-	var flickerURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=bfab214383112313808fbee8bd7fad3e&tags=${activeCityData.text}+city%2C+${activeCityData.text}+monuments%2C+${activeCityData.text}+sunset%2C+${activeCityData.text}+beach%2C&safe_search=1&content_type=1&geo_context=2&format=json&nojsoncallback=1`;
-	// ajax here (getting the json object)
-	$.getJSON(flickerURL, function (json) {
+	var pixelURL = `https://pixabay.com/api/?key=16859378-c1f5b589a2d6921a2b1b17090&q=${activeCityData.text}+city&image_type=photo`;
+	$.getJSON(pixelURL, function (json) {
 		for (var i = 0; i < 5; i++) {
-			var flickerPictureFarmIdOne = json.photos.photo[i].farm;
-			var flickerServerIdOne = json.photos.photo[i].server;
-			var flickerPictureIdOne = json.photos.photo[i].id;
-			var flickerSecretIdOne = json.photos.photo[i].secret;
-
-			var imageURL = `https://farm${flickerPictureFarmIdOne}.staticflickr.com/${flickerServerIdOne}/${flickerPictureIdOne}_${flickerSecretIdOne}.jpg`;
-
-			$(".carousel").append(`<img src=${imageURL} class="carousel-item">`);
+			$(".carousel").append(
+				`<img src=${json.hits[i].largeImageURL} class="carousel-item">`
+			);
 		}
 		$(".carousel").carousel();
 	});
