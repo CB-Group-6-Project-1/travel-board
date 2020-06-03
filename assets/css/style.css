@@ -195,29 +195,6 @@ footer {
 	color: red;
 }
 
-@media screen and (max-width: 768px) {
-	.search-form {
-		flex-direction: column;
-	}
-	.search-button {
-		margin-top: 12px;
-	}
-	.search-text {
-		width: 80%;
-	}
-}
-
-@media screen and (max-width: 900px) {
-	.images {
-		justify-content: space-around;
-		flex-wrap: wrap;
-	}
-	.overlay {
-		width: 50%;
-		text-align: center;
-	}
-}
-
 .plan-vacation-container {
 	display: flex;
 	flex-direction: column;
@@ -267,4 +244,33 @@ li {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+}
+
+.guest-style {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+	.search-form {
+		flex-direction: column;
+	}
+	.search-button {
+		margin-top: 12px;
+	}
+	.search-text {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.images {
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+	.overlay {
+		width: 50%;
+		text-align: center;
+	}
 }

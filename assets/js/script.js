@@ -242,23 +242,30 @@ $("input#my-notes").click(function (e) {
 	console.log(vacationNotes);
 });
 
-/**add activity input to list and clear input field */
-
+/**
+ * add activity input to list
+ */
 function saveActivity(e) {
 	e.preventDefault();
 	var activity = $("#activity-input").val();
+	$("#activity-list").append(
+		`<li>${activity}<button class ="material-icons cyan pulse" onclick="clearActivity('${activity}')">clear</button></li>`
+	);
 	activityList.push(activity);
 	$("#activity-input").val("");
-	var index = activityList.length - 1;
-	$("#activity-list").append(
-		`<li id="activity-${index}">${activity}<button class ="material-icons delete" onclick="clearActivity("${activity}")">clear</button></li>`
-	);
 }
 
-function clearActivity(listItemIndex) {
-	$("#activity-" + listItemIndex).remove();
-	activityList.splice(listItemIndex, 1);
-	console.log(activityList);
+/**
+ * clear activity input
+ */
+function clearActivity(activity) {
+	var listWrapEl = document.querySelector("#activity-list");
+	for (let i = 0; i < activityList.length; i++) {
+		if (activityList[i] === activity) {
+			listWrapEl.children[i].remove();
+			activityList.splice(i, 1);
+		}
+	}
 }
 
 function goHome() {
