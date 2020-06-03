@@ -97,6 +97,7 @@ function loadCityInfo(cityData) {
  * Load city weather to display on the city details page given a parameter (city)
  */
 function loadCityWeather(activeCityData) {
+	$("#icon").empty();
 	//API key
 	var key = "df00607ac86544829aa40423201905";
 	//Days forecast
@@ -193,7 +194,7 @@ function loadCityPhotos(activeCityData) {
 	$(".carousel").empty();
 	var pixelURL = `https://pixabay.com/api/?key=16859378-c1f5b589a2d6921a2b1b17090&q=${activeCityData.text}+city&image_type=photo`;
 	$.getJSON(pixelURL, function (json) {
-		for (var i = 0; i < 5; i++) {
+		for (var i = 0; i < 20 && i < json.hits.length; i++) {
 			$(".carousel").append(
 				`<img src=${json.hits[i].largeImageURL} class="carousel-item">`
 			);
@@ -241,19 +242,38 @@ $("input#my-notes").click(function (e) {
 	console.log(vacationNotes);
 });
 
-/**add activity input to list and clear input field */
-
+/**
+ * add activity input to list
+ */
 function saveActivity(e) {
 	e.preventDefault();
 	var activity = $("#activity-input").val();
+	$("#activity-list").append(
+		`<li>${activity}<button class="material-icons cyan pulse" onclick="clearActivity(this, '${activity}')">clear</button></li>`
+	);
 	activityList.push(activity);
 	$("#activity-input").val("");
-	$("#activity-list").append(`<li id="${activityList.indexOf(activity)}">${activity}<button data-ref="${activityList.indexOf(activity)}" class ="material-icons delete" onclick="clearActivity()">clear</button></li>`);	
-};
+}
 
-function clearActivity() {
-    var listItem = $(".delete").attr("data-ref");
-	$("#" + listItem).remove();
+/**
+ * clear activity input
+ */
+function clearActivity(btn, activity) {
+	var index = activityList.indexOf(activity);
+	activityList.splice(index, 1);
+	btn.parentNode.remove();
+}
+
+function addGuest() {
+	var guestName = $("#icon_prefix").val();
+	var guestPhone = $("#icon_telephone").val();
+	var guestInfo = guestName + " " + guestPhone;
+	$("#guest-list").append(`<div class="chip">
+                      <div id="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
+                      </div>
+					</div> `);
+	$("#icon_prefix").val("");
+	$("#icon_telephone").val("");
 }
 
 function goHome() {
@@ -292,4 +312,6 @@ $(document).ready(function () {
 	$("#to").on("click", getDateTo);
 	// when user clicks save activities
 	$("#save-activity").on("click", saveActivity);
+	//when the user clicks the add guest
+	$("#add-guest").on("click", addGuest);
 });

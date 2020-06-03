@@ -4,8 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- link to jquery UI stylesheet -->
-  <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
   <!-- link API map required links -->
   <link rel="stylesheet"
     href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
@@ -178,11 +176,10 @@
     </div>
     <div class="pure-g">
       <div class="pure-u-1-3"></div>
-      <div class="pure-u-1-3 center"><button class="pure-button custom-btn" id="plan-vacation-btn">Plan
+      <div class="pure-u-1-3 center"><button class="waves-effect waves-light btn pulse" id="plan-vacation-btn">Plan
           Vacation</button></div>
     </div>
   </section>
-
   <!-- plan vacation section -->
   <section id="plan-vacation-page" class="section-hide page-section">
     <div class="plan-vacation-container">
@@ -209,13 +206,14 @@
       <div class="row">
         <div class="col s12 m6 custom-style">
           <div class="card teal lighten-4">
-            <div class="card-content dark-text">
+            <div class="card-content dark-text guest-style">
+              <!-- notes info -->
               <span class="card-title">Trip Notes</span>
-              <!-- place info here -->
               <textarea id="myNotes" form="vacation-notes" name="vacation-notes" maxlength="300"
                 placeholder="Vacation Notes" rows="5" cols="30"></textarea>
               <form id="vacation-notes">
-                <input id="my-notes" type="submit">
+                <button id="save-notes" type="submit" form="vacation-notes"
+                  class="waves-effect waves-light btn">Save</button>
               </form>
             </div>
           </div>
@@ -224,39 +222,57 @@
       <div class="row">
         <div class="col s12 m6 custom-style">
           <div class="card teal lighten-4">
-            <div class="card-content dark-text">
+            <div class="card-content dark-text guest-style">
               <span class="card-title">Guests</span>
-              <!-- place info here -->
-              <form class="pure-form">
-                <input type="text" class="pure-input-rounded" id="guestName" placeholder="Guest Name Here" />
-                <button type="submit" class="guest-button">Add</button>
-            </form>
+              <!-- guest info -->
+              <div class="row">
+                <form class="col s12 guest-form">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <i class="material-icons prefix">account_circle</i>
+                      <input id="icon_prefix" type="text" class="validate">
+                      <label for="icon_prefix">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <i class="material-icons prefix">phone</i>
+                      <input id="icon_telephone" type="tel" class="validate">
+                      <label for="icon_telephone">Telephone</label>
+                    </div>
+                  </div>
+                  <div id="guest-list">
+                    <!-- guest list -->
+                  </div>
+                  <button id="add-guest" type="submit" form="guest-form" class="waves-effect waves-light btn">Add
+                    Guest</button>
+                </form>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
       <div class="row">
         <div class="col s12 m6 custom-style">
           <div class="card teal lighten-4">
-            <div class="card-content dark-text">
+            <div class="card-content dark-text guest-style">
               <span class="card-title">Activities</span>
               <!-- place info here -->
               <form id="activity-form">
                 <input id="activity-input" type="text" form="activity-input" placeholder="add activity">
                 </input>
-                <button id="save-activity" type="submit" form="activity-form">Save</button>
+                <button id="save-activity" type="submit" form="activity-form"
+                  class="waves-effect waves-light btn">Save</button>
               </form>
               <ul id="activity-list"></ul>
-
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="button-container">
-      <button class="pure-button custom-btn" id="save-trip-button">Save Trip</button>
+      <button class="pulse waves-effect waves-light btn" id="save-trip">Save
+        Trip</button>
     </div>
-
   </section>
 
   <!-- ----------------travel plans section-------------------- -->

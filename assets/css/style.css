@@ -195,6 +195,78 @@ footer {
 	color: red;
 }
 
+.plan-vacation-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#plan-vacation-btn {
+	margin-top: 40px;
+}
+
+.date-picker-container {
+	display: flex;
+	padding: 10px 200px;
+	justify-content: space-evenly;
+}
+
+.plan-vacation-info-cards {
+	display: flex;
+}
+
+.button-container {
+	display: flex;
+}
+
+#save-trip {
+	margin: auto;
+}
+
+textarea {
+	resize: none;
+}
+textarea::-webkit-input-placeholder {
+	color: white;
+}
+
+#save-activity {
+	margin: 1px 1px;
+}
+
+#activity-form {
+	display: flex;
+	flex-direction: row;
+	border: 1px solid;
+	height: 42px;
+}
+
+#activity-input {
+	border: none;
+}
+
+#activity-input:focus {
+	outline: none;
+	border: none;
+}
+
+li {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.guest-style {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#myNotes {
+	margin-bottom: 20px;
+}
+
 @media screen and (max-width: 768px) {
 	.search-form {
 		flex-direction: column;
@@ -216,55 +288,4 @@ footer {
 		width: 50%;
 		text-align: center;
 	}
-}
-
-.plan-vacation-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.date-picker-container {
-	display: flex;
-	padding: 10px 200px;
-	justify-content: space-evenly;
-}
-
-.plan-vacation-info-cards {
-	display: flex;
-}
-
-.button-container {
-	display: flex;
-	justify-content: center;
-}
-
-textarea {
-	resize: none;
-}
-textarea::-webkit-input-placeholder {
-	color: white;
-}
-
-#activity-form {
-	display:flex;
-	flex-direction:row;
-	border: 1px solid;
-	height:42px;
-}
-
-#activity-input {
-	border:none;
-}
-
-#activity-input:focus {
-	outline: none;
-	border: none;
-}
-
-li {
-	display:flex;
-	flex-direction: row;
-    justify-content: space-between;
 }
