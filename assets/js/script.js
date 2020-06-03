@@ -243,15 +243,18 @@ $("input#my-notes").click(function (e) {
 
 /**add activity input to list and clear input field */
 
-$("#save-activity").click(function (e) {
+function saveActivity(e) {
 	e.preventDefault();
 	var activity = $("#activity-input").val();
 	activityList.push(activity);
 	$("#activity-input").val("");
-	// for (var i = 0; i < activityList.length; i++) {
-	$("#activity-list").append(`<li>${activity}</li>`);
-	//   }
-});
+	$("#activity-list").append(`<li id="${activityList.indexOf(activity)}">${activity}<button data-ref="${activityList.indexOf(activity)}" class ="material-icons delete" onclick="clearActivity()">clear</button></li>`);	
+};
+
+function clearActivity() {
+    var listItem = $(".delete").attr("data-ref");
+	$("#" + listItem).remove();
+}
 
 function goHome() {
 	loadPageSection("#home-page");
@@ -287,4 +290,6 @@ $(document).ready(function () {
 	$("#from").on("click", getDateFrom);
 	////When the user select a date to
 	$("#to").on("click", getDateTo);
+	// when user clicks save activities
+	$("#save-activity").on("click", saveActivity);
 });

@@ -262,3 +262,9 @@ textarea::-webkit-input-placeholder {
 	outline: none;
 	border: none;
 }
+
+li {
+	display:flex;
+	flex-direction: row;
+    justify-content: space-between;
+}
