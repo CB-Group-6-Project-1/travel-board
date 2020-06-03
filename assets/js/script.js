@@ -2,11 +2,6 @@
 var activityList = [];
 var guestList = [];
 var activeCityData;
-// var notes = "";
-// var date = {
-// 	from: "",
-// 	to: "",
-// };
 
 var plan = {
 	activities: activityList,
@@ -17,6 +12,11 @@ var plan = {
 	guests: guestList,
 	notes: "",
 };
+
+if (localStorage.getItem("plan") !== null && activeCityData !== null) {
+	plan = JSON.parse(localStorage.getItem("plan"));
+	//TODO call active vacation function here
+}
 
 // Functions
 
@@ -303,14 +303,22 @@ function getDateFrom(e) {
 }
 
 function getDateTo(e) {
-	debugger;
 	e.preventDefault();
 	var toVal = $("#to_date").val();
 	//TODO validate the dates
 	plan.date.to = toVal;
 }
 
-function saveTrip() {}
+function saveTrip() {
+	localStorage.setItem("plan", JSON.stringify(plan));
+	loadPageSection("#travel-plans-page");
+	activeVacation();
+}
+
+function activeVacation() {
+	var notes = plan.notes;
+	$("#activeVacation").text(notes);
+}
 
 // On Document Ready (events)
 $(document).ready(function () {

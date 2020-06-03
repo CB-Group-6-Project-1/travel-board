@@ -260,7 +260,6 @@ li {
 .guest-style {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 }
 
 #myNotes {
