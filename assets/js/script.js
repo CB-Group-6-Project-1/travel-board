@@ -266,10 +266,14 @@ function clearActivity(btn, activity) {
 
 function addGuest() {
 	var guestName = $("#icon_prefix").val();
+	var guestPhone = $("#icon_telephone").val();
+	var guestInfo = guestName + " " + guestPhone;
 	$("#guest-list").append(`<div class="chip">
-                      <div id="guest-info">${guestName}<span><i class="close material-icons">close</i></span>
+                      <div id="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
                       </div>
-                    </div> `);
+					</div> `);
+	$("#icon_prefix").val("");
+	$("#icon_telephone").val("");
 }
 
 function goHome() {
