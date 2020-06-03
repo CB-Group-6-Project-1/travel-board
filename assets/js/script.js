@@ -249,7 +249,7 @@ function saveActivity(e) {
 	e.preventDefault();
 	var activity = $("#activity-input").val();
 	$("#activity-list").append(
-		`<li>${activity}<button class ="material-icons cyan pulse" onclick="clearActivity('${activity}')">clear</button></li>`
+		`<li>${activity}<button class="material-icons cyan pulse" onclick="clearActivity(this, '${activity}')">clear</button></li>`
 	);
 	activityList.push(activity);
 	$("#activity-input").val("");
@@ -258,14 +258,10 @@ function saveActivity(e) {
 /**
  * clear activity input
  */
-function clearActivity(activity) {
-	var listWrapEl = document.querySelector("#activity-list");
-	for (let i = 0; i < activityList.length; i++) {
-		if (activityList[i] === activity) {
-			listWrapEl.children[i].remove();
-			activityList.splice(i, 1);
-		}
-	}
+function clearActivity(btn, activity) {
+	var index = activityList.indexOf(activity);
+	activityList.splice(index, 1);
+	btn.parentNode.remove();
 }
 
 function goHome() {
