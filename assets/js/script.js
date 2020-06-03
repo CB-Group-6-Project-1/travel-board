@@ -2,6 +2,8 @@
 var activityList = [];
 var guestList = [];
 var activeCityData;
+var photoSrc = "";
+var activeCity = "";
 
 var plan = {
 	activities: activityList,
@@ -11,6 +13,8 @@ var plan = {
 	},
 	guests: guestList,
 	notes: "",
+	photo: photoSrc,
+	city: activeCity,
 };
 
 if (localStorage.getItem("plan") !== null && activeCityData !== null) {
@@ -101,6 +105,7 @@ function loadCityData(city) {
  */
 function loadCityInfo(cityData) {
 	// set city name
+	activeCity = cityData.place_name;
 	$("#current-city-data").text(`${cityData.place_name}`);
 	$("#select-city").text(`${cityData.place_name}`);
 }
@@ -206,6 +211,8 @@ function loadCityPhotos(activeCityData) {
 	$(".carousel").empty();
 	var pixelURL = `https://pixabay.com/api/?key=16859378-c1f5b589a2d6921a2b1b17090&q=${activeCityData.text}+city&image_type=photo`;
 	$.getJSON(pixelURL, function (json) {
+		photoSrc = json.hits[0].largeImageURL;
+
 		for (var i = 0; i < 20 && i < json.hits.length; i++) {
 			$(".carousel").append(
 				`<img src=${json.hits[i].largeImageURL} class="carousel-item">`
@@ -318,6 +325,8 @@ function saveTrip() {
 function activeVacation() {
 	var notes = plan.notes;
 	$("#activeVacation").text(notes);
+	$("#city-img").attr("src", photoSrc);
+	$("#active-city").text(activeCity);
 }
 
 // On Document Ready (events)
