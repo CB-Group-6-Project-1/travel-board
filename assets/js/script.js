@@ -17,12 +17,7 @@ var plan = {
 	city: activeCity,
 };
 
-vacationPlans = [];
-
-if (localStorage.getItem("plan") !== null && activeCityData !== null) {
-	plan = JSON.parse(localStorage.getItem("plan"));
-	vacationPlans.push(plan);
-}
+var vacationPlans = [];
 
 if (localStorage.getItem("vacationPlans") !== null) {
 	vacationPlans = JSON.parse(localStorage.getItem("vacationPlans"));
@@ -298,7 +293,8 @@ function addGuest() {
                       <div id="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
                       </div>
 					</div> `);
-	guestList.push(guestInfo);
+	var resultGuest = guestList.push(guestInfo);
+	plan.guests = resultGuest;
 	$("#icon_prefix").val("");
 	$("#icon_telephone").val("");
 }
@@ -323,33 +319,36 @@ function getDateTo(e) {
 }
 
 function saveTrip() {
-	//saving just the plan
-	localStorage.setItem("plan", JSON.stringify(plan));
-	loadPageSection("#travel-plans-page");
-	createPlan();
+	vacationPlans.push(plan);
+	localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
+	goTravelPlans();
 }
 
-function createPlan() {
-	// $("$#travel-plans-list").empty();
+function createPlan(plan) {
+	var time = moment().format("dddd, MMMM Do YYYY");
+
 	$("#travel-plans-list").append(`<div class="row">
 	<div class="col s12 m6">
-	  <h1>"TODO: Validate the dates to see if the text is active, upcomming or past"</h1>
 	  <div class="card">
-		<div class="card-image">
+		<div class="card-image z-depth-3">
 		  <img src=${photoSrc} />
-		  <span class="card-title" id="active-city">${activeCity}</span>
+		  <span class="card-title flow-text z-depth-3" id="active-city">${activeCity}</span>
 		</div>
 		<div class="card-content">
-		  <p id="activeVacation">
-		  ${plan.notes + " " + plan.guests + " " + plan.activities}
-		  <p id="timeOfActiveVacation">hi</p>
-		  </p>
+		<h5>${time}</h5>
+		  <p id="planNotes"><span><i class="material-icons">event_note</i>Notes:</span>${plan.notes}</p>
+		  <p id="dateFromTo"><span><i class="material-icons">av_timer</i>Dates:</span>From:${plan.date.from} ---- To:${plan.date.to}</p>
+		  <p id="guests-info"><span><i class="material-icons">account_circle</i>Guests:</span>${plan.guests}</p>
+		  <p id="list-activity"><span><i class="material-icons">menu</i>Activities:</span>${plan.activities}</p>
 		</div>
 	  </div>
 	</div>
   </div>`);
+}
 
-	localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
+function goTravelPlans() {
+	vacationPlans.forEach(createPlan);
+	loadPageSection("#travel-plans-page");
 }
 
 // On Document Ready (events)
@@ -374,4 +373,6 @@ $(document).ready(function () {
 	$("#save-trip").on("click", saveTrip);
 	//when the user clicks save notes
 	$("#save-notes").on("click", saveNotes);
+	//when the user clicks the nav plane icon
+	$("#plans").on("click", goTravelPlans);
 });
