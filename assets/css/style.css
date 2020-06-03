@@ -266,6 +266,11 @@ li {
 	margin-bottom: 20px;
 }
 
+#travel-plans-page {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 @media screen and (max-width: 768px) {
 	.search-form {
 		flex-direction: column;

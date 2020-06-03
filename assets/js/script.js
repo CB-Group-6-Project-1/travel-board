@@ -323,10 +323,28 @@ function saveTrip() {
 }
 
 function activeVacation() {
-	var notes = plan.notes;
-	$("#activeVacation").text(notes);
-	$("#city-img").attr("src", photoSrc);
-	$("#active-city").text(activeCity);
+	$("#travel-plans-list").append(`<div class="row">
+	<div class="col s12 m6">
+	  <h1>"TODO: Validate the dates to see if the text is active, upcomming or past"</h1>
+	  <div class="card">
+		<div class="card-image">
+		  <img src=${photoSrc} />
+		  <span class="card-title" id="active-city">${activeCity}</span>
+		</div>
+		<div class="card-content">
+		  <p id="activeVacation">
+		  ${plan.notes + " " + plan.guests + " " + plan.activities}
+		  <p id="timeOfActiveVacation">hi</p>
+		  </p>
+		</div>
+	  </div>
+	</div>
+  </div>`);
+
+	// var notes = plan.notes;
+	// $("#activeVacation").text(notes);
+	// $("#city-img").attr("src", photoSrc);
+	// $("#active-city").text(activeCity);
 }
 
 // On Document Ready (events)
