@@ -100,12 +100,12 @@ Phase one design features basic functionality and style for multiple features.
 | Browser Developer Tools | AJAX       |
 |                         | Jquery     |
 |                         | Pure.css   |
-|                         | Mui        |
+|                         |            |
 
 #### APIs
 
 - [Mapbox](https://docs.mapbox.com/api/)
-- [Flickr](https://www.flickr.com/services/api/)
+- [PixaBay](https://pixabay.com/api/docs/)
 - [Weatherapi.com](https://www.weatherapi.com/)
 
 ---
