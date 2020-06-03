@@ -1,9 +1,21 @@
 // Global Variables
 var activityList = [];
+var guestList = [];
 var activeCityData;
-var date = {
-	from: "",
-	to: "",
+// var notes = "";
+// var date = {
+// 	from: "",
+// 	to: "",
+// };
+
+var plan = {
+	activities: activityList,
+	date: {
+		from: "",
+		to: "",
+	},
+	guests: guestList,
+	notes: "",
 };
 
 // Functions
@@ -236,11 +248,12 @@ function planVacation() {
 }
 
 /**get textarea input for vacation notes */
-$("input#my-notes").click(function (e) {
+function saveNotes(e) {
 	e.preventDefault();
-	var vacationNotes = $("textarea#myNotes").val();
-	console.log(vacationNotes);
-});
+	var vacationNotes = "";
+	var vacationNotes = $("#myNotes").val();
+	plan.notes = vacationNotes;
+}
 
 /**
  * add activity input to list
@@ -272,6 +285,7 @@ function addGuest() {
                       <div id="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
                       </div>
 					</div> `);
+	guestList.push(guestInfo);
 	$("#icon_prefix").val("");
 	$("#icon_telephone").val("");
 }
@@ -284,17 +298,19 @@ function getDateFrom(e) {
 	e.preventDefault();
 	var fromVal = $("#from_date").val();
 	//TODO validate from is before than to
-	date.from = fromVal;
-	console.log(date);
+	plan.date.from = fromVal;
+	console.log(fromVal);
 }
 
 function getDateTo(e) {
+	debugger;
 	e.preventDefault();
 	var toVal = $("#to_date").val();
 	//TODO validate the dates
-	date.to = toVal;
-	console.log(date);
+	plan.date.to = toVal;
 }
+
+function saveTrip() {}
 
 // On Document Ready (events)
 $(document).ready(function () {
@@ -307,11 +323,15 @@ $(document).ready(function () {
 	//When I click home on nav bar
 	$("#home").on("click", goHome);
 	//When the user select a date from
-	$("#from").on("click", getDateFrom);
+	$("#from_date").on("click", getDateFrom);
 	////When the user select a date to
-	$("#to").on("click", getDateTo);
+	$("#to_date").on("click", getDateTo);
 	// when user clicks save activities
 	$("#save-activity").on("click", saveActivity);
 	//when the user clicks the add guest
 	$("#add-guest").on("click", addGuest);
+	//when the user click the save trip
+	$("#save-trip").on("click", saveTrip);
+	//when the user clicks save notes
+	$("#save-notes").on("click", saveNotes);
 });
