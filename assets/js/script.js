@@ -255,8 +255,7 @@ function saveActivity(e) {
 	var activity = $("#activity-input").val();
 	activityList.push(activity);
 	$("#activity-input").val("");
-	$("#activity-list").append(`<li>${activity}<button class ="material-icons">clear</button></li>`);
-	
+	$("#activity-list").append(`<li>${activity}<button id="delete-button" class ="material-icons">clear</button></li>`);	
 };
 
 function goHome() {
