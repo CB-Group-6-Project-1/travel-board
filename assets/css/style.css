@@ -202,6 +202,10 @@ footer {
 	align-items: center;
 }
 
+#plan-vacation-btn {
+	margin-top: 40px;
+}
+
 .date-picker-container {
 	display: flex;
 	padding: 10px 200px;
@@ -214,7 +218,10 @@ footer {
 
 .button-container {
 	display: flex;
-	justify-content: center;
+}
+
+#save-trip {
+	margin: auto;
 }
 
 textarea {
@@ -222,6 +229,10 @@ textarea {
 }
 textarea::-webkit-input-placeholder {
 	color: white;
+}
+
+#save-activity {
+	margin: 1px 1px;
 }
 
 #activity-form {
@@ -250,6 +261,10 @@ li {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+#myNotes {
+	margin-bottom: 20px;
 }
 
 @media screen and (max-width: 768px) {
