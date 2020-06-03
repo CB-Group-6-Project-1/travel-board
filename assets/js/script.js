@@ -17,9 +17,15 @@ var plan = {
 	city: activeCity,
 };
 
+vacationPlans = [];
+
 if (localStorage.getItem("plan") !== null && activeCityData !== null) {
 	plan = JSON.parse(localStorage.getItem("plan"));
-	//TODO call active vacation function here
+	vacationPlans.push(plan);
+}
+
+if (localStorage.getItem("vacationPlans") !== null) {
+	vacationPlans = JSON.parse(localStorage.getItem("vacationPlans"));
 }
 
 // Functions
@@ -317,12 +323,14 @@ function getDateTo(e) {
 }
 
 function saveTrip() {
+	//saving just the plan
 	localStorage.setItem("plan", JSON.stringify(plan));
 	loadPageSection("#travel-plans-page");
-	activeVacation();
+	createPlan();
 }
 
-function activeVacation() {
+function createPlan() {
+	// $("$#travel-plans-list").empty();
 	$("#travel-plans-list").append(`<div class="row">
 	<div class="col s12 m6">
 	  <h1>"TODO: Validate the dates to see if the text is active, upcomming or past"</h1>
@@ -341,10 +349,7 @@ function activeVacation() {
 	</div>
   </div>`);
 
-	// var notes = plan.notes;
-	// $("#activeVacation").text(notes);
-	// $("#city-img").attr("src", photoSrc);
-	// $("#active-city").text(activeCity);
+	localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
 }
 
 // On Document Ready (events)
