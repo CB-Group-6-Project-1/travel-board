@@ -382,8 +382,10 @@ function getPastTravelPlans() {
 	});
 }
 
+//** when user clicks edit plan button */
 function editPlan(){
 	console.log("it works!")
+
 }
 
 // On Document Ready (events)
