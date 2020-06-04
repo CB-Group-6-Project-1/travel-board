@@ -298,8 +298,6 @@ function saveTrip() {
 	var activityList = getActivityList();
 	var guestList = getGuestList();
 
-	console.log(typeof fromVal);
-
 	if (
 		(fromVal && toVal && guestList) !== "" &&
 		Date.parse(fromVal) < Date.parse(toVal)
