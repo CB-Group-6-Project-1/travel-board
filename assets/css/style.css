@@ -294,3 +294,7 @@ li {
 	}
 }
 
+#edit-plan {
+	display: block;
+	width: 100%;
+}
