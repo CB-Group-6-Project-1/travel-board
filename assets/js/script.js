@@ -2,20 +2,13 @@
 var activityList = [];
 var guestList = [];
 var activeCityData;
+var photoSrc = "";
+var activeCity = "";
 
-var plan = {
-	activities: activityList,
-	date: {
-		from: "",
-		to: "",
-	},
-	guests: guestList,
-	notes: "",
-};
+var vacationPlans = [];
 
-if (localStorage.getItem("plan") !== null && activeCityData !== null) {
-	plan = JSON.parse(localStorage.getItem("plan"));
-	//TODO call active vacation function here
+if (localStorage.getItem("vacationPlans") !== null) {
+	vacationPlans = JSON.parse(localStorage.getItem("vacationPlans"));
 }
 
 // Functions
@@ -101,6 +94,7 @@ function loadCityData(city) {
  */
 function loadCityInfo(cityData) {
 	// set city name
+	activeCity = cityData.place_name;
 	$("#current-city-data").text(`${cityData.place_name}`);
 	$("#select-city").text(`${cityData.place_name}`);
 }
@@ -206,6 +200,8 @@ function loadCityPhotos(activeCityData) {
 	$(".carousel").empty();
 	var pixelURL = `https://pixabay.com/api/?key=16859378-c1f5b589a2d6921a2b1b17090&q=${activeCityData.text}+city&image_type=photo`;
 	$.getJSON(pixelURL, function (json) {
+		photoSrc = json.hits[0].largeImageURL;
+
 		for (var i = 0; i < 20 && i < json.hits.length; i++) {
 			$(".carousel").append(
 				`<img src=${json.hits[i].largeImageURL} class="carousel-item">`
@@ -252,7 +248,6 @@ function saveNotes(e) {
 	e.preventDefault();
 	var vacationNotes = "";
 	var vacationNotes = $("#myNotes").val();
-	plan.notes = vacationNotes;
 }
 
 /**
@@ -285,7 +280,8 @@ function addGuest() {
                       <div id="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
                       </div>
 					</div> `);
-	guestList.push(guestInfo);
+	var resultGuest = guestList.push(guestInfo);
+	plan.guests = resultGuest;
 	$("#icon_prefix").val("");
 	$("#icon_telephone").val("");
 }
@@ -297,27 +293,59 @@ function goHome() {
 function getDateFrom(e) {
 	e.preventDefault();
 	var fromVal = $("#from_date").val();
-	//TODO validate from is before than to
-	plan.date.from = fromVal;
-	console.log(fromVal);
 }
 
 function getDateTo(e) {
 	e.preventDefault();
 	var toVal = $("#to_date").val();
-	//TODO validate the dates
-	plan.date.to = toVal;
 }
 
 function saveTrip() {
-	localStorage.setItem("plan", JSON.stringify(plan));
-	loadPageSection("#travel-plans-page");
-	activeVacation();
+	var vacationNotes = $("#myNotes").val();
+	var fromVal = $("#from_date").val();
+	var toVal = $("#to_date").val();
+
+	var plan = {
+		activities: activityList,
+		date: {
+			from: fromVal,
+			to: toVal,
+		},
+		guests: guestList,
+		notes: vacationNotes,
+		photo: photoSrc,
+		city: activeCity,
+	};
+
+	vacationPlans.push(plan);
+	localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
+	goTravelPlans();
 }
 
-function activeVacation() {
-	var notes = plan.notes;
-	$("#activeVacation").text(notes);
+function createPlan(plan) {
+	var time = moment().format("dddd, MMMM Do YYYY");
+	$("#travel-plans-list").append(`<div class="row">
+	<div class="col s12 m6">
+	  <div class="card">
+		<div class="card-image z-depth-3">
+		  <img src=${photoSrc} />
+		  <span class="card-title flow-text z-depth-3" id="active-city">${activeCity}</span>
+		</div>
+		<div class="card-content">
+		<h5>${time}</h5>
+		  <p id="planNotes"><span><i class="material-icons">event_note</i>Notes:</span>${plan.notes}</p>
+		  <p id="dateFromTo"><span><i class="material-icons">av_timer</i>Dates:</span>From:${plan.date.from} ---- To:${plan.date.to}</p>
+		  <p id="guests-info"><span><i class="material-icons">account_circle</i>Guests:</span>${plan.guests}</p>
+		  <p id="list-activity"><span><i class="material-icons">menu</i>Activities:</span>${plan.activities}</p>
+		</div>
+	  </div>
+	</div>
+  </div>`);
+}
+
+function goTravelPlans() {
+	vacationPlans.forEach(createPlan);
+	loadPageSection("#travel-plans-page");
 }
 
 // On Document Ready (events)
@@ -342,4 +370,6 @@ $(document).ready(function () {
 	$("#save-trip").on("click", saveTrip);
 	//when the user clicks save notes
 	$("#save-notes").on("click", saveNotes);
+	//when the user clicks the nav plane icon
+	$("#plans").on("click", goTravelPlans);
 });
