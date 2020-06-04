@@ -293,3 +293,8 @@ li {
 		text-align: center;
 	}
 }
+
+#edit-plan {
+	display: block;
+	width: 100%;
+}

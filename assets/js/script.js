@@ -338,6 +338,7 @@ function loadTravelPlan(planListId, planData) {
 		  <p id="guests-info"><span><i class="material-icons">account_circle</i>Guests:</span>${planData.guests}</p>
 		  <p id="list-activity"><span><i class="material-icons">menu</i>Activities:</span>${planData.activities}</p>
 		</div>
+		<p><button class="waves-effect waves-light btn edit-plans" >Edit Plan</button></p>
 	  </div>
 	</div>
   </div>`);
@@ -390,6 +391,12 @@ function getPastTravelPlans() {
 	});
 }
 
+//** when user clicks edit plan button */
+function editPlan(){
+	console.log("it works!")
+
+}
+
 // On Document Ready (events)
 $(document).ready(function () {
 	// When I click or enter the search button I browse the city
@@ -408,4 +415,6 @@ $(document).ready(function () {
 	$("#save-trip").on("click", saveTrip);
 	//when the user clicks the nav plane icon
 	$("#plans").on("click", goTravelPlans);
+	// when user clicks the edit plan button
+	$("#travel-plans-page").on("click", ".edit-plans", editPlan);
 });
