@@ -5,18 +5,6 @@ var activeCityData;
 var photoSrc = "";
 var activeCity = "";
 
-// var plan = {
-// 	activities: activityList,
-// 	date: {
-// 		from: "",
-// 		to: "",
-// 	},
-// 	guests: guestList,
-// 	notes: "",
-// 	photo: photoSrc,
-// 	city: activeCity,
-// };
-
 var vacationPlans = [];
 
 if (localStorage.getItem("vacationPlans") !== null) {
@@ -260,7 +248,6 @@ function saveNotes(e) {
 	e.preventDefault();
 	var vacationNotes = "";
 	var vacationNotes = $("#myNotes").val();
-	plan.notes = vacationNotes;
 }
 
 /**
@@ -306,20 +293,30 @@ function goHome() {
 function getDateFrom(e) {
 	e.preventDefault();
 	var fromVal = $("#from_date").val();
-	//TODO validate from is before than to
-	plan.date.from = fromVal;
-	console.log(fromVal);
 }
 
 function getDateTo(e) {
 	e.preventDefault();
 	var toVal = $("#to_date").val();
-	//TODO validate the dates
-	plan.date.to = toVal;
 }
 
 function saveTrip() {
-	// plan = load plan info from UI components now
+	var vacationNotes = $("#myNotes").val();
+	var fromVal = $("#from_date").val();
+	var toVal = $("#to_date").val();
+
+	var plan = {
+		activities: activityList,
+		date: {
+			from: fromVal,
+			to: toVal,
+		},
+		guests: guestList,
+		notes: vacationNotes,
+		photo: photoSrc,
+		city: activeCity,
+	};
+
 	vacationPlans.push(plan);
 	localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
 	goTravelPlans();
@@ -327,7 +324,6 @@ function saveTrip() {
 
 function createPlan(plan) {
 	var time = moment().format("dddd, MMMM Do YYYY");
-
 	$("#travel-plans-list").append(`<div class="row">
 	<div class="col s12 m6">
 	  <div class="card">
