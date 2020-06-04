@@ -400,4 +400,6 @@ $(document).ready(function () {
 	$("#save-trip").on("click", saveTrip);
 	//when the user clicks the nav plane icon
 	$("#plans").on("click", goTravelPlans);
+	// when user clicks the edit plan button
+	$("#edit-plan").on("click", editPlan);
 });
