@@ -329,7 +329,7 @@ function loadTravelPlan(planListId, planData) {
 		  <p id="guests-info"><span><i class="material-icons">account_circle</i>Guests:</span>${planData.guests}</p>
 		  <p id="list-activity"><span><i class="material-icons">menu</i>Activities:</span>${planData.activities}</p>
 		</div>
-		<p><button class="waves-effect waves-light btn" id="edit-plan">Edit Plan</button></p>
+		<p><button class="waves-effect waves-light btn" id="edit-plan" >Edit Plan</button></p>
 	  </div>
 	</div>
   </div>`);
@@ -380,6 +380,10 @@ function getPastTravelPlans() {
 	return vacationPlans.filter((plan) => {
 		return moment().isAfter(plan.date.to);
 	});
+}
+
+function editPlan(){
+	planVacation();
 }
 
 // On Document Ready (events)
