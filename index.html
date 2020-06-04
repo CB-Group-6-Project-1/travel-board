@@ -211,10 +211,6 @@
               <span class="card-title">Trip Notes</span>
               <textarea id="myNotes" form="vacation-notes" name="vacation-notes" maxlength="300"
                 placeholder="Vacation Notes" rows="5" cols="30"></textarea>
-              <form id="vacation-notes">
-                <button id="save-notes" type="submit" form="vacation-notes"
-                  class="waves-effect waves-light btn">Save</button>
-              </form>
             </div>
           </div>
         </div>
@@ -260,8 +256,8 @@
               <form id="activity-form">
                 <input id="activity-input" type="text" form="activity-input" placeholder="add activity">
                 </input>
-                <button id="save-activity" type="submit" form="activity-form"
-                  class="waves-effect waves-light btn">Save</button>
+                <button id="add-activity" type="submit" form="activity-form"
+                  class="waves-effect waves-light btn">Add</button>
               </form>
               <ul id="activity-list"></ul>
             </div>
@@ -278,13 +274,27 @@
   <!--------------travel plans section--------------------->
   <!-- Active Vacation plans -->
   <section id="travel-plans-page" class="section-hide page-section">
-    <ul id="travel-plans-list"></ul>
-    <!-- Active Vacation plans -->
-
-    <!-- Upcoming Vacation plans -->
-
-    <!-- Past Vacation plans -->
-
+    <section>
+      <!-- Active Vacation plans -->
+      <h5>Active Travel Plans</h5>
+      <ul id="active-travel-plans-list"></ul>
+    </section>
+    <br />
+    <hr />
+    <br />
+    <section>
+      <!-- Upcoming Vacation plans -->
+      <h5>Upcoming Travel Plans</h5>
+      <ul id="upcoming-travel-plans-list"></ul>
+    </section>
+    <br />
+    <hr />
+    <br />
+    <section>
+      <!-- Past Vacation plans -->
+      <h5>Past Travel Plans</h5>
+      <ul id="past-travel-plans-list"></ul>
+    </section>
   </section>
 
   <!-- page footer -->
