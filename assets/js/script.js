@@ -195,7 +195,7 @@ function loadCityMap(activeCityData) {
 // function loadCityPhotos(city) {
 function loadCityPhotos(activeCityData) {
 	$(".carousel").empty();
-	var pixelURL = `https://pixabay.com/api/?key=16859378-c1f5b589a2d6921a2b1b17090&q=${activeCityData.text}+city&image_type=photo`;
+	var pixelURL = `https://pixabay.com/api/?key=16859378-c1f5b589a2d6921a2b1b17090&q=${activeCityData.text}+city&image_type=photo&safesearch=true`;
 	$.getJSON(pixelURL, function (json) {
 		photoSrc = json.hits[0].largeImageURL;
 
@@ -247,7 +247,7 @@ function addActivity(e) {
 	e.preventDefault();
 	var activity = $("#activity-input").val();
 	$("#activity-list").append(
-		`<li data-text="${activity}">${activity}<button class="material-icons cyan pulse" onclick="clearActivity(this, '${activity}')">clear</button></li>`
+		`<li data-text="${activity}">${activity}<button class="material-icons cyan pulse" onclick="removeActivity(this, '${activity}')">clear</button></li>`
 	);
 	$("#activity-input").val("");
 }
@@ -298,21 +298,30 @@ function saveTrip() {
 	var activityList = getActivityList();
 	var guestList = getGuestList();
 
-	var plan = {
-		activities: activityList,
-		date: {
-			from: fromVal,
-			to: toVal,
-		},
-		guests: guestList,
-		notes: vacationNotes,
-		photo: photoSrc,
-		city: activeCity,
-	};
-
-	vacationPlans.push(plan);
-	localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
-	goTravelPlans();
+	if (
+		(fromVal && toVal && guestList) !== "" &&
+		Date.parse(fromVal) < Date.parse(toVal)
+	) {
+		var plan = {
+			activities: activityList,
+			date: {
+				from: fromVal,
+				to: toVal,
+			},
+			guests: guestList,
+			notes: vacationNotes,
+			photo: photoSrc,
+			city: activeCity,
+		};
+		vacationPlans.push(plan);
+		localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
+		goTravelPlans();
+	} else {
+		alert(
+			"you must to enter at least the dates and the guest for your trip in order to save your trip, if you did, check the from date is before the to date!"
+		);
+		return;
+	}
 }
 
 function loadTravelPlan(planListId, planData) {
