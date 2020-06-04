@@ -383,7 +383,6 @@ function getPastTravelPlans() {
 }
 
 function editPlan(){
-	planVacation();
 }
 
 // On Document Ready (events)
