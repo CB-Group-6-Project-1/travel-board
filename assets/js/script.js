@@ -329,7 +329,7 @@ function loadTravelPlan(planListId, planData) {
 		  <p id="guests-info"><span><i class="material-icons">account_circle</i>Guests:</span>${planData.guests}</p>
 		  <p id="list-activity"><span><i class="material-icons">menu</i>Activities:</span>${planData.activities}</p>
 		</div>
-		<p><button class="waves-effect waves-light btn" id="edit-plan" >Edit Plan</button></p>
+		<p><button class="waves-effect waves-light btn edit-plans" >Edit Plan</button></p>
 	  </div>
 	</div>
   </div>`);
@@ -383,6 +383,7 @@ function getPastTravelPlans() {
 }
 
 function editPlan(){
+	console.log("it works!")
 }
 
 // On Document Ready (events)
@@ -404,5 +405,5 @@ $(document).ready(function () {
 	//when the user clicks the nav plane icon
 	$("#plans").on("click", goTravelPlans);
 	// when user clicks the edit plan button
-	$("#edit-plan").on("click", editPlan);
+	$("#travel-plans-page").on("click", ".edit-plans", editPlan);
 });
