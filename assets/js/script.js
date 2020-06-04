@@ -5,17 +5,17 @@ var activeCityData;
 var photoSrc = "";
 var activeCity = "";
 
-var plan = {
-	activities: activityList,
-	date: {
-		from: "",
-		to: "",
-	},
-	guests: guestList,
-	notes: "",
-	photo: photoSrc,
-	city: activeCity,
-};
+// var plan = {
+// 	activities: activityList,
+// 	date: {
+// 		from: "",
+// 		to: "",
+// 	},
+// 	guests: guestList,
+// 	notes: "",
+// 	photo: photoSrc,
+// 	city: activeCity,
+// };
 
 var vacationPlans = [];
 
@@ -319,6 +319,7 @@ function getDateTo(e) {
 }
 
 function saveTrip() {
+	// plan = load plan info from UI components now
 	vacationPlans.push(plan);
 	localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
 	goTravelPlans();
