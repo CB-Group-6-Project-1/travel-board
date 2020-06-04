@@ -1,10 +1,7 @@
 // Global Variables
-var activityList = [];
-var guestList = [];
 var activeCityData;
 var photoSrc = "";
 var activeCity = "";
-
 var vacationPlans = [];
 
 if (localStorage.getItem("vacationPlans") !== null) {
@@ -243,32 +240,22 @@ function planVacation() {
 	loadPageSection("#plan-vacation-page");
 }
 
-/**get textarea input for vacation notes */
-function saveNotes(e) {
-	e.preventDefault();
-	var vacationNotes = "";
-	var vacationNotes = $("#myNotes").val();
-}
-
 /**
  * add activity input to list
  */
-function saveActivity(e) {
+function addActivity(e) {
 	e.preventDefault();
 	var activity = $("#activity-input").val();
 	$("#activity-list").append(
-		`<li>${activity}<button class="material-icons cyan pulse" onclick="clearActivity(this, '${activity}')">clear</button></li>`
+		`<li data-text="${activity}">${activity}<button class="material-icons cyan pulse" onclick="clearActivity(this, '${activity}')">clear</button></li>`
 	);
-	activityList.push(activity);
 	$("#activity-input").val("");
 }
 
 /**
- * clear activity input
+ * remove activity
  */
-function clearActivity(btn, activity) {
-	var index = activityList.indexOf(activity);
-	activityList.splice(index, 1);
+function removeActivity(btn, activity) {
 	btn.parentNode.remove();
 }
 
@@ -276,12 +263,10 @@ function addGuest() {
 	var guestName = $("#icon_prefix").val();
 	var guestPhone = $("#icon_telephone").val();
 	var guestInfo = guestName + " " + guestPhone;
-	$("#guest-list").append(`<div class="chip">
-                      <div id="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
+	$("#guest-list").append(`<div class="chip" data-info="${guestInfo}">
+                      <div class="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
                       </div>
-					</div> `);
-	var resultGuest = guestList.push(guestInfo);
-	plan.guests = resultGuest;
+					</div>`);
 	$("#icon_prefix").val("");
 	$("#icon_telephone").val("");
 }
@@ -290,20 +275,28 @@ function goHome() {
 	loadPageSection("#home-page");
 }
 
-function getDateFrom(e) {
-	e.preventDefault();
-	var fromVal = $("#from_date").val();
+function getActivityList() {
+	var activityList = [];
+	$("#activity-list>li").each(function () {
+		activityList.push($(this).attr("data-text"));
+	});
+	return activityList;
 }
 
-function getDateTo(e) {
-	e.preventDefault();
-	var toVal = $("#to_date").val();
+function getGuestList() {
+	var guestList = [];
+	$("#guest-list>.chip").each(function () {
+		guestList.push($(this).attr("data-info"));
+	});
+	return guestList;
 }
 
 function saveTrip() {
 	var vacationNotes = $("#myNotes").val();
 	var fromVal = $("#from_date").val();
 	var toVal = $("#to_date").val();
+	var activityList = getActivityList();
+	var guestList = getGuestList();
 
 	var plan = {
 		activities: activityList,
@@ -366,6 +359,7 @@ function goTravelPlans() {
 	pastTravelPlans.forEach((plan) => {
 		loadTravelPlan("#past-travel-plans-list", plan);
 	});
+	// load the travel plan section
 	loadPageSection("#travel-plans-page");
 }
 
@@ -397,18 +391,12 @@ $(document).ready(function () {
 	$("#plan-vacation-btn").on("click", planVacation);
 	//When I click home on nav bar
 	$("#home").on("click", goHome);
-	//When the user select a date from
-	$("#from_date").on("click", getDateFrom);
-	////When the user select a date to
-	$("#to_date").on("click", getDateTo);
-	// when user clicks save activities
-	$("#save-activity").on("click", saveActivity);
+	// when user clicks add activities
+	$("#add-activity").on("click", addActivity);
 	//when the user clicks the add guest
 	$("#add-guest").on("click", addGuest);
 	//when the user click the save trip
 	$("#save-trip").on("click", saveTrip);
-	//when the user clicks save notes
-	$("#save-notes").on("click", saveNotes);
 	//when the user clicks the nav plane icon
 	$("#plans").on("click", goTravelPlans);
 });
