@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- link API map required links -->
+  <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
+    type="text/css" />
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+  <!-- link Mui CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" rel="stylesheet"
+    type="text/css" />
+  <!-- link Mui CSS icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- link Pure CSS  -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous" />
+  <!-- link font fontawesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <!-- link custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <title>Travel Board</title>
+</head>
+
+<body>
+  <!-- nav section -->
+  <nav class="pure-menu pure-menu-horizontal">
+    <a href="#" class="pure-menu-heading pure-menu-link nav-icon"><i class="fas fa-home" id="home"></i></a>
+    <a href="#" class="pure-menu-heading pure-menu-link nav-icon"><i class="fas fa-plane" id="plans"></i></a>
+    <a href="#" class="pure-menu-heading pure-menu-link nav-icon"><i class="fas fa-map-marked-alt"></i></a>
+  </nav>
+
+  <!-- home page section -->
+  <section id="home-page" class="page-section">
+    <!-- search form -->
+    <form class="pure-form search-form">
+      <input type="text" class="pure-input-rounded search-text" id="searchId"
+        placeholder="Where would you like to go ?" />
+      <!-- search button -->
+      <button type="submit" class="pure-button search-button">
+        <i class="fas fa-search-location fa-lg"></i>
+      </button>
+    </form>
+    <!-- popular places images section -->
+    <h5 style="text-align: center;">Popular places to travel</h5>
+    <section class="images">
+      <div class="wrap-img">
+        <img src="./assets/images/home-page-imgs/paris.jpg"
+          class="hover-shadow cursor popular-images effect top-destinations" data-name="Paris" />
+        <div class="overlay">Paris</div>
+      </div>
+      <div class="wrap-img">
+        <img src="./assets/images/home-page-imgs/vegas.jpg"
+          class="hover-shadow cursor popular-images effect top-destinations" data-name="Las Vegas" />
+        <div class="overlay">Las Vegas</div>
+      </div>
+      <div class="wrap-img">
+        <img src="./assets/images/home-page-imgs/rome.jpg"
+          class="hover-shadow cursor popular-images effect top-destinations" data-name="Rome" />
+        <div class="overlay">Rome</div>
+      </div>
+      <div class="wrap-img">
+        <img src="./assets/images/home-page-imgs/sanfrancisco.jpg"
+          class="hover-shadow cursor popular-images effect top-destinations" data-name="San Francisco" />
+        <div class="overlay">San Francisco</div>
+      </div>
+      <div class="wrap-img hide-on-4">
+        <img src="./assets/images/home-page-imgs/london.jpg"
+          class="hover-shadow cursor popular-images effect top-destinations" data-name="London" />
+        <div class="overlay">London</div>
+      </div>
+      <div class="wrap-img hide-on-4">
+        <img src="./assets/images/home-page-imgs/miami.jpg"
+          class="hover-shadow cursor popular-images effect top-destinations" data-name="Miami" />
+        <div class="overlay">Miami</div>
+      </div>
+    </section>
+  </section>
+
+  <!-- city details section -->
+  <section id="city-details-page" class="section-hide page-section">
+    <h1 id="current-city-data">
+    </h1>
+    <!-- city info -->
+    <div class="pure-g" id="city-info">
+      <div class="row style-cards">
+        <!-- weather -->
+        <div class="pure-u-1-2" id="weather-card">
+          <div class="col s12 m6 l6">
+            <div class="card teal lighten-4 weather-custom">
+              <div class="card-content">
+                <span class="card-title center">Weather</span>
+                <div><span id="icon"></span></div>
+                <div class="">City:<span id="current-city"></span></div>
+                <div class="">Date:<span id="current-date"></span></div>
+                <div class="">Temperature:<span id="temp"></span></div>
+                <div class="">Humidity:<span id="humidity"></span></div>
+                <div class="">UV Index:<span id="uv-index"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- map -->
+        <div class="pure-u-1-2" id="map-info">
+          <div class="pure-u-1">
+            <div class="col s12 m6 l6">
+              <div id='map'>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    </div>
+
+    <!-- images -->
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="carousel">
+          <!-- getting the images random on js  -->
+        </div>
+      </div>
+    </div>
+
+    <div class="pure-g" id="city-todo">
+      <div class="pure-u-1-4 z-depth-4">
+        <div class="row">
+          <div class="col s12 m6 custom-style">
+            <div class="card teal lighten-4">
+              <div class="card-content dark-text">
+                <span class="card-title">Restaurants</span>
+                <div id="restaurants-list">
+                  <!-- place info here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pure-u-1-4 z-depth-4">
+        <div class="row">
+          <div class="col s12 m6 custom-style">
+            <div class="card teal lighten-4">
+              <div class="card-content dark-text">
+                <span class="card-title">Shopping</span>
+                <div id="shopping-list">
+                  <!-- shopping info here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pure-u-1-4 z-depth-4">
+        <div class="row">
+          <div class="col s12 m6 custom-style">
+            <div class="card teal lighten-4">
+              <div class="card-content dark-text">
+                <span class="card-title">Todo</span>
+                <div id="todo-list">
+                  <!-- todo info here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-3"></div>
+      <div class="pure-u-1-3 center"><button class="waves-effect waves-light btn" id="plan-vacation-btn">Plan
+          Vacation</button></div>
+    </div>
+  </section>
+  <!-- plan vacation section -->
+  <section id="plan-vacation-page" class="section-hide page-section">
+    <div class="plan-vacation-container">
+      <div>
+        <h5>Plan Vacation</h5>
+      </div>
+      <div>
+        <h6 id="select-city">
+          <!-- populate info -->
+        </h6>
+      </div>
+    </div>
+    <div class="date-picker-container">
+      <div class="input-field">
+        <label for="from_date">From</label>
+        <input type="text" id="from_date" name="from_date" class="datepicker">
+      </div>
+      <div class="input-field">
+        <label for="to_date">to</label>
+        <input type="text" id="to_date" name="to-date" class="datepicker">
+      </div>
+    </div>
+    <div class="plan-vacation-info-cards">
+      <div class="row">
+        <div class="col s12 m6 custom-style">
+          <div class="card teal lighten-4">
+            <div class="card-content dark-text guest-style">
+              <!-- notes info -->
+              <span class="card-title">Trip Notes</span>
+              <textarea id="myNotes" form="vacation-notes" name="vacation-notes" maxlength="300"
+                placeholder="Vacation Notes" rows="5" cols="30"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6 custom-style">
+          <div class="card teal lighten-4">
+            <div class="card-content dark-text guest-style">
+              <span class="card-title">Guests</span>
+              <!-- guest info -->
+              <div class="row">
+                <form class="col s12 guest-form">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <i class="material-icons prefix">account_circle</i>
+                      <input id="icon_prefix" type="text" class="validate">
+                      <label for="icon_prefix">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <i class="material-icons prefix">phone</i>
+                      <input id="icon_telephone" type="tel" class="validate">
+                      <label for="icon_telephone">Telephone</label>
+                    </div>
+                  </div>
+                  <div id="guest-list">
+                    <!-- guest list -->
+                  </div>
+                  <button id="add-guest" type="submit" form="guest-form" class="waves-effect waves-light btn">Add
+                    Guest</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6 custom-style">
+          <div class="card teal lighten-4">
+            <div class="card-content dark-text guest-style">
+              <span class="card-title">Activities</span>
+              <!-- place info here -->
+              <form id="activity-form">
+                <input id="activity-input" type="text" form="activity-input" placeholder="add activity">
+                </input>
+                <button id="add-activity" type="submit" form="activity-form"
+                  class="waves-effect waves-light btn">Add</button>
+              </form>
+              <ul id="activity-list"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <button class="waves-effect waves-light btn" id="save-trip">Save
+        Trip</button>
+    </div>
+  </section>
+
+  <!--------------travel plans section--------------------->
+  <!-- Active Vacation plans -->
+  <section id="travel-plans-page" class="section-hide page-section">
+    <section>
+      <!-- Active Vacation plans -->
+      <h5>Active Travel Plans</h5>
+      <ul id="active-travel-plans-list"></ul>
+    </section>
+    <br />
+    <hr />
+    <br />
+    <section>
+      <!-- Upcoming Vacation plans -->
+      <h5>Upcoming Travel Plans</h5>
+      <ul id="upcoming-travel-plans-list"></ul>
+    </section>
+    <br />
+    <hr />
+    <br />
+    <section>
+      <!-- Past Vacation plans -->
+      <h5>Past Travel Plans</h5>
+      <ul id="past-travel-plans-list"></ul>
+    </section>
+  </section>
+
+  <!-- page footer -->
+  <footer>
+    <hr class="footer-border" />
+    <span>Travel Board </span><span>&copy;</span><span> 2020</span>
+  </footer>
+  <!-- jquery cdn -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- jquery UI cdn -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- API Map js file -->
+  <script
+    src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+  <!-- compiled and minified javascript MUI-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- moments cdn -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <!-- custom script -->
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
