@@ -324,6 +324,7 @@ function saveTrip() {
 		$("#activity-list").empty();
 		$("#guest-list").empty();
 
+		//when the user click save trip after edit plan vacation
 		var planId = $("#save-trip").attr("data-plan-id");
 
 		if (planId) updatePlan(plan, planId);
