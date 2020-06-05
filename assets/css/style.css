@@ -28,11 +28,6 @@ nav {
 	border-color: #3e6eb6;
 }
 
-.card-content {
-	color: #3e6eb6;
-	font-family: "PT Sans", sans-serif;
-	background: #a99fd1;
-}
 .btn {
 	background-color: #3e6eb6;
 }
@@ -42,16 +37,16 @@ nav {
 }
 
 input {
-	color: #3e6eb6;
+	color: #255bac;
 }
 
 .datepicker-date-display {
-	background-color: #3e6eb6;
+	background: linear-gradient(-90deg, #75c9c8, #6b5aaf);
 }
 .nav-icon {
 	padding-top: 0px;
 	padding-bottom: 0px;
-	color: #3e6eb6;
+	color: #255bac;
 }
 
 a:hover {
@@ -93,7 +88,6 @@ a:hover {
 	height: 400px;
 	/* makes the weather box circular */
 	/* border-radius: 20px; */
-	background: #a99fd1;
 }
 
 .input-field > label {
