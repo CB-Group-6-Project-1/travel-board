@@ -266,13 +266,23 @@ function addGuest() {
 	var guestName = $("#icon_prefix").val().trim();
 	var guestPhone = $("#icon_telephone").val().trim();
 	
+  if(guestPhone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/))
+     {
+		var guestInfo = guestName + " " + guestPhone;
+		$("#guest-list").append(`<div class="chip" data-info="${guestInfo}">
+						  <div class="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
+						  </div>
+						</div>`);
+		$("#icon_prefix").val("");
+		$("#icon_telephone").val("");  
+	 }
+   else
+     {
+		$("#icon_telephone").val("not valid");
 
-	var guestInfo = guestName + " " + guestPhone;
-	$("#guest-list").append(`<div class="chip" data-info="${guestInfo}">
-                      <div class="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
-                      </div>
-					</div>`);
-	$("#icon_prefix").val("");
+	 }
+}
+function resetNumber() {
 	$("#icon_telephone").val("");
 }
 
