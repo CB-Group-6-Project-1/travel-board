@@ -1,6 +1,8 @@
 html,
 body {
 	width: 100%;
+	background: #ded9e2;
+	/* background: linear-gradient(-90deg, #64a6bd, #958db9); */
 }
 
 * {
@@ -10,17 +12,50 @@ body {
 nav {
 	display: flex;
 	justify-content: flex-end;
-	background-color: darkcyan;
+	/* navbar color */
+	background: linear-gradient(-90deg, #75c9c8, #6b5aaf);
 }
 
+::placeholder {
+	color: #3e6eb6;
+}
+
+.weather-custom {
+	background-color: transparent;
+}
+
+.pure-input-rounded-search-text {
+	border-color: #3e6eb6;
+}
+
+.card-content {
+	color: #3e6eb6;
+	font-family: "PT Sans", sans-serif;
+	background: #a99fd1;
+}
+.btn {
+	background-color: #3e6eb6;
+}
+
+.date-calendar-container {
+	background-color: #3e6eb6;
+}
+
+input {
+	color: #3e6eb6;
+}
+
+.datepicker-date-display {
+	background-color: #3e6eb6;
+}
 .nav-icon {
 	padding-top: 0px;
 	padding-bottom: 0px;
-	color: white;
+	color: #3e6eb6;
 }
 
 a:hover {
-	color: teal;
+	color: #ada7c9;
 }
 
 #home-page {
@@ -56,8 +91,15 @@ a:hover {
 .weather-custom {
 	width: 450px;
 	height: 400px;
-	border-radius: 20px;
+	/* makes the weather box circular */
+	/* border-radius: 20px; */
+	background: #a99fd1;
 }
+
+.input-field > label {
+	color: #3e6eb6;
+}
+
 .search-form {
 	display: flex;
 	width: 350px;
@@ -75,8 +117,8 @@ a:hover {
 }
 
 .search-button {
-	color: darkcyan;
-	background-color: white;
+	color: #3e6eb6;
+	background-color: transparent;
 }
 
 .images {
@@ -106,12 +148,12 @@ a:hover {
 	bottom: 0;
 	background: rgb(0, 0, 0);
 	background: rgba(0, 0, 0, 0.5); /* Black see-through */
-	color: #f1f1f1;
+	color: #3e6eb6;
 	width: 100%;
 	transition: 0.5s ease;
 	opacity: 0;
-	color: white;
-	font-size: 20px;
+	color: #3e6eb6;
+	font-size: 25px;
 	padding: 17px;
 	text-align: center;
 	border-radius: 8px;
@@ -145,24 +187,24 @@ footer,
 #current-city-data,
 .card-title,
 #select-city {
-	font-family: monospace;
+	font-family: "PT Sans", sans-serif;
 }
 
 h5,
 #current-city-data,
 #select-city {
-	color: darkcyan;
+	color: #3e6eb6;
 }
 
 footer {
 	margin-top: 30px;
 	padding: 25px;
 	text-align: center;
-	color: darkslategrey;
+	color: #3e6eb6;
 }
 
 .footer-border {
-	background-color: darkcyan;
+	background-color: #3e6eb6;
 	height: 2px;
 	width: 70%;
 	font-weight: bold;
@@ -292,9 +334,4 @@ li {
 		width: 50%;
 		text-align: center;
 	}
-}
-
-#edit-plan {
-	display: block;
-	width: 100%;
 }
