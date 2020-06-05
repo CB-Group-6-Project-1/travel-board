@@ -41,12 +41,12 @@ input {
 }
 
 .datepicker-date-display {
-	background: linear-gradient(-90deg, #75c9c8, #6b5aaf);
+	background: linear-gradient(-90deg, #98c1d9, #293241);
 }
 .nav-icon {
 	padding-top: 0px;
 	padding-bottom: 0px;
-	color: #255bac;
+	color: #374358;
 }
 
 a:hover {
