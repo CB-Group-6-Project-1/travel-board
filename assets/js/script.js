@@ -303,7 +303,8 @@ function saveTrip() {
 
 	if (
 		(fromVal && toVal && guestList) !== "" &&
-		Date.parse(fromVal) < Date.parse(toVal)
+		Date.parse(fromVal) < Date.parse(toVal) &&
+		guestList.length > 0
 	) {
 		var plan = {
 			id: new Date().getTime(),
@@ -341,18 +342,19 @@ function saveTrip() {
 }
 
 function updatePlan(planData, planId) {
-	planData.id = planId;
 	for (var i in vacationPlans) {
 		if (vacationPlans[i].id == planId) {
-			vacationPlans[i] = planData;
-			vacationPlans[i].photo = photoSrc;
+			vacationPlans[i].date = planData.date;
+			vacationPlans[i].notes = planData.notes;
+			vacationPlans[i].activities = planData.activities;
+			vacationPlans[i].guests = planData.guests;
 			break;
 		}
 	}
 }
 
 function loadTravelPlan(planListId, planData) {
-	$(planListId).append(`<div class="row">
+	$(planListId).append(`<div class="row" id="plan-${planData.id}">
 	<div class="col s12 m6">
 	  <div class="card">
 		<div class="card-image z-depth-3">
@@ -451,16 +453,14 @@ function editPlan(planId, e) {
 }
 
 function deletePlan(planId) {
-	debugger;
-	var plan = getTravelPlanById(planId);
-	vacationPlans.forEach((p) => {
-		if (p == plan) {
-			vacationPlans.splice(p, 1);
-			$("#upcoming-travel-plans-list").empty();
-		} else {
-			return;
+	$("#plan-" + planId).remove();
+	for (var i in vacationPlans) {
+		if (vacationPlans[i].id == planId) {
+			vacationPlans.splice(i, 1);
+			localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
+			break;
 		}
-	});
+	}
 }
 // On Document Ready (events)
 $(document).ready(function () {
