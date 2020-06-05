@@ -96,11 +96,6 @@ a:hover {
 	/* border-radius: 20px; */
 	background: #a99fd1;
 }
-/* why wont this work. logo */
-.travelboard {
-	display: flex;
-	justify-content: flex-start;
-}
 
 .input-field > label {
 	color: #3e6eb6;
