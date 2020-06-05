@@ -12,7 +12,8 @@ nav {
 	display: flex;
 	justify-content: flex-end;
 	/* navbar color */
-	background: linear-gradient(-90deg, #75c9c8, #6b5aaf);
+	/* background: linear-gradient(-90deg, #75c9c8, #6b5aaf); */
+	background: linear-gradient(-90deg, #98c1d9, #293241);
 }
 
 ::placeholder {
@@ -49,7 +50,7 @@ input {
 }
 
 a:hover {
-	color: #ada7c9;
+	color: #293241;
 }
 
 #home-page {
@@ -88,7 +89,7 @@ a:hover {
 }
 
 .input-field > label {
-	color: #3e6eb6;
+	color: #293241;
 }
 
 .search-form {
