@@ -12,7 +12,17 @@ nav {
 	display: flex;
 	justify-content: flex-end;
 	/* navbar color */
-	background: linear-gradient(-90deg, #98c1d9, #293241);
+	/* background: linear-gradient(-90deg, #98c1d9, #293241); */
+	background: linear-gradient(-80deg, #293241, #98c1d9);
+	opacity: 85%;
+}
+
+.popular {
+	text-align: center;
+	font-weight: bold;
+	font-size: xx-large;
+	text-align: center;
+	text-shadow: 1px 1px 2px #98c1d9;
 }
 
 ::placeholder {
@@ -45,11 +55,13 @@ input {
 .nav-icon {
 	padding-top: 0px;
 	padding-bottom: 0px;
-	color: #374358;
+	color: #eef1fc;
+	/* color: #374358; */
 }
 
 a:hover {
-	color: #98c1d9;
+	/* color: #98c1d9; */
+	color: #374358;
 }
 
 #home-page {
@@ -95,7 +107,7 @@ a:hover {
 	display: flex;
 	width: 350px;
 	align-self: center;
-	margin-bottom: 100px;
+	margin-bottom: 50px;
 }
 
 #current-city-data {
@@ -113,7 +125,7 @@ a:hover {
 }
 
 .images {
-	margin-top: 35px;
+	margin-top: 20px;
 	display: flex;
 	justify-content: space-evenly;
 }
@@ -141,7 +153,8 @@ a:hover {
 	width: 100%;
 	transition: 0.5s ease;
 	opacity: 0;
-	color: rgb(178, 208, 228);
+	/* color: rgb(178, 208, 228); */
+	color: #eef1fc;
 	font-size: 20px;
 	padding: 17px;
 	text-align: center;
