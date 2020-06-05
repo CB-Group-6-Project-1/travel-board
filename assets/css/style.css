@@ -17,7 +17,7 @@ nav {
 }
 
 ::placeholder {
-	color: #3e6eb6;
+	color: #5d697c;
 }
 
 .weather-custom {
@@ -37,7 +37,7 @@ nav {
 }
 
 input {
-	color: #255bac;
+	color: #374358;
 }
 
 .datepicker-date-display {
@@ -50,7 +50,7 @@ input {
 }
 
 a:hover {
-	color: #293241;
+	color: #98c1d9;
 }
 
 #home-page {
@@ -89,7 +89,7 @@ a:hover {
 }
 
 .input-field > label {
-	color: #293241;
+	color: #374358;
 }
 
 .search-form {
@@ -109,7 +109,7 @@ a:hover {
 }
 
 .search-button {
-	color: #3e6eb6;
+	color: #374358;
 	background-color: transparent;
 }
 
@@ -177,24 +177,26 @@ footer,
 #current-city-data,
 .card-title,
 #select-city {
-	font-family: "PT Sans", sans-serif;
+	/* font-family: "Vollkorn", serif; */
+	/* font-family: "Alice", serif; */
+	font-family: "Abhaya Libre", serif;
 }
 
 h5,
 #current-city-data,
 #select-city {
-	color: #3e6eb6;
+	color: #374358;
 }
 
 footer {
 	margin-top: 30px;
 	padding: 25px;
 	text-align: center;
-	color: #3e6eb6;
+	color: #374358;
 }
 
 .footer-border {
-	background-color: #3e6eb6;
+	background-color: #374358;
 	height: 2px;
 	width: 70%;
 	font-weight: bold;
@@ -224,12 +226,12 @@ footer {
 }
 
 .placeColor::-webkit-input-placeholder {
-	color: darkblue;
+	color: #3f4d64;
 }
 
 #myNotes::placeholder,
 .card-title {
-	color: #3e6eb6;
+	color: #5d697c;
 }
 
 .plan-vacation-container {
@@ -269,7 +271,7 @@ textarea {
 	resize: none;
 }
 textarea::-webkit-input-placeholder {
-	color: white;
+	color: #5d697c;
 }
 
 #save-activity {
