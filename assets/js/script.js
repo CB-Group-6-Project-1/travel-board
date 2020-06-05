@@ -36,6 +36,7 @@ function loadCityFromSearch(e) {
 	) {
 		// call function to display all city data
 		loadCityData(city);
+		$("#searchId").val("");
 	} else {
 		//remove the invalid input entered by user
 		$("#searchId").val("");

@@ -12,7 +12,6 @@ nav {
 	display: flex;
 	justify-content: flex-end;
 	/* navbar color */
-	/* background: linear-gradient(-90deg, #75c9c8, #6b5aaf); */
 	background: linear-gradient(-90deg, #98c1d9, #293241);
 }
 
@@ -142,8 +141,8 @@ a:hover {
 	width: 100%;
 	transition: 0.5s ease;
 	opacity: 0;
-	color: whitesmoke;
-	font-size: 25px;
+	color: rgb(178, 208, 228);
+	font-size: 20px;
 	padding: 17px;
 	text-align: center;
 	border-radius: 8px;
@@ -177,8 +176,6 @@ footer,
 #current-city-data,
 .card-title,
 #select-city {
-	/* font-family: "Vollkorn", serif; */
-	/* font-family: "Alice", serif; */
 	font-family: "Abhaya Libre", serif;
 }
 
