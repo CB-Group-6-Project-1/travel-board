@@ -263,8 +263,10 @@ function removeActivity(btn, activity) {
 }
 
 function addGuest() {
-	var guestName = $("#icon_prefix").val();
-	var guestPhone = $("#icon_telephone").val();
+	var guestName = $("#icon_prefix").val().trim();
+	var guestPhone = $("#icon_telephone").val().trim();
+	
+
 	var guestInfo = guestName + " " + guestPhone;
 	$("#guest-list").append(`<div class="chip" data-info="${guestInfo}">
                       <div class="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
