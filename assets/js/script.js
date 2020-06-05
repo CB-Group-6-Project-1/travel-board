@@ -303,7 +303,8 @@ function saveTrip() {
 
 	if (
 		(fromVal && toVal && guestList) !== "" &&
-		Date.parse(fromVal) < Date.parse(toVal)
+		Date.parse(fromVal) < Date.parse(toVal) &&
+		guestList.length > 0
 	) {
 		var plan = {
 			id: new Date().getTime(),
@@ -341,17 +342,19 @@ function saveTrip() {
 }
 
 function updatePlan(planData, planId) {
-	planData.id = planId;
 	for (var i in vacationPlans) {
 		if (vacationPlans[i].id == planId) {
-			vacationPlans[i] = planData;
+			vacationPlans[i].date = planData.date;
+			vacationPlans[i].notes = planData.notes;
+			vacationPlans[i].activities = planData.activities;
+			vacationPlans[i].guests = planData.guests;
 			break;
 		}
 	}
 }
 
 function loadTravelPlan(planListId, planData) {
-	$(planListId).append(`<div class="row">
+	$(planListId).append(`<div class="row" id="plan-${planData.id}">
 	<div class="col s12 m6">
 	  <div class="card">
 		<div class="card-image z-depth-3">
@@ -364,6 +367,7 @@ function loadTravelPlan(planListId, planData) {
 		  <p id="guests-info"><span><i class="material-icons">account_circle</i>Guests:</span>${planData.guests}</p>
 		  <p id="list-activity"><span><i class="material-icons">menu</i>Activities:</span>${planData.activities}</p>
 		<button class="waves-effect waves-light btn edit-plans" onclick= "editPlan(${planData.id}, event)">Edit Plan</button>
+		<button class="waves-effect waves-light btn" onclick= "deletePlan(${planData.id})">Delete Plan</button>
 		</div>
 	  </div>
 	</div>
@@ -448,6 +452,16 @@ function editPlan(planId, e) {
 	loadPageSection("#plan-vacation-page");
 }
 
+function deletePlan(planId) {
+	$("#plan-" + planId).remove();
+	for (var i in vacationPlans) {
+		if (vacationPlans[i].id == planId) {
+			vacationPlans.splice(i, 1);
+			localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
+			break;
+		}
+	}
+}
 // On Document Ready (events)
 $(document).ready(function () {
 	// When I click or enter the search button I browse the city
