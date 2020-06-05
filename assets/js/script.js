@@ -345,6 +345,7 @@ function updatePlan(planData, planId) {
 	for (var i in vacationPlans) {
 		if (vacationPlans[i].id == planId) {
 			vacationPlans[i] = planData;
+			vacationPlans[i].photo = photoSrc;
 			break;
 		}
 	}
@@ -364,6 +365,7 @@ function loadTravelPlan(planListId, planData) {
 		  <p id="guests-info"><span><i class="material-icons">account_circle</i>Guests:</span>${planData.guests}</p>
 		  <p id="list-activity"><span><i class="material-icons">menu</i>Activities:</span>${planData.activities}</p>
 		<button class="waves-effect waves-light btn edit-plans" onclick= "editPlan(${planData.id}, event)">Edit Plan</button>
+		<button class="waves-effect waves-light btn" onclick= "deletePlan(${planData.id})">Delete Plan</button>
 		</div>
 	  </div>
 	</div>
@@ -448,6 +450,18 @@ function editPlan(planId, e) {
 	loadPageSection("#plan-vacation-page");
 }
 
+function deletePlan(planId) {
+	debugger;
+	var plan = getTravelPlanById(planId);
+	vacationPlans.forEach((p) => {
+		if (p == plan) {
+			vacationPlans.splice(p, 1);
+			$("#upcoming-travel-plans-list").empty();
+		} else {
+			return;
+		}
+	});
+}
 // On Document Ready (events)
 $(document).ready(function () {
 	// When I click or enter the search button I browse the city
