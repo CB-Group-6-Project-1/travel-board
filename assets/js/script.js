@@ -219,6 +219,9 @@ function planVacation() {
 	var defaultFromDate = new Date(year, month, day + 3);
 	var defaultToDate = new Date(year, month, day + 10);
 
+	// remove as this is a new plan
+	$("#save-trip").removeAttr("data-plan-id");
+
 	$(".datepicker").datepicker({
 		minDate: new Date(year, month, day + 3),
 		maxDate: new Date(year + 1, 12, 31),
@@ -303,6 +306,7 @@ function saveTrip() {
 		Date.parse(fromVal) < Date.parse(toVal)
 	) {
 		var plan = {
+			id: new Date().getTime(),
 			activities: activityList,
 			date: {
 				from: fromVal,
@@ -313,7 +317,19 @@ function saveTrip() {
 			photo: photoSrc,
 			city: activeCity,
 		};
-		vacationPlans.push(plan);
+		// clean the data
+		$("#myNotes").val("");
+		$("#from_date").val("");
+		$("#to_date").val("");
+		$("#activity-list").empty();
+		$("#guest-list").empty();
+
+		//when the user click save trip after edit plan vacation
+		var planId = $("#save-trip").attr("data-plan-id");
+
+		if (planId) updatePlan(plan, planId);
+		else vacationPlans.push(plan);
+
 		localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
 		goTravelPlans();
 	} else {
@@ -321,6 +337,16 @@ function saveTrip() {
 			"you must to enter at least the dates and the guest for your trip in order to save your trip, if you did, check the from date is before the to date!"
 		);
 		return;
+	}
+}
+
+function updatePlan(planData, planId) {
+	planData.id = planId;
+	for (var i in vacationPlans) {
+		if (vacationPlans[i].id == planId) {
+			vacationPlans[i] = planData;
+			break;
+		}
 	}
 }
 
@@ -337,8 +363,8 @@ function loadTravelPlan(planListId, planData) {
 		  <p id="dateFromTo"><span><i class="material-icons">av_timer</i>Dates:</span>From:${planData.date.from} ---- To:${planData.date.to}</p>
 		  <p id="guests-info"><span><i class="material-icons">account_circle</i>Guests:</span>${planData.guests}</p>
 		  <p id="list-activity"><span><i class="material-icons">menu</i>Activities:</span>${planData.activities}</p>
+		<button class="waves-effect waves-light btn edit-plans" onclick= "editPlan(${planData.id}, event)">Edit Plan</button>
 		</div>
-		<p><button class="waves-effect waves-light btn edit-plans" >Edit Plan</button></p>
 	  </div>
 	</div>
   </div>`);
@@ -391,10 +417,35 @@ function getPastTravelPlans() {
 	});
 }
 
-//** when user clicks edit plan button */
-function editPlan(){
-	console.log("it works!")
+function getTravelPlanById(planId) {
+	return vacationPlans.find((plan) => plan.id == planId);
+}
 
+//** when user clicks edit plan button */
+function editPlan(planId, e) {
+	e.preventDefault();
+	var plan = getTravelPlanById(planId);
+	var listActivities = plan.activities;
+	var listGuests = plan.guests;
+	$("#myNotes").val(plan.notes);
+	$("#from_date").val(plan.date.from);
+	$("#to_date").val(plan.date.to);
+	listActivities.forEach((act) => {
+		$("#activity-list").append(
+			`<li data-text="${act}">${act}<button class="material-icons cyan pulse" onclick="removeActivity(this, '${act}')">clear</button></li>`
+		);
+	});
+
+	listGuests.forEach((guest) => {
+		$("#guest-list").append(`<div class="chip" data-info="${guest}">
+                      <div class="guest-info">${guest}<span><i class="close material-icons">close</i></span>
+                      </div>
+					</div>`);
+	});
+
+	// remove as this is a new plan
+	$("#save-trip").attr("data-plan-id", planId);
+	loadPageSection("#plan-vacation-page");
 }
 
 // On Document Ready (events)
@@ -415,6 +466,4 @@ $(document).ready(function () {
 	$("#save-trip").on("click", saveTrip);
 	//when the user clicks the nav plane icon
 	$("#plans").on("click", goTravelPlans);
-	// when user clicks the edit plan button
-	$("#travel-plans-page").on("click", ".edit-plans", editPlan);
 });
