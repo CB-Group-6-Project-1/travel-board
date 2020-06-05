@@ -1,8 +1,7 @@
 html,
 body {
 	width: 100%;
-	background: #ded9e2;
-	/* background: linear-gradient(-90deg, #64a6bd, #958db9); */
+	background-color: #eef1fc;
 }
 
 * {
@@ -86,8 +85,6 @@ a:hover {
 .weather-custom {
 	width: 450px;
 	height: 400px;
-	/* makes the weather box circular */
-	/* border-radius: 20px; */
 }
 
 .input-field > label {
@@ -140,13 +137,11 @@ a:hover {
 .overlay {
 	position: absolute;
 	bottom: 0;
-	background: rgb(0, 0, 0);
 	background: rgba(0, 0, 0, 0.5); /* Black see-through */
-	color: #3e6eb6;
 	width: 100%;
 	transition: 0.5s ease;
 	opacity: 0;
-	color: #3e6eb6;
+	color: whitesmoke;
 	font-size: 25px;
 	padding: 17px;
 	text-align: center;
@@ -228,7 +223,12 @@ footer {
 }
 
 .placeColor::-webkit-input-placeholder {
-	color: red;
+	color: darkblue;
+}
+
+#myNotes::placeholder,
+.card-title {
+	color: #3e6eb6;
 }
 
 .plan-vacation-container {
@@ -250,6 +250,10 @@ footer {
 
 .plan-vacation-info-cards {
 	display: flex;
+}
+
+.card-title {
+	font-weight: bolder !important;
 }
 
 .button-container {
@@ -305,6 +309,10 @@ li {
 #travel-plans-page {
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.transparent {
+	background-color: transparent;
 }
 
 @media screen and (max-width: 768px) {
