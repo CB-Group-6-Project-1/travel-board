@@ -78,9 +78,12 @@ a:hover {
 	display: flex;
 	justify-content: space-evenly;
 }
+
+
 #city-todo {
 	display: flex;
 	justify-content: space-evenly;
+	letter-spacing: inherit;
 }
 
 #weather-container {
