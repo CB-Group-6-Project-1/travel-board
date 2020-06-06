@@ -209,7 +209,10 @@ footer,
 .btn,
 #current-city,
 #humidity,
-#uv-index {
+#uv-index,
+#restaurants-list,
+#todo-list,
+#shopping-list {
 	font-family: "Abhaya Libre", serif;
 }
 
@@ -218,7 +221,10 @@ h5,
 #select-city,
 #current-city,
 #humidity,
-#uv-index {
+#uv-index,
+#restaurants-list,
+#todo-list,
+#shopping-list {
 	color: #374358;
 }
 
@@ -226,6 +232,12 @@ h5,
 .uv_style {
 	font-weight: bold;
 	font-size: 20px;
+}
+
+#restaurants-list,
+#todo-list,
+#shopping-list {
+	font-size: 25;
 }
 
 footer {
