@@ -56,11 +56,12 @@ input {
 	color: #eef1fc;
 }
 #temp {
-	font-size: 70px;
+	padding: 25px 0px;
+	font-size: xx-large;
 	font-style: bolder;
 	text-shadow: 2px 3px 1px #b2d8ee;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 }
 
 a:hover {
@@ -373,6 +374,14 @@ li {
 	.search-text {
 		width: 80%;
 	}
+	.weather-content {
+		display: flex;
+		flex-direction: column;
+	}
+	.humidity_style,
+	.uv_style {
+		align-self: center;
+	}
 }
 
 @media screen and (max-width: 900px) {
@@ -384,4 +393,5 @@ li {
 		width: 50%;
 		text-align: center;
 	}
+
 }
