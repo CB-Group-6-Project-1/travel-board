@@ -360,6 +360,14 @@ li {
 	flex-wrap: wrap;
 }
 
+.travel-plans-color {
+	box-shadow: 10px 10px 10px 10px #374358;
+	border-radius: 20px;
+	opacity: 40px;
+	background: transparent;
+	background-color: #f5fbff;
+}
+
 @media screen and (max-width: 768px) {
 	.search-form {
 		flex-direction: column;
