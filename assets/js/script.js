@@ -362,7 +362,7 @@ function loadTravelPlan(planListId, planData) {
 		  <img src=${planData.photo} />
 		  <span class="card-title flow-text z-depth-3" id="active-city">${planData.city}</span>
 		</div>
-		<div class="card-content">
+		<div class="card-content travel-plans-color">
 		  <p id="planNotes"><span><i class="material-icons">event_note</i>Notes:</span>${planData.notes}</p>
 		  <p id="dateFromTo"><span><i class="material-icons">av_timer</i>Dates:</span>From:${planData.date.from} ---- To:${planData.date.to}</p>
 		  <p id="guests-info"><span><i class="material-icons">account_circle</i>Guests:</span>${planData.guests}</p>
