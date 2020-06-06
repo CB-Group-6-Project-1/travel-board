@@ -290,14 +290,17 @@ footer {
 	justify-content: center;
 	align-items: center;
 }
-
+#plan-vacation-page {
+	display: flex;
+	flex-direction: column;
+}
 #plan-vacation-btn {
 	margin-top: 40px;
 }
 
 .date-picker-container {
 	display: flex;
-	padding: 10px 200px;
+	padding: 10px 100px;
 	justify-content: space-evenly;
 }
 
@@ -365,8 +368,15 @@ li {
 }
 
 @media screen and (max-width: 768px) {
-	.search-form {
+	.search-form{
 		flex-direction: column;
+	}
+	.plan-vacation-info-cards {
+		flex-direction: column;
+	}
+	
+	.date-picker-container {
+flex-direction: column;
 	}
 	.search-button {
 		margin-top: 12px;
