@@ -1,8 +1,7 @@
 html,
 body {
 	width: 100%;
-	background: #ded9e2;
-	/* background: linear-gradient(-90deg, #64a6bd, #958db9); */
+	background-color: #f5fbff;
 }
 
 * {
@@ -12,29 +11,32 @@ body {
 nav {
 	display: flex;
 	justify-content: flex-end;
-	/* navbar color */
-	background: linear-gradient(-90deg, #75c9c8, #6b5aaf);
+	background: linear-gradient(-90deg, #1d3557, #98c1d9);
+	opacity: 85%;
+}
+
+.popular,
+.headers {
+	text-align: center;
+	font-weight: bold;
+	font-size: xx-large;
+	text-shadow: 1px 1px 2px #98c1d9;
 }
 
 ::placeholder {
-	color: #3e6eb6;
-}
-
-.weather-custom {
-	background-color: transparent;
+	color: #5d697c;
 }
 
 .pure-input-rounded-search-text {
 	border-color: #3e6eb6;
 }
 
-.card-content {
-	color: #3e6eb6;
-	font-family: "PT Sans", sans-serif;
-	background: #a99fd1;
-}
 .btn {
-	background-color: #3e6eb6;
+	background-color: #374358;
+}
+
+.btn:hover {
+	background-color: #98c1d9;
 }
 
 .date-calendar-container {
@@ -42,20 +44,27 @@ nav {
 }
 
 input {
-	color: #3e6eb6;
+	color: #374358;
 }
 
 .datepicker-date-display {
-	background-color: #3e6eb6;
+	background: linear-gradient(-90deg, #98c1d9, #293241);
 }
 .nav-icon {
 	padding-top: 0px;
 	padding-bottom: 0px;
-	color: #3e6eb6;
+	color: #eef1fc;
+}
+#temp {
+	font-size: 70px;
+	font-style: bolder;
+	text-shadow: 2px 3px 1px #b2d8ee;
+	display: flex;
+	justify-content: flex-end;
 }
 
 a:hover {
-	color: #ada7c9;
+	color: #374358;
 }
 
 #home-page {
@@ -64,9 +73,7 @@ a:hover {
 	justify-content: center;
 	margin-top: 90px;
 }
-#city-details-page {
-	margin-top: 30px;
-}
+
 #city-info {
 	display: flex;
 	justify-content: space-evenly;
@@ -74,6 +81,11 @@ a:hover {
 #city-todo {
 	display: flex;
 	justify-content: space-evenly;
+}
+
+#weather-container {
+	display: flex;
+	justify-content: center;
 }
 .custom-style {
 	width: 100% !important;
@@ -87,24 +99,32 @@ a:hover {
 	text-align: center;
 }
 
-#map,
-.weather-custom {
-	width: 450px;
+#map {
+	width: 100%;
 	height: 400px;
-	/* makes the weather box circular */
-	/* border-radius: 20px; */
-	background: #a99fd1;
 }
 
-.input-field > label {
-	color: #3e6eb6;
+#map-info {
+	width: 50%;
+}
+
+.custom-cards {
+	box-shadow: 10px 10px 10px 10px #374358;
+	border-radius: 20px;
+	opacity: 40px;
+	background: transparent;
+}
+
+.input-field > label,
+.card-title {
+	color: #374358;
 }
 
 .search-form {
 	display: flex;
 	width: 350px;
 	align-self: center;
-	margin-bottom: 100px;
+	margin-bottom: 50px;
 }
 
 #current-city-data {
@@ -117,12 +137,12 @@ a:hover {
 }
 
 .search-button {
-	color: #3e6eb6;
+	color: #374358;
 	background-color: transparent;
 }
 
 .images {
-	margin-top: 35px;
+	margin-top: 20px;
 	display: flex;
 	justify-content: space-evenly;
 }
@@ -141,19 +161,18 @@ a:hover {
 #icon {
 	display: flex;
 	justify-content: flex-end;
+	flex-grow: 3;
 }
 
 .overlay {
 	position: absolute;
 	bottom: 0;
-	background: rgb(0, 0, 0);
 	background: rgba(0, 0, 0, 0.5); /* Black see-through */
-	color: #3e6eb6;
 	width: 100%;
 	transition: 0.5s ease;
 	opacity: 0;
-	color: #3e6eb6;
-	font-size: 25px;
+	color: #eef1fc;
+	font-size: 20px;
 	padding: 17px;
 	text-align: center;
 	border-radius: 8px;
@@ -186,25 +205,50 @@ h5,
 footer,
 #current-city-data,
 .card-title,
-#select-city {
-	font-family: "PT Sans", sans-serif;
+#select-city,
+.btn,
+#current-city,
+#humidity,
+#uv-index,
+#restaurants-list,
+#todo-list,
+#shopping-list {
+	font-family: "Abhaya Libre", serif;
 }
 
 h5,
 #current-city-data,
-#select-city {
-	color: #3e6eb6;
+#select-city,
+#current-city,
+#humidity,
+#uv-index,
+#restaurants-list,
+#todo-list,
+#shopping-list {
+	color: #374358;
+}
+
+.humidity_style,
+.uv_style {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#restaurants-list,
+#todo-list,
+#shopping-list {
+	font-size: 25;
 }
 
 footer {
 	margin-top: 30px;
 	padding: 25px;
 	text-align: center;
-	color: #3e6eb6;
+	color: #1d3557;
 }
 
 .footer-border {
-	background-color: #3e6eb6;
+	background-color: #1d3557;
 	height: 2px;
 	width: 70%;
 	font-weight: bold;
@@ -219,11 +263,6 @@ footer {
 	height: 400px !important;
 }
 
-.style-cards {
-	display: flex;
-	justify-content: space-evenly;
-}
-
 /* added class section-hide with (display: none) to be use in the sections in order to hide them when is needed*/
 .section-hide {
 	display: none !important;
@@ -234,7 +273,11 @@ footer {
 }
 
 .placeColor::-webkit-input-placeholder {
-	color: red;
+	color: #3f4d64;
+}
+
+#myNotes::placeholder {
+	color: #5d697c;
 }
 
 .plan-vacation-container {
@@ -258,6 +301,10 @@ footer {
 	display: flex;
 }
 
+.card-title {
+	font-weight: bolder !important;
+}
+
 .button-container {
 	display: flex;
 }
@@ -270,7 +317,7 @@ textarea {
 	resize: none;
 }
 textarea::-webkit-input-placeholder {
-	color: white;
+	color: #5d697c;
 }
 
 #save-activity {

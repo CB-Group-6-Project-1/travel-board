@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- link google fonts  -->
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
   <!-- link API map required links -->
   <link rel="stylesheet"
     href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
@@ -14,6 +16,8 @@
     type="text/css" />
   <!-- link Mui CSS icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- pure grid -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css" />
   <!-- link Pure CSS  -->
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
     integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous" />
@@ -48,7 +52,7 @@
       </button>
     </form>
     <!-- popular places images section -->
-    <h5 style="text-align: center;">Popular places to travel</h5>
+    <h5 class="popular shadow">Popular places to travel</h5>
     <section class="images">
       <div class="wrap-img">
         <img src="./assets/images/home-page-imgs/paris.jpg"
@@ -83,60 +87,25 @@
     </section>
   </section>
 
-  <!-- city details section -->
+  <!-- new city details layout -->
   <section id="city-details-page" class="section-hide page-section">
-    <h1 id="current-city-data">
-    </h1>
-    <!-- city info -->
-    <div class="pure-g" id="city-info">
-      <div class="row style-cards">
-        <!-- weather -->
-        <div class="pure-u-1-2" id="weather-card">
-          <div class="col s12 m6 l6">
-            <div class="card lighten-4 weather-custom">
-              <div class="card-content">
-                <span class="card-title center">Weather</span>
-                <div><span id="icon"></span></div>
-                <div class="">City:<span id="current-city"></span></div>
-                <div class="">Date:<span id="current-date"></span></div>
-                <div class="">Temperature:<span id="temp"></span></div>
-                <div class="">Humidity:<span id="humidity"></span></div>
-                <div class="">UV Index:<span id="uv-index"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- map -->
-        <div class="pure-u-1-2" id="map-info">
-          <div class="pure-u-1">
-            <div class="col s12 m6 l6">
-              <div id='map'>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    </div>
-
-    <!-- images -->
+    <h1 id="current-city-data" class="headers"></h1>
+    <!-- Images -->
     <div class="row">
-      <div class="col s12 m12">
-        <div class="carousel">
-          <!-- getting the images random on js  -->
-        </div>
+      <div class="carousel">
+        <!-- getting the images random on js  -->
       </div>
     </div>
-
+    <!-- Map -->
+    <div class="pure-g row">
+      <div id='map' class="pure-u-1"></div>
+    </div>
+    <!-- info in general -->
     <div class="pure-g" id="city-todo">
-      <div class="pure-u-1-4 z-depth-4">
+      <div class="pure-u-sm-4-5 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-4">
         <div class="row">
           <div class="col s12 m6 custom-style">
-            <div class="card blue lighten-4">
+            <div class="card custom-cards">
               <div class="card-content dark-text">
                 <span class="card-title">Restaurants</span>
                 <div id="restaurants-list">
@@ -147,10 +116,10 @@
           </div>
         </div>
       </div>
-      <div class="pure-u-1-4 z-depth-4">
+      <div class="pure-u-sm-4-5 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-4">
         <div class="row">
           <div class="col s12 m6 custom-style">
-            <div class="card blue lighten-4">
+            <div class="card custom-cards">
               <div class="card-content dark-text">
                 <span class="card-title">Shopping</span>
                 <div id="shopping-list">
@@ -161,10 +130,10 @@
           </div>
         </div>
       </div>
-      <div class="pure-u-1-4 z-depth-4">
+      <div class="pure-u-sm-4-5 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-4">
         <div class="row">
           <div class="col s12 m6 custom-style">
-            <div class="card blue lighten-4">
+            <div class="card custom-cards">
               <div class="card-content dark-text">
                 <span class="card-title">Todo</span>
                 <div id="todo-list">
@@ -176,12 +145,35 @@
         </div>
       </div>
     </div>
+    <!-- weather and map -->
+    <div id="weather-container" class="row pure-g">
+      <!-- weather -->
+      <div class="pure-u-4-5" id="weather-card">
+        <div class="card custom-cards">
+          <div class="card-content">
+            <div class="card-title center">
+              <div id="icon"></div>
+              <h3><span id="current-city"></span></h3>
+              <h5><span id="current-date"></span></h5>
+            </div>
+            <div id="temp">
+            </div>
+            <div class="humidity_style">Humidity:<span id="humidity"></span></div>
+            <div class="uv_style">UV Index:<span id="uv-index"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </div>
+    </div> -->
+    <!-- plan vacation button -->
     <div class="pure-g">
       <div class="pure-u-1-3"></div>
       <div class="pure-u-1-3 center"><button class="waves-effect waves-light btn" id="plan-vacation-btn">Plan
           Vacation</button></div>
     </div>
   </section>
+
   <!-- plan vacation section -->
   <section id="plan-vacation-page" class="section-hide page-section">
     <div class="plan-vacation-container">
@@ -207,7 +199,7 @@
     <div class="plan-vacation-info-cards">
       <div class="row">
         <div class="col s12 m6 custom-style">
-          <div class="card lighten-4">
+          <div class="card transparent lighten-4">
             <div class="card-content dark-text guest-style">
               <!-- notes info -->
               <span class="card-title">Trip Notes</span>
@@ -219,7 +211,7 @@
       </div>
       <div class="row">
         <div class="col s12 m6 custom-style">
-          <div class="card blue lighten-4">
+          <div class="card transparent lighten-4">
             <div class="card-content dark-text guest-style">
               <span class="card-title">Guests</span>
               <!-- guest info -->
@@ -251,7 +243,7 @@
       </div>
       <div class="row">
         <div class="col s12 m6 custom-style">
-          <div class="card blue lighten-4">
+          <div class="card transparent lighten-4">
             <div class="card-content dark-text guest-style">
               <span class="card-title">Activities</span>
               <!-- place info here -->

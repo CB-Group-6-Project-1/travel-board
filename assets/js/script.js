@@ -36,6 +36,7 @@ function loadCityFromSearch(e) {
 	) {
 		// call function to display all city data
 		loadCityData(city);
+		$("#searchId").val("");
 	} else {
 		//remove the invalid input entered by user
 		$("#searchId").val("");
@@ -169,7 +170,7 @@ function loadCityMap(activeCityData) {
 		"pk.eyJ1IjoieXN0YW1hcml0cSIsImEiOiJja2F0c3J4c3UwMGM4MzNxcmFzZXh4N2RhIn0.vnaQ1AHB9ra3v9k4RPecoQ";
 	var map = new mapboxgl.Map({
 		container: "map",
-		style: "mapbox://styles/mapbox/streets-v11",
+		style: "mapbox://styles/ystamaritq/ckb2py14o05y51it83sj4ulbr",
 		center: activeCityData.center,
 		zoom: 5,
 		pitch: 45,
@@ -182,14 +183,6 @@ function loadCityMap(activeCityData) {
 
 	// added full screen control to the user
 	map.addControl(new mapboxgl.FullscreenControl());
-
-	// added directions
-	map.addControl(
-		new MapboxDirections({
-			accessToken: mapboxgl.accessToken,
-		}),
-		"top-left"
-	);
 }
 
 // function loadCityPhotos(city) {
@@ -265,22 +258,18 @@ function removeActivity(btn, activity) {
 function addGuest() {
 	var guestName = $("#icon_prefix").val().trim();
 	var guestPhone = $("#icon_telephone").val().trim();
-	
-  if(guestPhone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/))
-     {
+
+	if (guestPhone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)) {
 		var guestInfo = guestName + " " + guestPhone;
 		$("#guest-list").append(`<div class="chip" data-info="${guestInfo}">
 						  <div class="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
 						  </div>
 						</div>`);
 		$("#icon_prefix").val("");
-		$("#icon_telephone").val("");  
-	 }
-   else
-     {
+		$("#icon_telephone").val("");
+	} else {
 		$("#icon_telephone").val("not valid");
-
-	 }
+	}
 }
 function resetNumber() {
 	$("#icon_telephone").val("");
