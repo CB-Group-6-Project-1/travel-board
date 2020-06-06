@@ -56,11 +56,12 @@ input {
 	color: #eef1fc;
 }
 #temp {
-	font-size: 70px;
+	padding: 25px 0px;
+	font-size: xx-large;
 	font-style: bolder;
 	text-shadow: 2px 3px 1px #b2d8ee;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 }
 
 a:hover {
@@ -78,9 +79,12 @@ a:hover {
 	display: flex;
 	justify-content: space-evenly;
 }
+
+
 #city-todo {
 	display: flex;
 	justify-content: space-evenly;
+	letter-spacing: inherit;
 }
 
 #weather-container {
@@ -286,14 +290,17 @@ footer {
 	justify-content: center;
 	align-items: center;
 }
-
+#plan-vacation-page {
+	display: flex;
+	flex-direction: column;
+}
 #plan-vacation-btn {
 	margin-top: 40px;
 }
 
 .date-picker-container {
 	display: flex;
-	padding: 10px 200px;
+	padding: 10px 100px;
 	justify-content: space-evenly;
 }
 
@@ -369,14 +376,29 @@ li {
 }
 
 @media screen and (max-width: 768px) {
-	.search-form {
+	.search-form{
 		flex-direction: column;
+	}
+	.plan-vacation-info-cards {
+		flex-direction: column;
+	}
+	
+	.date-picker-container {
+flex-direction: column;
 	}
 	.search-button {
 		margin-top: 12px;
 	}
 	.search-text {
 		width: 80%;
+	}
+	.weather-content {
+		display: flex;
+		flex-direction: column;
+	}
+	.humidity_style,
+	.uv_style {
+		align-self: center;
 	}
 }
 
@@ -389,4 +411,5 @@ li {
 		width: 50%;
 		text-align: center;
 	}
+
 }
