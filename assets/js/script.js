@@ -42,8 +42,8 @@ function loadCityFromSearch(e) {
 		$("#searchId").val("");
 		// send an error message through the placeholder attr
 		$("#searchId").removeAttr("placeholder");
-		//message through the placeholder
-		$("#searchId").attr("placeholder", "You must enter a valid city name");
+		//message through the modal
+		showModal("Error: Empty city", "You must enter a city to search");
 		//	And class to change the placeholder color
 		$("#searchId").addClass("placeColor");
 	}
