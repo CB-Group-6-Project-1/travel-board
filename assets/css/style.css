@@ -2,6 +2,7 @@ html,
 body {
 	width: 100%;
 	background-color: #f5fbff;
+	font-family: "Roboto", sans-serif;
 }
 
 * {
@@ -230,7 +231,7 @@ footer,
 #restaurants-list,
 #todo-list,
 #shopping-list {
-	font-family: "Abhaya Libre", serif;
+	font-family: "Roboto", sans-serif;
 }
 
 h5,
