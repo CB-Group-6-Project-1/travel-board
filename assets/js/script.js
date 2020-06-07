@@ -62,10 +62,18 @@ function loadCityFromPopular() {
 function loadCityData(city) {
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
 	$.getJSON(mapBoxPoi, function (json) {
+		var json_city = json.features[0].place_name.toLowerCase();
+
 		if (json.features.length == 0) {
-			alert("Please enter a valid city");
+			showModal("Invalid city", "Please enter a valid city");
 			return;
 		}
+
+		if (!json_city.includes(city.toLowerCase())) {
+			showModal("Invalid city", "No city name matches your search");
+			return;
+		}
+
 		activeCityData = json.features[0];
 		// show page html section
 		loadPageSection("#city-details-page");
@@ -275,7 +283,7 @@ function addGuest() {
 		$("#icon_prefix").val("");
 		$("#icon_telephone").val("");
 	} else {
-		$("#icon_telephone").val("not valid");
+		showModal("not valid", "please, enter a valid phone number");
 	}
 }
 function resetNumber() {
