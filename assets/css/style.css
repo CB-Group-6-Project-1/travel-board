@@ -80,7 +80,6 @@ a:hover {
 	justify-content: space-evenly;
 }
 
-
 #city-todo {
 	display: flex;
 	justify-content: space-evenly;
@@ -284,6 +283,13 @@ footer {
 	color: #5d697c;
 }
 
+.img_msg {
+	color: #5d697c;
+	text-align: center;
+	font-weight: normal;
+	font-size: medium;
+}
+
 .plan-vacation-container {
 	display: flex;
 	flex-direction: column;
@@ -376,15 +382,15 @@ li {
 }
 
 @media screen and (max-width: 768px) {
-	.search-form{
+	.search-form {
 		flex-direction: column;
 	}
 	.plan-vacation-info-cards {
 		flex-direction: column;
 	}
-	
+
 	.date-picker-container {
-flex-direction: column;
+		flex-direction: column;
 	}
 	.search-button {
 		margin-top: 12px;
@@ -411,5 +417,4 @@ flex-direction: column;
 		width: 50%;
 		text-align: center;
 	}
-
 }
