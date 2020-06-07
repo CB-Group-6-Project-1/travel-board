@@ -42,8 +42,8 @@ function loadCityFromSearch(e) {
 		$("#searchId").val("");
 		// send an error message through the placeholder attr
 		$("#searchId").removeAttr("placeholder");
-		//message through the placeholder
-		$("#searchId").attr("placeholder", "You must enter a valid city name");
+		//message through the modal
+		showModal("Error: Empty city", "You must enter a city to search");
 		//	And class to change the placeholder color
 		$("#searchId").addClass("placeColor");
 	}
@@ -63,9 +63,17 @@ function loadCityData(city) {
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
 	$.getJSON(mapBoxPoi, function (json) {
 		if (json.features.length == 0) {
-			alert("Please enter a valid city");
+			showModal("Invalid city", "Please enter a valid city");
 			return;
 		}
+
+		var json_city = json.features[0].place_name.toLowerCase();
+
+		if (!json_city.includes(city.toLowerCase())) {
+			showModal("Invalid city", "No city name matches your search");
+			return;
+		}
+
 		activeCityData = json.features[0];
 		// show page html section
 		loadPageSection("#city-details-page");
@@ -80,9 +88,7 @@ function loadCityData(city) {
 		// load city map
 		loadCityMap(activeCityData);
 	}).fail(function (err) {
-		alert(
-			"Please enter a valid city. Error: " + err.responseJSON.error.message
-		);
+		showModal("Please enter a valid city Error: ", "API error message");
 	});
 }
 
@@ -248,10 +254,17 @@ function planVacation() {
  */
 function addActivity(e) {
 	e.preventDefault();
+
 	var activity = $("#activity-input").val();
-	$("#activity-list").append(
-		`<li data-text="${activity}">${activity}<button class="material-icons cyan pulse" onclick="removeActivity(this, '${activity}')">clear</button></li>`
-	);
+
+	if (activity !== "") {
+		$("#activity-list").append(
+			`<li data-text="${activity}">${activity}<button class="material-icons cyan pulse" onclick="removeActivity(this, '${activity}')">clear</button></li>`
+		);
+	} else {
+		showModal("Error: Empty activity", "Please enter a valid activity");
+	}
+
 	$("#activity-input").val("");
 }
 
@@ -266,8 +279,13 @@ function addGuest() {
 	var guestName = $("#icon_prefix").val().trim();
 	var guestPhone = $("#icon_telephone").val().trim();
 
-	if (guestPhone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)) {
+	if (
+		guestPhone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/) &&
+		guestName !== null &&
+		guestName.toLowerCase().match(/^[a-z ]+$/)
+	) {
 		var guestInfo = guestName + " " + guestPhone;
+
 		$("#guest-list").append(`<div class="chip" data-info="${guestInfo}">
 						  <div class="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
 						  </div>
@@ -275,7 +293,7 @@ function addGuest() {
 		$("#icon_prefix").val("");
 		$("#icon_telephone").val("");
 	} else {
-		$("#icon_telephone").val("not valid");
+		showModal("Invalid Input", "Please, enter a valid name and phone #");
 	}
 }
 function resetNumber() {
@@ -342,11 +360,21 @@ function saveTrip() {
 		localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
 		goTravelPlans();
 	} else {
-		alert(
-			"you must to enter at least the dates and the guest for your trip in order to save your trip, if you did, check the from date is before the to date!"
+		showModal(
+			"Missing values",
+			"You must to enter valid From and To dates, as well as at least one Guest"
 		);
 		return;
 	}
+}
+
+function showModal(title, content) {
+	// empty modal content
+	$("#main-modal-content").empty();
+	// set new content
+	$("#main-modal-content").append(`<h4>${title}</h4><p>${content}</p>`);
+	// show modal
+	$("#main-modal").modal("open");
 }
 
 function updatePlan(planData, planId) {
@@ -470,6 +498,7 @@ function deletePlan(planId) {
 		}
 	}
 }
+
 // On Document Ready (events)
 $(document).ready(function () {
 	// When I click or enter the search button I browse the city
@@ -488,4 +517,6 @@ $(document).ready(function () {
 	$("#save-trip").on("click", saveTrip);
 	//when the user clicks the nav plane icon
 	$("#plans").on("click", goTravelPlans);
+	// initialize modals
+	$(".modal").modal();
 });
