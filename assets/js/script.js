@@ -342,11 +342,21 @@ function saveTrip() {
 		localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
 		goTravelPlans();
 	} else {
-		alert(
-			"you must to enter at least the dates and the guest for your trip in order to save your trip, if you did, check the from date is before the to date!"
+		showModal(
+			"Missing values",
+			"You must to enter valid From and To dates, as well as at least one Guest"
 		);
 		return;
 	}
+}
+
+function showModal(title, content) {
+	// empty modal content
+	$("#main-modal-content").empty();
+	// set new content
+	$("#main-modal-content").append(`<h4>${title}</h4><p>${content}</p>`);
+	// show modal
+	$("#main-modal").modal("open");
 }
 
 function updatePlan(planData, planId) {
@@ -470,6 +480,7 @@ function deletePlan(planId) {
 		}
 	}
 }
+
 // On Document Ready (events)
 $(document).ready(function () {
 	// When I click or enter the search button I browse the city
@@ -488,4 +499,6 @@ $(document).ready(function () {
 	$("#save-trip").on("click", saveTrip);
 	//when the user clicks the nav plane icon
 	$("#plans").on("click", goTravelPlans);
+	// initialize modals
+	$(".modal").modal();
 });
