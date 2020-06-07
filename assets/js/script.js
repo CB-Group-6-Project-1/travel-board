@@ -61,15 +61,14 @@ function loadCityFromPopular() {
 }
 
 function loadCityData(city) {
-	debugger;
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
 	$.getJSON(mapBoxPoi, function (json) {
-		var json_city = json.features[0].place_name.toLowerCase();
-
 		if (json.features.length == 0) {
 			showModal("Invalid city", "Please enter a valid city");
 			return;
 		}
+
+		var json_city = json.features[0].place_name.toLowerCase();
 
 		if (!json_city.includes(city.toLowerCase())) {
 			showModal("Invalid city", "No city name matches your search");
@@ -90,7 +89,9 @@ function loadCityData(city) {
 		// load city map
 		loadCityMap(activeCityData);
 	}).fail(function (err) {
-		modal("Please enter a valid city. Error: ", err.responseJSON.error.message);
+		alert(
+			"Please enter a valid city. Error: " + err.responseJSON.error.message
+		);
 	});
 }
 
@@ -256,10 +257,17 @@ function planVacation() {
  */
 function addActivity(e) {
 	e.preventDefault();
+
 	var activity = $("#activity-input").val();
-	$("#activity-list").append(
-		`<li data-text="${activity}">${activity}<button class="material-icons cyan pulse" onclick="removeActivity(this, '${activity}')">clear</button></li>`
-	);
+
+	if (activity !== "") {
+		$("#activity-list").append(
+			`<li data-text="${activity}">${activity}<button class="material-icons cyan pulse" onclick="removeActivity(this, '${activity}')">clear</button></li>`
+		);
+	} else {
+		showModal("Error: Empty activity", "Please enter a valid activity");
+	}
+
 	$("#activity-input").val("");
 }
 
@@ -288,7 +296,7 @@ function addGuest() {
 		$("#icon_prefix").val("");
 		$("#icon_telephone").val("");
 	} else {
-		showModal("not valid", "please, enter a valid values");
+		showModal("Invalid Input", "Please, enter a valid name and phone #");
 	}
 }
 function resetNumber() {
