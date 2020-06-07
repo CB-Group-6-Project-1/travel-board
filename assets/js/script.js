@@ -90,9 +90,7 @@ function loadCityData(city) {
 		// load city map
 		loadCityMap(activeCityData);
 	}).fail(function (err) {
-		alert(
-			"Please enter a valid city. Error: " + err.responseJSON.error.message
-		);
+		modal("Please enter a valid city. Error: ", err.responseJSON.error.message);
 	});
 }
 
