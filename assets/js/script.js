@@ -193,7 +193,7 @@ function loadCityPhotos(activeCityData) {
 	$.getJSON(pixelURL, function (json) {
 		if (json.total == 0) {
 			$(".carousel").append(
-				"<h5 class='headers'>Sorry, there is no data for your search. Ensure you enter a valid city name.</h5>"
+				"<h5 class='headers'>Sorry, there is no data for your search.<div class='img_msg'>Ensure you enter a valid city name</div></h5>"
 			);
 			return;
 		}

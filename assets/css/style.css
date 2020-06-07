@@ -283,6 +283,13 @@ footer {
 	color: #5d697c;
 }
 
+.img_msg {
+	color: #5d697c;
+	text-align: center;
+	font-weight: normal;
+	font-size: medium;
+}
+
 .plan-vacation-container {
 	display: flex;
 	flex-direction: column;
