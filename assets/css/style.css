@@ -80,7 +80,6 @@ a:hover {
 	justify-content: space-evenly;
 }
 
-
 #city-todo {
 	display: flex;
 	justify-content: space-evenly;
@@ -376,15 +375,15 @@ li {
 }
 
 @media screen and (max-width: 768px) {
-	.search-form{
+	.search-form {
 		flex-direction: column;
 	}
 	.plan-vacation-info-cards {
 		flex-direction: column;
 	}
-	
+
 	.date-picker-container {
-flex-direction: column;
+		flex-direction: column;
 	}
 	.search-button {
 		margin-top: 12px;
@@ -411,5 +410,4 @@ flex-direction: column;
 		width: 50%;
 		text-align: center;
 	}
-
 }

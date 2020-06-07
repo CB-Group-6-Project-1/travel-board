@@ -189,7 +189,14 @@ function loadCityMap(activeCityData) {
 function loadCityPhotos(activeCityData) {
 	$(".carousel").empty();
 	var pixelURL = `https://pixabay.com/api/?key=16859378-c1f5b589a2d6921a2b1b17090&q=${activeCityData.text}+city&image_type=photo&safesearch=true`;
+	// var pixelURL = `https://pixabay.com/api/?key=16859378-c1f5b589a2d6921a2b1b17090&q=${activeCityData.text}+city&image_type=photo&safesearch=true&tags=${activeCityData.text}`;
 	$.getJSON(pixelURL, function (json) {
+		if (json.total == 0) {
+			$(".carousel").append(
+				"<h5 class='headers'>Sorry, there is no data for your search. Ensure you enter a valid city name.</h5>"
+			);
+			return;
+		}
 		photoSrc = json.hits[0].largeImageURL;
 
 		for (var i = 0; i < 20 && i < json.hits.length; i++) {
