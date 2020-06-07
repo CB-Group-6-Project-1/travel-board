@@ -31,6 +31,8 @@
 
 An easy to use, mobile first web application for browsing popular travel destinations and planning your perfect vacation. This application will easily allow you to find places of interest and organize your travel plans.
 
+- [Demo](https://cb-group-6-project-1.github.io/travel-board/)
+
 ---
 
 ## Concept
