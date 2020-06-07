@@ -52,7 +52,6 @@ function loadCityFromSearch(e) {
  * Develop a js function to search for a city in the popular travel destinations.
  */
 function loadCityFromPopular() {
-	debugger;
 	// get the city name
 	let city = "";
 	city = $(this).attr("data-name");
