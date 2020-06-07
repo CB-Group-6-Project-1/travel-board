@@ -52,6 +52,7 @@ function loadCityFromSearch(e) {
  * Develop a js function to search for a city in the popular travel destinations.
  */
 function loadCityFromPopular() {
+	debugger;
 	// get the city name
 	let city = "";
 	city = $(this).attr("data-name");
@@ -60,6 +61,7 @@ function loadCityFromPopular() {
 }
 
 function loadCityData(city) {
+	debugger;
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
 	$.getJSON(mapBoxPoi, function (json) {
 		var json_city = json.features[0].place_name.toLowerCase();
