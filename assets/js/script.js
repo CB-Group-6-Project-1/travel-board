@@ -276,8 +276,13 @@ function addGuest() {
 	var guestName = $("#icon_prefix").val().trim();
 	var guestPhone = $("#icon_telephone").val().trim();
 
-	if (guestPhone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)) {
+	if (
+		guestPhone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/) &&
+		guestName !== null &&
+		guestName.toLowerCase().match(/^[a-z ]+$/)
+	) {
 		var guestInfo = guestName + " " + guestPhone;
+
 		$("#guest-list").append(`<div class="chip" data-info="${guestInfo}">
 						  <div class="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
 						  </div>
@@ -285,7 +290,7 @@ function addGuest() {
 		$("#icon_prefix").val("");
 		$("#icon_telephone").val("");
 	} else {
-		showModal("not valid", "please, enter a valid phone number");
+		showModal("not valid", "please, enter a valid values");
 	}
 }
 function resetNumber() {
