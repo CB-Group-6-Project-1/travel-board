@@ -55,7 +55,7 @@ input {
 	padding-bottom: 0px;
 	color: #eef1fc;
 }
-div.pure-u-1 {
+.nav-text {
 	display: flex;
 		align-items: center;
 	}

@@ -1,6 +1,6 @@
 <div align="center">
   <br>
-  <img src="assets\images\readme-imgs\travel-board-logo.png" alt="travel-board logo" width="250">
+  <img src="assets\images\misc-imgs\travel-board-rsz.png" alt="travel-board logo" width="250">
   <br>
 
 # travel-board
@@ -18,8 +18,9 @@
 
 - [Concept](#concept)
   - [Design](#design)
+  - [Installing / Getting Started](#inslalling-/-getting-started)
   - [MVP](#mvp)
-  - [Demo](#demo)
+- [Demo](#demo)
 - [Tech Stack](#tech-stack)
   - [APIs](#apis)
 - [Team Members](#team-members)
@@ -60,12 +61,32 @@ In phase two, we have introduced an updated UI, style, and responsive design. Ci
 
 <details>
 <summary>Phase two design </summary>
-<img src="">
-<img src="">
-<img src="">
-<img src="">
-<img src="">
+<img src="assets\images\readme-imgs\Travel Board - 1.png">
+<img src="assets\images\readme-imgs\Travel Board - 2.png">
+<img src="assets\images\readme-imgs\Travel Board - 3.png">
+<img src="assets\images\readme-imgs\Travel Board - 4.png">
+<img src="assets\images\readme-imgs\Travel Board - 5.png">
 </details>
+
+---
+
+### Installing / Getting Started
+To test this project, simply clone project into a your local file system and open `index.html` in your favorite browser.
+```
+git clone https://github.com/CB-Group-6-Project-1/travel-board.git
+cd travel-board
+open index.html
+```
+---
+#### Initial Configuration
+No additional setup required.
+#### Developing
+Below is a summary of the key files for this project and their purpose:
+- **index.html** travel board html page
+- **assets** folder that contains all files
+- **assets/js/script.js** javascript files
+- **assets/imgs/..** images used by the page
+- **assets/css/style.css** main site custom stylesheet
 
 ---
 
@@ -82,7 +103,11 @@ In phase two, we have introduced an updated UI, style, and responsive design. Ci
 
 #### Demo
 
-<img src ="#">
+<img src ="assets\images\readme-imgs\travel-board-demo-gif.gif">
+
+<div align="center">
+
+ [travel-board](https://cb-group-6-project-1.github.io/travel-board/ "Try it out!") </div>
 
 ---
 
