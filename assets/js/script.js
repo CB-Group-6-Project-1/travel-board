@@ -390,23 +390,36 @@ function updatePlan(planData, planId) {
 }
 
 function loadTravelPlan(planListId, planData) {
-	$(planListId).append(`<div class="row" id="plan-${planData.id}">
-	<div class="col s12 m6">
-	  <div class="card">
+	$(planListId).append(`
+	<div id="plan-${planData.id}" class="col s12 m4">
+	  <div class="card custom-cards">
 		<div class="card-image z-depth-3">
 		  <img src=${planData.photo} />
 		  <span class="card-title flow-text z-depth-3" id="active-city">${planData.city}</span>
 		</div>
-		<div class="card-content travel-plans-color">
+		<div class="card-content">
 		  <p id="planNotes"><span><i class="material-icons">event_note</i>Notes:</span>${planData.notes}</p>
 		  <p id="dateFromTo"><span><i class="material-icons">av_timer</i>Dates:</span>From:${planData.date.from} ---- To:${planData.date.to}</p>
 		  <p id="guests-info"><span><i class="material-icons">account_circle</i>Guests:</span>${planData.guests}</p>
 		  <p id="list-activity"><span><i class="material-icons">menu</i>Activities:</span>${planData.activities}</p>
-		<button class="waves-effect waves-light btn edit-plans" onclick= "editPlan(${planData.id}, event)">Edit Plan</button>
-		<button class="waves-effect waves-light btn" onclick= "deletePlan(${planData.id})">Delete Plan</button>
+		  <button class="waves-effect waves-light btn edit-plans" onclick= "editPlan(${planData.id}, event)">Edit Plan</button>
+		  <button class="waves-effect waves-light btn" onclick= "deletePlan(${planData.id})">Delete Plan</button>
 		</div>
 	  </div>
-	</div>
+  </div>`);
+}
+
+function addNoDataCard(planListId) {
+	$(planListId).append(`
+	<div class="col s12 m4">
+	  <div class="card custom-cards">
+		<div class="card-image z-depth-3">
+		  <img src="./assets/images/misc-imgs/travel-board-rsz.png" />
+		</div>
+		<div class="card-content">
+		  <p>There is no data for this section</p>
+		</div>
+	  </div>
   </div>`);
 }
 
@@ -414,8 +427,7 @@ function goTravelPlans() {
 	// load active travel plans
 	var activeTravelPlans = getActiveTravelPlans();
 	$("#active-travel-plans-list").empty();
-	if (activeTravelPlans.length == 0)
-		$("#active-travel-plans-list").append(`<li>No Data</li>`);
+	if (activeTravelPlans.length == 0) addNoDataCard("#active-travel-plans-list");
 	activeTravelPlans.forEach((plan) => {
 		loadTravelPlan("#active-travel-plans-list", plan);
 	});
@@ -423,15 +435,14 @@ function goTravelPlans() {
 	var upcomingTravelPlans = getUpcomingTravelPlans();
 	$("#upcoming-travel-plans-list").empty();
 	if (upcomingTravelPlans.length == 0)
-		$("#upcoming-travel-plans-list").append(`<li>No Data</li>`);
+		addNoDataCard("#upcoming-travel-plans-list");
 	upcomingTravelPlans.forEach((plan) => {
 		loadTravelPlan("#upcoming-travel-plans-list", plan);
 	});
 	// load past travel plans
 	var pastTravelPlans = getPastTravelPlans();
 	$("#past-travel-plans-list").empty();
-	if (pastTravelPlans.length == 0)
-		$("#past-travel-plans-list").append(`<li>No Data</li>`);
+	if (pastTravelPlans.length == 0) addNoDataCard("#past-travel-plans-list");
 	pastTravelPlans.forEach((plan) => {
 		loadTravelPlan("#past-travel-plans-list", plan);
 	});
@@ -546,7 +557,6 @@ function deletePlan(planId) {
 
 // 	window.addEventListener(WINDOW_CHANGE_EVENT, closeMenu);
 // 	})(this, this.document);
-
 
 // On Document Ready (events)
 $(document).ready(function () {

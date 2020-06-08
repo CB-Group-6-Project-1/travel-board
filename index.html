@@ -28,25 +28,20 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <!-- link custom CSS -->
   <link rel="stylesheet" href="./assets/css/style.css" />
-
   <title>Travel Board</title>
 </head>
 
 <body>
   <!-- nav section -->
-
   <nav class="pure-menu pure-menu-horizontal">
-    <div class="pure-u-1 pure-u-md-1-3 nav-text">
-      <div class="pure-menu">
+    <!-- <div class="pure-u-1 pure-u-md-1-3 nav-text"> -->
+    <!-- <div class="pure-menu">
         <a href="#" class="pure-menu-heading custom-brand">travel-board
-          <!-- <img class="logo"
-            src="assets\images\misc-imgs\travel-board-rsz.png"> -->
         </a>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
     <a href="#" class="pure-menu-heading pure-menu-link nav-icon"><i class="fas fa-home" id="home"></i></a>
     <a href="#" class="pure-menu-heading pure-menu-link nav-icon"><i class="fas fa-plane" id="plans"></i></a>
-    <!-- <a href="#" class="pure-menu-heading pure-menu-link nav-icon"><i class="fas fa-map-marked-alt"></i></a> -->
   </nav>
 
   <!-- <div class="custom-wrapper pure-g" id="menu">
@@ -128,58 +123,45 @@
       </div>
     </div>
     <!-- Map -->
-    <div class="pure-g row">
-      <div id='map' class="pure-u-1"></div>
+    <div class="row">
+      <div id='map' class="col s12 padding-0"></div>
     </div>
     <!-- info in general -->
-    <div class="pure-g" id="city-todo">
-      <div class="pure-u-sm-4-5 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-4">
-        <div class="row">
-          <div class="col s12 m6 custom-style">
-            <div class="card custom-cards">
-              <div class="card-content dark-text">
-                <span class="card-title">Restaurants</span>
-                <div id="restaurants-list">
-                  <!-- place info here -->
-                </div>
-              </div>
+    <div class="row" id="city-todo">
+      <div class="col s12 m4 padding-20">
+        <div class="card custom-cards display-fix">
+          <div class="card-content dark-text">
+            <span class="card-title">Restaurants</span>
+            <div id="restaurants-list">
+              <!-- place info here -->
             </div>
           </div>
         </div>
       </div>
-      <div class="pure-u-sm-4-5 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-4">
-        <div class="row">
-          <div class="col s12 m6 custom-style">
-            <div class="card custom-cards">
-              <div class="card-content dark-text">
-                <span class="card-title">Shopping</span>
-                <div id="shopping-list">
-                  <!-- shopping info here -->
-                </div>
-              </div>
+      <div class="col s12 m4 padding-20">
+        <div class="card custom-cards display-fix">
+          <div class="card-content dark-text">
+            <span class="card-title">Shopping</span>
+            <div id="shopping-list">
+              <!-- shopping info here -->
             </div>
           </div>
         </div>
       </div>
-      <div class="pure-u-sm-4-5 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-4">
-        <div class="row">
-          <div class="col s12 m6 custom-style">
-            <div class="card custom-cards">
-              <div class="card-content dark-text">
-                <span class="card-title">Todo</span>
-                <div id="todo-list">
-                  <!-- todo info here -->
-                </div>
-              </div>
+      <div class="col s12 m4 padding-20">
+        <div class="card custom-cards display-fix">
+          <div class="card-content dark-text">
+            <span class="card-title">Todo</span>
+            <div id="todo-list">
+              <!-- todo info here -->
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- weather and map -->
-    <div id="weather-container" class="row pure-g">
-      <!-- weather -->
-      <div class="pure-u-4-5" id="weather-card">
+    <!-- weather -->
+    <div id="weather-container" class="row">
+      <div class="col s12 padding-20" id="weather-card">
         <div class="card custom-cards">
           <div class="card-content weather-content">
             <div class="card-title center">
@@ -209,83 +191,77 @@
   <section id="plan-vacation-page" class="section-hide page-section">
     <div class="plan-vacation-container">
       <div>
-        <h5>Plan Vacation</h5>
+        <h4>Plan Vacation</h4>
       </div>
       <div>
-        <h6 id="select-city">
+        <h5 id="select-city">
           <!-- populate info -->
-        </h6>
+        </h5>
       </div>
     </div>
-    <div class="date-picker-container">
-      <div class="input-field">
+    <div class="date-picker-container row">
+      <div class="col s12 m6">
         <label for="from_date">From</label>
         <input type="text" id="from_date" name="from_date" class="datepicker">
       </div>
-      <div class="input-field">
+      <div class="col s12 m6">
         <label for="to_date">to</label>
         <input type="text" id="to_date" name="to-date" class="datepicker">
       </div>
     </div>
-    <div class="plan-vacation-info-cards">
-      <div class="row">
-        <div class="col s12 m6 custom-style">
-          <div class="card custom-cards lighten-4">
-            <div class="card-content dark-text guest-style">
-              <!-- notes info -->
-              <span class="card-title">Trip Notes</span>
-              <textarea id="myNotes" form="vacation-notes" name="vacation-notes" maxlength="300"
-                placeholder="Vacation Notes" rows="5" cols="30"></textarea>
-            </div>
+    <div class="plan-vacation-info-cards row">
+      <!-- notes info -->
+      <div class="col s12 m4 padding-20">
+        <div class="card custom-cards lighten-4">
+          <div class="card-content dark-text guest-style">
+            <span class="card-title">Trip Notes</span>
+            <textarea id="myNotes" form="vacation-notes" name="vacation-notes" maxlength="300"
+              placeholder="Vacation Notes" rows="5" cols="30"></textarea>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col s12 m6 custom-style">
-          <div class="card custom-cards lighten-4">
-            <div class="card-content dark-text guest-style">
-              <span class="card-title">Guests</span>
-              <!-- guest info -->
-              <div class="row">
-                <form class="col s12 guest-form">
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <i class="material-icons prefix">account_circle</i>
-                      <input id="icon_prefix" type="text" class="validate">
-                      <label for="icon_prefix">First Name</label>
-                    </div>
-                    <div class="input-field col s6">
-                      <i class="material-icons prefix">phone</i>
-                      <input id="icon_telephone" type="tel" class="validate" onclick="resetNumber()">
-                      <label for="icon_telephone">Telephone</label>
-                    </div>
+      <!-- guest list -->
+      <div class="col s12 m4 padding-20">
+        <div class="card custom-cards lighten-4">
+          <div class="card-content dark-text guest-style">
+            <span class="card-title">Guests</span>
+            <!-- guest info -->
+            <div class="row">
+              <form class="col s12 guest-form">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">First Name</label>
                   </div>
-                  <div id="guest-list">
-                    <!-- guest list -->
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="icon_telephone" type="tel" class="validate" onclick="resetNumber()">
+                    <label for="icon_telephone">Telephone</label>
                   </div>
-                  <button id="add-guest" type="submit" form="guest-form" class="waves-effect waves-light btn">Add
-                    Guest</button>
-                </form>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s12 m6 custom-style">
-          <div class="card custom-cards lighten-4">
-            <div class="card-content dark-text guest-style">
-              <span class="card-title">Activities</span>
-              <!-- place info here -->
-              <form id="activity-form">
-                <input id="activity-input" type="text" form="activity-input" placeholder="add activity">
-                </input>
-                <button id="add-activity" type="submit" form="activity-form"
-                  class="waves-effect waves-light btn">Add</button>
+                </div>
+                <div id="guest-list">
+                </div>
+                <button id="add-guest" type="submit" form="guest-form" class="waves-effect waves-light btn">Add
+                  Guest</button>
               </form>
-              <ul id="activity-list"></ul>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m4 padding-20">
+        <div class="card custom-cards lighten-4">
+          <div class="card-content dark-text guest-style">
+            <span class="card-title">Activities</span>
+            <!-- place info here -->
+            <form id="activity-form">
+              <input id="activity-input" type="text" form="activity-input" placeholder="add activity">
+              </input>
+              <button id="add-activity" type="submit" form="activity-form"
+                class="waves-effect waves-light btn">Add</button>
+            </form>
+            <ul id="activity-list"></ul>
           </div>
         </div>
       </div>
@@ -298,27 +274,30 @@
   <!--------------travel plans section--------------------->
   <!-- Active Vacation plans -->
   <section id="travel-plans-page" class="section-hide page-section">
-    <section>
+    <section class="container">
       <!-- Active Vacation plans -->
-      <h5>Active Travel Plans</h5>
-      <ul id="active-travel-plans-list"></ul>
+      <h5 class="padding-20">Active Travel Plans</h5>
+      <div id="active-travel-plans-list" class="row"></div>
     </section>
     <br />
     <hr />
     <br />
-    <section>
+    <section class="container">
       <!-- Upcoming Vacation plans -->
-      <h5>Upcoming Travel Plans</h5>
-      <ul id="upcoming-travel-plans-list"></ul>
+      <h5 class="padding-20">Upcoming Travel Plans</h5>
+      <div id="upcoming-travel-plans-list" class="row"></div>
     </section>
     <br />
     <hr />
     <br />
-    <section>
+    <section class="container">
       <!-- Past Vacation plans -->
-      <h5>Past Travel Plans</h5>
-      <ul id="past-travel-plans-list"></ul>
+      <h5 class="padding-20">Past Travel Plans</h5>
+      <div id="past-travel-plans-list" class="row"></div>
     </section>
+    <br />
+    <hr />
+    <br />
   </section>
 
   <!-- page footer -->

@@ -26,14 +26,11 @@
 - [Team Members](#team-members)
 - [Project Board](https://github.com/CB-Group-6-Project-1/travel-board/projects/1 "travel-board")
 
-
 ---
 
 ## Value Proposal
 
 An easy to use, mobile first web application for browsing popular travel destinations and planning your perfect vacation. This application will allow you to find places of interest and organize your travel plans all in one place.
-
-
 
 ---
 
@@ -54,7 +51,6 @@ Phase one design features basic functionality and style for multiple features.
 <img src="assets\images\readme-imgs\vacation-calendar-page.png">
 </details>
 
-
 Phase one design features basic functionality and style for multiple features.
 
 In phase two, we have introduced an updated UI, style, and responsive design. City search feature has been enhanced as well as a function that displays relevant alternative images if there are none for a given city. We have also developed functionality for saving, editing, and deleting the user's vacation plans. Vacation plans are saved to local storage and organized by date.
@@ -71,21 +67,29 @@ In phase two, we have introduced an updated UI, style, and responsive design. Ci
 ---
 
 ### Installing / Getting Started
+
 To test this project, simply clone project into a your local file system and open `index.html` in your favorite browser.
+
 ```
 git clone https://github.com/CB-Group-6-Project-1/travel-board.git
 cd travel-board
 open index.html
 ```
+
 ---
+
 #### Initial Configuration
+
 No additional setup required.
+
 #### Developing
+
 Below is a summary of the key files for this project and their purpose:
+
 - **index.html** travel board html page
 - **assets** folder that contains all files
 - **assets/js/script.js** javascript files
-- **assets/imgs/..** images used by the page
+- **assets/images/..** images used by the page
 - **assets/css/style.css** main site custom stylesheet
 
 ---
@@ -107,10 +111,9 @@ Below is a summary of the key files for this project and their purpose:
 
 <div align="center">
 
- [travel-board](https://cb-group-6-project-1.github.io/travel-board/ "Try it out!") </div>
+[travel-board](https://cb-group-6-project-1.github.io/travel-board/ "Try it out!") </div>
 
 ---
-
 
 ## Tech Stack
 
