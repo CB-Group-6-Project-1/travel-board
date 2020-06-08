@@ -57,6 +57,8 @@ In phase two, we have introduced an updated UI, style, and responsive design. Ci
 
 <details>
 <summary>Phase two design </summary>
+<img src ="assets\images\readme-imgs\travel-board-mockup-final-1.png">
+<img src ="assets\images\readme-imgs\travel-board-mockup-final-2.png">
 <img src="assets\images\readme-imgs\Travel Board - 1.png">
 <img src="assets\images\readme-imgs\Travel Board - 2.png">
 <img src="assets\images\readme-imgs\Travel Board - 3.png">
