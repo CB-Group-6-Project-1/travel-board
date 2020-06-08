@@ -474,6 +474,11 @@ li {
 	.card .card-image img {
 		height: 100%;
 	}
+	/* avoid blinking effect on small devices */
+	.effect:hover {
+		width: 240px;
+		height: 200px;
+	}
 }
 
 @media screen and (max-width: 900px) {
