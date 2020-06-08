@@ -118,7 +118,7 @@ function loadCityWeather(activeCityData) {
 
 /**
  * loads POI info
- * @param {*} activeCityData
+ * @param {object} activeCityData
  */
 function loadPoiData(activeCityData) {
 	//empty the list before append
@@ -159,7 +159,7 @@ function loadPoiData(activeCityData) {
 
 /**
  * loads city map
- * @param {*} activeCityData
+ * @param {object} activeCityData
  */
 function loadCityMap(activeCityData) {
 	mapboxgl.accessToken =
@@ -183,7 +183,7 @@ function loadCityMap(activeCityData) {
 
 /**
  * loads city photos
- * @param {*} activeCityData
+ * @param {object} activeCityData
  */
 function loadCityPhotos(activeCityData) {
 	$(".carousel").empty();
