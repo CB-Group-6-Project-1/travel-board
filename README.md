@@ -51,7 +51,7 @@ Phase one design features basic functionality and style for multiple features.
 <img src="assets\images\readme-imgs\vacation-calendar-page.png">
 </details>
 
-Phase one design features basic functionality and style for multiple features.
+
 
 In phase two, we have introduced an updated UI, style, and responsive design. City search feature has been enhanced as well as a function that displays relevant alternative images if there are none for a given city. We have also developed functionality for saving, editing, and deleting the user's vacation plans. Vacation plans are saved to local storage and organized by date.
 
@@ -109,7 +109,7 @@ Below is a summary of the key files for this project and their purpose:
 
 #### Demo
 
-<img src ="assets\images\readme-imgs\travel-board-demo-gif.gif">
+<img src ="assets\images\readme-imgs\travel-board-demo-gif2.gif" width = "700px">
 
 <div align="center">
 
@@ -135,7 +135,19 @@ Below is a summary of the key files for this project and their purpose:
 - [PixaBay](https://pixabay.com/api/docs/)
 - [Weatherapi.com](https://www.weatherapi.com/)
 
+
+
 ---
+
+#### Our Experience
+
+```
+---> Insert lessons learned here <--- 
+```
+
+---
+
+
 
 ## Team Members
 
