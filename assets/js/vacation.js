@@ -129,45 +129,58 @@ function saveTrip() {
 	var activityList = getActivityList();
 	var guestList = getGuestList();
 
-	if (
-		(fromVal && toVal && guestList) !== "" &&
-		Date.parse(fromVal) < Date.parse(toVal) &&
-		guestList.length > 0
-	) {
-		var plan = {
-			id: new Date().getTime(),
-			activities: activityList,
-			date: {
-				from: fromVal,
-				to: toVal,
-			},
-			guests: guestList,
-			notes: vacationNotes,
-			photo: photoSrc,
-			city: activeCity,
-		};
-		// clean the data
-		$("#myNotes").val("");
-		$("#from_date").val("");
-		$("#to_date").val("");
-		$("#activity-list").empty();
-		$("#guest-list").empty();
-
-		//when the user click save trip after edit plan vacation
-		var planId = $("#save-trip").attr("data-plan-id");
-
-		if (planId) updatePlan(plan, planId);
-		else vacationPlans.push(plan);
-
-		localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
-		goTravelPlans();
-	} else {
-		showModal(
-			"Missing values",
-			"You must to enter valid From and To dates, as well as at least one Guest"
-		);
+	// validate from date
+	if (!fromVal || !Date.parse(fromVal)) {
+		showModal("Missing values", "Enter a valid from date");
 		return;
 	}
+
+	// validate to date
+	if (!toVal || !Date.parse(toVal)) {
+		showModal("Missing values", "Enter a valid to date");
+		return;
+	}
+
+	// validate dates range
+	if (Date.parse(fromVal) > Date.parse(toVal)) {
+		showModal("Invalid Dates", "From date must be before To date");
+		return;
+	}
+
+	// validate guests list
+	if (guestList.length == 0) {
+		showModal("Missing Values", "Enter at least one guest");
+		return;
+	}
+
+	var plan = {
+		id: new Date().getTime(),
+		activities: activityList,
+		date: {
+			from: fromVal,
+			to: toVal,
+		},
+		guests: guestList,
+		notes: vacationNotes,
+		photo: photoSrc,
+		city: activeCity,
+	};
+
+	// clean the data
+	$("#myNotes").val("");
+	$("#from_date").val("");
+	$("#to_date").val("");
+	$("#activity-list").empty();
+	$("#guest-list").empty();
+
+	//when the user click save trip after edit plan vacation
+	var planId = $("#save-trip").attr("data-plan-id");
+
+	if (planId) updatePlan(plan, planId);
+	else vacationPlans.push(plan);
+
+	localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
+	goTravelPlans();
 }
 
 /**
