@@ -41,7 +41,7 @@ function loadCityFromPopular() {
 }
 /**
  * load the data for the city from the API
- * @param {*} city
+ * @param {string} city
  */
 function loadCityData(city) {
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
@@ -118,7 +118,7 @@ function loadCityWeather(activeCityData) {
 
 /**
  * loads POI info
- * @param {*} activeCityData
+ * @param {object} activeCityData
  */
 function loadPoiData(activeCityData) {
 	//empty the list before append
@@ -159,7 +159,7 @@ function loadPoiData(activeCityData) {
 
 /**
  * loads city map
- * @param {*} activeCityData
+ * @param {object} activeCityData
  */
 function loadCityMap(activeCityData) {
 	mapboxgl.accessToken =
@@ -183,7 +183,7 @@ function loadCityMap(activeCityData) {
 
 /**
  * loads city photos
- * @param {*} activeCityData
+ * @param {object} activeCityData
  */
 function loadCityPhotos(activeCityData) {
 	$(".carousel").empty();

@@ -59,32 +59,41 @@ function removeActivity(btn, activity) {
 	btn.parentNode.remove();
 }
 
+/**
+ * add guest to the vacation plan
+ */
 function addGuest() {
-	var guestName = $("#icon_prefix").val().trim();
-	var guestPhone = $("#icon_telephone").val().trim();
+	var nameValue = $("#icon_prefix").val().trim();
+	var phoneValue = $("#icon_telephone").val().trim();
 
 	if (
-		guestPhone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/) &&
-		guestName !== null &&
-		guestName.toLowerCase().match(/^[a-z ]+$/)
+		!nameValue ||
+		nameValue === "" ||
+		typeof nameValue !== "string" ||
+		!nameValue.toLowerCase().match(/^[a-z ]+$/)
 	) {
-		var guestInfo = guestName + " " + guestPhone;
-
-		$("#guest-list").append(`<div class="chip" data-info="${guestInfo}">
-						  <div class="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
-						  </div>
-						</div>`);
 		$("#icon_prefix").val("");
-		$("#icon_telephone").val("");
-	} else {
-		showModal("Invalid Input", "Please, enter a valid name and phone #");
+		showModal("Invalid Name", "Please, enter a valid name");
+		return;
 	}
-}
 
-/**
- * reset the phone number input
- */
-function resetNumber() {
+	if (
+		!phoneValue ||
+		phoneValue === "" ||
+		!phoneValue.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)
+	) {
+		$("#icon_telephone").val("");
+		showModal("Invalid Phone", "Please, enter a valid phone number");
+		return;
+	}
+
+	var guestInfo = nameValue + " " + phoneValue;
+
+	$("#guest-list").append(`<div class="chip" data-info="${guestInfo}">
+							  <div class="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
+							  </div>
+							</div>`);
+	$("#icon_prefix").val("");
 	$("#icon_telephone").val("");
 }
 
@@ -120,45 +129,58 @@ function saveTrip() {
 	var activityList = getActivityList();
 	var guestList = getGuestList();
 
-	if (
-		(fromVal && toVal && guestList) !== "" &&
-		Date.parse(fromVal) < Date.parse(toVal) &&
-		guestList.length > 0
-	) {
-		var plan = {
-			id: new Date().getTime(),
-			activities: activityList,
-			date: {
-				from: fromVal,
-				to: toVal,
-			},
-			guests: guestList,
-			notes: vacationNotes,
-			photo: photoSrc,
-			city: activeCity,
-		};
-		// clean the data
-		$("#myNotes").val("");
-		$("#from_date").val("");
-		$("#to_date").val("");
-		$("#activity-list").empty();
-		$("#guest-list").empty();
-
-		//when the user click save trip after edit plan vacation
-		var planId = $("#save-trip").attr("data-plan-id");
-
-		if (planId) updatePlan(plan, planId);
-		else vacationPlans.push(plan);
-
-		localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
-		goTravelPlans();
-	} else {
-		showModal(
-			"Missing values",
-			"You must to enter valid From and To dates, as well as at least one Guest"
-		);
+	// validate from date
+	if (!fromVal || !Date.parse(fromVal)) {
+		showModal("Missing values", "Enter a valid from date");
 		return;
 	}
+
+	// validate to date
+	if (!toVal || !Date.parse(toVal)) {
+		showModal("Missing values", "Enter a valid to date");
+		return;
+	}
+
+	// validate dates range
+	if (Date.parse(fromVal) > Date.parse(toVal)) {
+		showModal("Invalid Dates", "From date must be before To date");
+		return;
+	}
+
+	// validate guests list
+	if (guestList.length == 0) {
+		showModal("Missing Values", "Enter at least one guest");
+		return;
+	}
+
+	var plan = {
+		id: new Date().getTime(),
+		activities: activityList,
+		date: {
+			from: fromVal,
+			to: toVal,
+		},
+		guests: guestList,
+		notes: vacationNotes,
+		photo: photoSrc,
+		city: activeCity,
+	};
+
+	// clean the data
+	$("#myNotes").val("");
+	$("#from_date").val("");
+	$("#to_date").val("");
+	$("#activity-list").empty();
+	$("#guest-list").empty();
+
+	//when the user click save trip after edit plan vacation
+	var planId = $("#save-trip").attr("data-plan-id");
+
+	if (planId) updatePlan(plan, planId);
+	else vacationPlans.push(plan);
+
+	localStorage.setItem("vacationPlans", JSON.stringify(vacationPlans));
+	goTravelPlans();
 }
 
 /**
