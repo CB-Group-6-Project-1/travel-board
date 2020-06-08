@@ -59,6 +59,9 @@ function removeActivity(btn, activity) {
 	btn.parentNode.remove();
 }
 
+/**
+ * add guest to the vacation plan
+ */
 function addGuest() {
 	var nameValue = $("#icon_prefix").val().trim();
 	var phoneValue = $("#icon_telephone").val().trim();
