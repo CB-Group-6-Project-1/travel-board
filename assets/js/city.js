@@ -39,7 +39,10 @@ function loadCityFromPopular() {
 	// call function to display all city data
 	loadCityData(city);
 }
-
+/**
+ * load the data for the city from the API
+ * @param {*} city
+ */
 function loadCityData(city) {
 	var mapBoxPoi = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=place`;
 	$.getJSON(mapBoxPoi, function (json) {
