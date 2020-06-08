@@ -90,25 +90,6 @@ a:hover {
 	margin-top: 90px;
 }
 
-#city-info {
-	display: flex;
-	justify-content: space-evenly;
-}
-
-#city-todo {
-	display: flex;
-	justify-content: space-evenly;
-	letter-spacing: inherit;
-}
-
-#weather-container {
-	display: flex;
-	justify-content: center;
-}
-.custom-style {
-	width: 100% !important;
-}
-
 .custom-btn {
 	margin-top: 35px;
 }
@@ -216,6 +197,7 @@ a:hover {
 	cursor: pointer;
 }
 
+h4,
 h5,
 .overlay,
 .center-text,
@@ -234,6 +216,7 @@ footer,
 	font-family: "Roboto", sans-serif;
 }
 
+h4,
 h5,
 #current-city-data,
 #select-city,
@@ -310,6 +293,7 @@ footer {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding-bottom: 20px;
 }
 #plan-vacation-page {
 	display: flex;
@@ -317,16 +301,6 @@ footer {
 }
 #plan-vacation-btn {
 	margin-top: 40px;
-}
-
-.date-picker-container {
-	display: flex;
-	padding: 10px 100px;
-	justify-content: space-evenly;
-}
-
-.plan-vacation-info-cards {
-	display: flex;
 }
 
 .card-title {
@@ -388,12 +362,16 @@ li {
 	flex-wrap: wrap;
 }
 
-.travel-plans-color {
-	box-shadow: 10px 10px 10px 10px #374358;
-	border-radius: 20px;
-	opacity: 40px;
-	background: transparent;
-	background-color: #f5fbff;
+.padding-0 {
+	padding: 0px !important;
+}
+
+.padding-20 {
+	padding: 0px 20px !important;
+}
+
+.card .card-image img {
+	height: 250px;
 }
 
 /* navbar */
@@ -480,23 +458,21 @@ li {
 	.plan-vacation-info-cards {
 		flex-direction: column;
 	}
-
-	.date-picker-container {
-		flex-direction: column;
-	}
 	.search-button {
 		margin-top: 12px;
 	}
 	.search-text {
 		width: 80%;
 	}
-	.weather-content {
-		display: flex;
-		flex-direction: column;
-	}
 	.humidity_style,
 	.uv_style {
 		align-self: center;
+	}
+	.custom-cards {
+		box-shadow: 2px 2px 2px 2px #374358;
+	}
+	.card .card-image img {
+		height: 100%;
 	}
 }
 
@@ -508,16 +484,5 @@ li {
 	.overlay {
 		width: 50%;
 		text-align: center;
-	}
-}
-
-@media screen and (max-width: 414px) {
-	.display-fix {
-		width: 288px;
-		height: 240px;
-	}
-
-	.row-fix {
-		margin: 0px;
 	}
 }
