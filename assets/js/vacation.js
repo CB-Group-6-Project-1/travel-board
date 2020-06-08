@@ -60,31 +60,37 @@ function removeActivity(btn, activity) {
 }
 
 function addGuest() {
-	var guestName = $("#icon_prefix").val().trim();
-	var guestPhone = $("#icon_telephone").val().trim();
+	var nameValue = $("#icon_prefix").val().trim();
+	var phoneValue = $("#icon_telephone").val().trim();
 
 	if (
-		guestPhone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/) &&
-		guestName !== null &&
-		guestName.toLowerCase().match(/^[a-z ]+$/)
+		!nameValue ||
+		nameValue === "" ||
+		typeof nameValue !== "string" ||
+		!nameValue.toLowerCase().match(/^[a-z ]+$/)
 	) {
-		var guestInfo = guestName + " " + guestPhone;
-
-		$("#guest-list").append(`<div class="chip" data-info="${guestInfo}">
-						  <div class="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
-						  </div>
-						</div>`);
 		$("#icon_prefix").val("");
-		$("#icon_telephone").val("");
-	} else {
-		showModal("Invalid Input", "Please, enter a valid name and phone #");
+		showModal("Invalid Name", "Please, enter a valid name");
+		return;
 	}
-}
 
-/**
- * reset the phone number input
- */
-function resetNumber() {
+	if (
+		!phoneValue ||
+		phoneValue === "" ||
+		!phoneValue.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)
+	) {
+		$("#icon_telephone").val("");
+		showModal("Invalid Phone", "Please, enter a valid phone number");
+		return;
+	}
+
+	var guestInfo = nameValue + " " + phoneValue;
+
+	$("#guest-list").append(`<div class="chip" data-info="${guestInfo}">
+							  <div class="guest-info">${guestInfo}<span><i class="close material-icons">close</i></span>
+							  </div>
+							</div>`);
+	$("#icon_prefix").val("");
 	$("#icon_telephone").val("");
 }
 
