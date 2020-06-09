@@ -65,12 +65,10 @@ function loadCityData(city) {
 		loadCityInfo(activeCityData);
 		// load city weather
 		loadCityWeather(activeCityData);
-		// load city POIs
-		loadPoiData(activeCityData);
+		// load city map data
+		loadMapData(activeCityData);
 		// load city photos
 		loadCityPhotos(activeCityData);
-		// load city map
-		loadCityMap(activeCityData);
 	}).fail(function (err) {
 		showModal("Invalid city", "Please enter a valid city name");
 	});
@@ -117,43 +115,66 @@ function loadCityWeather(activeCityData) {
 }
 
 /**
- * loads POI info
+ * loads POI info and visualizes Map
  * @param {object} activeCityData
  */
-function loadPoiData(activeCityData) {
+function loadMapData(activeCityData) {
 	//empty the list before append
 	$("#restaurants-list").empty();
 	$("#shopping-list").empty();
 	$("#todo-list").empty();
 
+	// load map and add markers
+	loadCityMap(activeCityData);
+	// load POI
+	loadRestaurants(activeCityData);
+	loadShop(activeCityData);
+	loadTodo(activeCityData);
+}
+
+function loadPOIs(sectionId, data, iconClass) {
+	var i = 0;
+	data.forEach(function (p) {
+		// add to UI list(we only add the first 5 elements)
+		if (i < 5) $(sectionId).append(`<div class="mt-3">${data[i].text}</div>`);
+		i++;
+
+		// add to map
+		var el = document.createElement("i");
+		el.className = "marker fas " + iconClass;
+
+		new mapboxgl.Marker(el)
+			.setLngLat(p.geometry.coordinates)
+			.setPopup(
+				new mapboxgl.Popup({ offset: 25 }).setHTML(
+					"<h6>" + p.text + "</h6><p>" + p.place_name + "</p>"
+				)
+			)
+			.addTo(map);
+	});
+}
+
+function loadRestaurants(activeCityData) {
 	// get restaurant data within boundry box
 	var restaurantSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/restaurants.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
-	$.getJSON(restaurantSearch, function (json) {
-		for (var i = 0; i < 5 && i < json.features.length; i++) {
-			$("#restaurants-list").append(
-				`<div class="mt-3">${json.features[i].text}</div>`
-			);
-		}
+	return $.getJSON(restaurantSearch, function (json) {
+		loadPOIs("#restaurants-list", json.features, "fa-utensils");
 	});
+}
 
+function loadShop(activeCityData) {
 	// get shopping data within boundry box
 	var shopSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/clothing.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
-	$.getJSON(shopSearch, function (json) {
-		for (var i = 0; i < 5 && i < json.features.length; i++) {
-			$("#shopping-list").append(
-				`<div class="mt-3">${json.features[i].text}</div>`
-			);
-		}
+	return $.getJSON(shopSearch, function (json) {
+		loadPOIs("#shopping-list", json.features, "fa-shopping-cart");
 	});
+}
 
+function loadTodo(activeCityData) {
 	// get todo data from boundry box
 	var todoSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/nightclub.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
-	$.getJSON(todoSearch, function (json) {
-		for (var i = 0; i < 5 && i < json.features.length; i++) {
-			$("#todo-list").append(
-				`<div class="mt-3">${json.features[i].text}</div>`
-			);
-		}
+	return $.getJSON(todoSearch, function (json) {
+		loadPOIs("#todo-list", json.features, "fa-glass-cheers");
 	});
 }
 
@@ -164,23 +185,23 @@ function loadPoiData(activeCityData) {
 function loadCityMap(activeCityData) {
 	mapboxgl.accessToken =
 		"pk.eyJ1IjoieXN0YW1hcml0cSIsImEiOiJja2F0c3J4c3UwMGM4MzNxcmFzZXh4N2RhIn0.vnaQ1AHB9ra3v9k4RPecoQ";
-	var map = new mapboxgl.Map({
+	map = new mapboxgl.Map({
 		container: "map",
 		style: "mapbox://styles/ystamaritq/ckb2py14o05y51it83sj4ulbr",
 		center: activeCityData.center,
-		zoom: 15,
+		zoom: 14,
 		pitch: 45,
 		antialias: true,
 	});
 	//added the marker
-	var marker = new mapboxgl.Marker()
-		.setLngLat(activeCityData.center)
-		.addTo(map);
+	new mapboxgl.Marker().setLngLat(activeCityData.center).addTo(map);
 
 	// added full screen control to the user
 	map.addControl(new mapboxgl.FullscreenControl());
 	// disable map zoom when using scroll
 	map.scrollZoom.disable();
+	// Add zoom and rotation controls to the map.
+	map.addControl(new mapboxgl.NavigationControl());
 }
 
 /**

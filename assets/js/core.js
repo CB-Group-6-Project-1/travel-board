@@ -3,6 +3,7 @@ var activeCityData;
 var photoSrc = "";
 var activeCity = "";
 var vacationPlans = [];
+var map; // city map
 
 /**
  * load vacation plan from the local storage
