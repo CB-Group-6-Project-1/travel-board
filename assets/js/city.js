@@ -168,7 +168,7 @@ function loadCityMap(activeCityData) {
 		container: "map",
 		style: "mapbox://styles/ystamaritq/ckb2py14o05y51it83sj4ulbr",
 		center: activeCityData.center,
-		zoom: 5,
+		zoom: 15,
 		pitch: 45,
 		antialias: true,
 	});
@@ -179,6 +179,8 @@ function loadCityMap(activeCityData) {
 
 	// added full screen control to the user
 	map.addControl(new mapboxgl.FullscreenControl());
+	// disable map zoom when using scroll
+	map.scrollZoom.disable();
 }
 
 /**
