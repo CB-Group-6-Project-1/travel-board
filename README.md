@@ -15,7 +15,8 @@
 ### Table of Contents
 
 - [Value Proposal](#value-proposal)
-
+- [User Stories](#user-stories)
+- [Acceptance Criteria](#acceptance-criteria)
 - [Concept](#concept)
   - [Design](#design)
   - [Installing / Getting Started](#inslalling-/-getting-started)
@@ -31,6 +32,42 @@
 ## Value Proposal
 
 An easy to use, mobile first web application for browsing popular travel destinations and planning your perfect vacation. This application will allow you to find places of interest and organize your travel plans all in one place.
+
+---
+
+## User Stories
+
+`As a User I can browse vacation destinations so I can choose where I want to travel this summer`
+
+`As a User I see popular destinations suggested by system so I can choose a destination in case I don’t know what I want`
+
+---
+
+## Acceptance Criteria
+
+- As a User I can browse vacation destinations
+- As a User I see popular destinations suggested by system
+- As a User I can see details of a travel destination
+- As a User I can see common city information of a destination
+- As a User I can see current weather of a destination
+- As a User I can see 2 day forecast weather of a destination
+- As a User I can see a map of a destination
+- As a User I can see pictures of a destination
+- As a User I can see restaurants in a destination
+- As a User I can see shopping places in a destination
+- As a User I can see things to do in a destination
+- As a User I can create a Vacation plan for a chosen destination
+- As a User I can choose Start and End data of my vacation plan
+- As a User I can add notes to my vacation plan
+- As a User I can add/remove guests to my vacation plan
+- As a User I can add/remove TODOs to my vacation plan
+- As a User I can save my vacation plan
+- As a User I can browse my vacation plans previously created on the site
+- As a User I can edit my future vacation plans
+- As a User I can see active vacation plans
+- As a User I can see upcoming vacation plans
+- As a User I can see past vacation plans
+- As a User I can delete upcoming vacation plans
 
 ---
 
@@ -50,8 +87,6 @@ Phase one design features basic functionality and style for multiple features.
 <img src="assets\images\readme-imgs\add-vacation-page.png">
 <img src="assets\images\readme-imgs\vacation-calendar-page.png">
 </details>
-
-
 
 In phase two, we have introduced an updated UI, style, and responsive design. City search feature has been enhanced as well as a function that displays relevant alternative images if there are none for a given city. We have also developed functionality for saving, editing, and deleting the user's vacation plans. Vacation plans are saved to local storage and organized by date.
 
@@ -90,7 +125,10 @@ Below is a summary of the key files for this project and their purpose:
 
 - **index.html** travel board html page
 - **assets** folder that contains all files
-- **assets/js/script.js** javascript files
+- **assets/js/script.js** main js file with initialization code
+- **assets/js/core.js** common functionality used by the site
+- **assets/js/city.js** city specific functions
+- **assets/js/vacation.js** vacation specific functions
 - **assets/images/..** images used by the page
 - **assets/css/style.css** main site custom stylesheet
 
@@ -99,7 +137,6 @@ Below is a summary of the key files for this project and their purpose:
 #### MVP
 
 - Allow user to search for travel destinations, save favorites and other information while providing weather data for a given location.
-
 - Travel-board suggests popular travel desitinations
 - Displays high quality images associated with a given location.
 - Interactive map of destination.
@@ -135,19 +172,15 @@ Below is a summary of the key files for this project and their purpose:
 - [PixaBay](https://pixabay.com/api/docs/)
 - [Weatherapi.com](https://www.weatherapi.com/)
 
-
-
 ---
 
 #### Our Experience
 
 ```
----> Insert lessons learned here <--- 
+---> Insert lessons learned here <---
 ```
 
 ---
-
-
 
 ## Team Members
 
