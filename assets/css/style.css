@@ -302,6 +302,9 @@ footer {
 #plan-vacation-btn {
 	margin-top: 40px;
 }
+.plan-vacation-card {
+	min-height: 285px;
+}
 
 .card-title {
 	font-weight: bolder !important;
@@ -317,7 +320,9 @@ footer {
 
 textarea {
 	resize: none;
+	min-height: 140px;
 }
+
 textarea::-webkit-input-placeholder {
 	color: #5d697c;
 }
@@ -447,16 +452,6 @@ li {
 	flex-direction: column;
 }
 
-.fixed-heigth-margin-bottom {
-	height: 245px;
-	margin-bottom: 15px;
-}
-
-.fixed-heigth-margin-top {
-	height: 245px;
-	margin-top: 15px;
-}
-
 @media (max-width: 47.999em) {
 	.custom-menu-3 {
 		text-align: left;
@@ -469,9 +464,6 @@ li {
 
 @media screen and (max-width: 768px) {
 	.search-form {
-		flex-direction: column;
-	}
-	.plan-vacation-info-cards {
 		flex-direction: column;
 	}
 	.search-button {
@@ -505,14 +497,5 @@ li {
 	.overlay {
 		width: 50%;
 		text-align: center;
-	}
-}
-
-@media screen and (min-width: 1024px) {
-	.flex-class {
-		flex-direction: row;
-	}
-	.fixed-heigth-margin-bottom {
-		margin-bottom: 0px;
 	}
 }
