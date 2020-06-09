@@ -146,7 +146,7 @@ Below is a summary of the key files for this project and their purpose:
 
 #### Demo
 
-<img src ="assets\images\readme-imgs\travel-board-demo-gif2.gif" width = "700px">
+<img src ="assets\images\readme-imgs\travel-board-gif-3.gif" width = "800px">
 
 <div align="center">
 
