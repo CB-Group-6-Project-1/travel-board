@@ -4,7 +4,6 @@ var photoSrc = "";
 var activeCity = "";
 var vacationPlans = [];
 var map; // city map
-var poi = []; // points of interest to be visualized in map
 
 /**
  * load vacation plan from the local storage
