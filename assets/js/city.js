@@ -124,22 +124,12 @@ function loadMapData(activeCityData) {
 	$("#shopping-list").empty();
 	$("#todo-list").empty();
 
-	// load city map after restaurants, shop and todos are done
-	$.when(
-		loadRestaurants(activeCityData),
-		loadShop(activeCityData),
-		loadTodo(activeCityData)
-	).done(function (restaurants, shops, todos) {
-		// load map and add markers
-		loadCityMap(activeCityData);
-		// load poi
-		if (restaurants[1] === "success")
-			loadPOIs("#restaurants-list", restaurants[0].features, "fa-utensils");
-		if (shops[1] === "success")
-			loadPOIs("#shopping-list", shops[0].features, "fa-shopping-cart");
-		if (todos[1] === "success")
-			loadPOIs("#todo-list", todos[0].features, "fa-glass-cheers");
-	});
+	// load map and add markers
+	loadCityMap(activeCityData);
+	// load POI
+	loadRestaurants(activeCityData);
+	loadShop(activeCityData);
+	loadTodo(activeCityData);
 }
 
 function loadPOIs(sectionId, data, iconClass) {
@@ -167,19 +157,25 @@ function loadPOIs(sectionId, data, iconClass) {
 function loadRestaurants(activeCityData) {
 	// get restaurant data within boundry box
 	var restaurantSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/restaurants.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
-	return $.ajax({ url: restaurantSearch });
+	return $.getJSON(restaurantSearch, function (json) {
+		loadPOIs("#restaurants-list", json.features, "fa-utensils");
+	});
 }
 
 function loadShop(activeCityData) {
 	// get shopping data within boundry box
 	var shopSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/clothing.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
-	return $.ajax({ url: shopSearch });
+	return $.getJSON(shopSearch, function (json) {
+		loadPOIs("#shopping-list", json.features, "fa-shopping-cart");
+	});
 }
 
 function loadTodo(activeCityData) {
 	// get todo data from boundry box
 	var todoSearch = `https://api.mapbox.com/geocoding/v5/mapbox.places/nightclub.json?access_token=pk.eyJ1Ijoic3RldmVvOTIxOSIsImEiOiJja2FpbGJtcjYwMjg4MnpxdXVxNHdhaTltIn0.7ggPMksLsnum5sjGqnC4gQ&types=poi&bbox=${activeCityData.bbox}`;
-	return $.ajax({ url: todoSearch });
+	return $.getJSON(todoSearch, function (json) {
+		loadPOIs("#todo-list", json.features, "fa-glass-cheers");
+	});
 }
 
 /**
