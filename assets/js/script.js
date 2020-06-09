@@ -9,7 +9,11 @@ $(document).ready(function () {
 	//When I click the plan vacation button
 	$("#plan-vacation-btn").on("click", planVacation);
 	//When I click home on nav bar
-	$("#home").on("click", goHome);
+	$("#home-btn").on("click", goHome);
+	//When I click go home from city view
+	$("#go-home-from-city-btn").on("click", goHome);
+	//When I click go home from plan view
+	$("#go-home-from-plan-btn").on("click", goHome);
 	// when user clicks add activities
 	$("#add-activity").on("click", addActivity);
 	//when the user clicks the add guest
@@ -17,7 +21,7 @@ $(document).ready(function () {
 	//when the user click the save trip
 	$("#save-trip").on("click", saveTrip);
 	//when the user clicks the nav plane icon
-	$("#plans").on("click", goTravelPlans);
+	$("#go-plans").on("click", goTravelPlans);
 	// initialize modals
 	$(".modal").modal();
 });
