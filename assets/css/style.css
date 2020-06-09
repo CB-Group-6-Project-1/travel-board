@@ -441,6 +441,22 @@ li {
 	transform: rotate(-45deg);
 }
 
+.flex-class {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.fixed-heigth-margin-bottom {
+	height: 245px;
+	margin-bottom: 15px;
+}
+
+.fixed-heigth-margin-top {
+	height: 245px;
+	margin-top: 15px;
+}
+
 @media (max-width: 47.999em) {
 	.custom-menu-3 {
 		text-align: left;
