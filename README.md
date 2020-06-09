@@ -125,7 +125,10 @@ Below is a summary of the key files for this project and their purpose:
 
 - **index.html** travel board html page
 - **assets** folder that contains all files
-- **assets/js/script.js** javascript files
+- **assets/js/script.js** main js file with initialization code
+- **assets/js/core.js** common functionality used by the site
+- **assets/js/city.js** city specific functions
+- **assets/js/vacation.js** vacation specific functions
 - **assets/images/..** images used by the page
 - **assets/css/style.css** main site custom stylesheet
 
@@ -134,7 +137,6 @@ Below is a summary of the key files for this project and their purpose:
 #### MVP
 
 - Allow user to search for travel destinations, save favorites and other information while providing weather data for a given location.
-
 - Travel-board suggests popular travel desitinations
 - Displays high quality images associated with a given location.
 - Interactive map of destination.
