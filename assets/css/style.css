@@ -507,3 +507,12 @@ li {
 		text-align: center;
 	}
 }
+
+@media screen and (min-width: 1024px) {
+	.flex-class {
+		flex-direction: row;
+	}
+	.fixed-heigth-margin-bottom {
+		margin-bottom: 0px;
+	}
+}
