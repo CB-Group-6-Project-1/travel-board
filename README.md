@@ -174,14 +174,6 @@ Below is a summary of the key files for this project and their purpose:
 
 ---
 
-#### Our Experience
-
-```
----> Insert lessons learned here <---
-```
-
----
-
 ## Team Members
 
 - [Yadira Tamarit](https://github.com/ystamaritq)
