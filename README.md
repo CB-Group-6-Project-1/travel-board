@@ -156,15 +156,16 @@ Below is a summary of the key files for this project and their purpose:
 
 ## Tech Stack
 
-| Tools                   | Tech       |
-| ----------------------- | ---------- |
-| V.S.Code                | HTML       |
-| Postman                 | CSS        |
-| draw\.io                | Javascript |
-| Browser Developer Tools | AJAX       |
-|                         | Jquery     |
-|                         | Pure.css   |
-|                         |            |
+| Tools                   | Tech        |
+| ----------------------- | ----------- |
+| V.S.Code                | HTML        |
+| Postman                 | CSS         |
+| draw\.io                | Javascript  |
+| Browser Developer Tools | AJAX        |
+|                         | Jquery      |
+|                         | Pure.css    |
+|                         | Moment.js   |
+|                         | Materialize |
 
 #### APIs
 
